@@ -15,10 +15,9 @@ public class GradeRecordsGUI extends javax.swing.JFrame {
      * Creates new form GradeRecordsGUI
      */
     public GradeRecordsGUI() {
-        initComponents();
-        panelsebelumLogin.show(true);
+        initComponents();        
         panelAfterLogin.show(false);
-        panelLogin.show(false);
+        panelLogin.show(true);
         
         
     }
@@ -42,7 +41,6 @@ public class GradeRecordsGUI extends javax.swing.JFrame {
         txtName = new javax.swing.JTextField();
         txtPass = new javax.swing.JPasswordField();
         loginButton = new javax.swing.JButton();
-        panelsebelumLogin = new javax.swing.JPanel();
         panelAfterLogin = new javax.swing.JPanel();
         panelIconAfterLogin = new javax.swing.JPanel();
         panelInsert = new javax.swing.JPanel();
@@ -81,9 +79,6 @@ public class GradeRecordsGUI extends javax.swing.JFrame {
         lblBinggrisD = new javax.swing.JLabel();
         lblBiologiD = new javax.swing.JLabel();
         btnDeleteForm = new javax.swing.JButton();
-        menuBar = new javax.swing.JMenuBar();
-        FileMenu = new javax.swing.JMenu();
-        loginItem = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -186,23 +181,6 @@ public class GradeRecordsGUI extends javax.swing.JFrame {
 
         PanelAwal.add(panelLogin);
         panelLogin.setBounds(0, 0, 890, 470);
-
-        panelsebelumLogin.setBackground(new java.awt.Color(51, 206, 75));
-        panelsebelumLogin.setPreferredSize(new java.awt.Dimension(680, 450));
-
-        javax.swing.GroupLayout panelsebelumLoginLayout = new javax.swing.GroupLayout(panelsebelumLogin);
-        panelsebelumLogin.setLayout(panelsebelumLoginLayout);
-        panelsebelumLoginLayout.setHorizontalGroup(
-            panelsebelumLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 890, Short.MAX_VALUE)
-        );
-        panelsebelumLoginLayout.setVerticalGroup(
-            panelsebelumLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 470, Short.MAX_VALUE)
-        );
-
-        PanelAwal.add(panelsebelumLogin);
-        panelsebelumLogin.setBounds(0, 0, 890, 470);
 
         panelAfterLogin.setBackground(new java.awt.Color(255, 255, 255));
         panelAfterLogin.setMinimumSize(new java.awt.Dimension(680, 450));
@@ -573,22 +551,6 @@ public class GradeRecordsGUI extends javax.swing.JFrame {
         PanelAwal.add(panelAfterLogin);
         panelAfterLogin.setBounds(0, 0, 890, 470);
 
-        menuBar.setBackground(new java.awt.Color(51, 190, 84));
-
-        FileMenu.setText("FILE");
-
-        loginItem.setText("LOGIN");
-        loginItem.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                loginItemActionPerformed(evt);
-            }
-        });
-        FileMenu.add(loginItem);
-
-        menuBar.add(FileMenu);
-
-        setJMenuBar(menuBar);
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -597,23 +559,17 @@ public class GradeRecordsGUI extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(PanelAwal, javax.swing.GroupLayout.DEFAULT_SIZE, 470, Short.MAX_VALUE)
+            .addComponent(PanelAwal, javax.swing.GroupLayout.DEFAULT_SIZE, 491, Short.MAX_VALUE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void loginItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginItemActionPerformed
-panelLogin.show(true);
-panelsebelumLogin.show(false);
-    }//GEN-LAST:event_loginItemActionPerformed
 
     private void loginButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginButtonActionPerformed
 String name = txtName.getText().toString();
 String pass = txtPass.getText().toString();
 
 panelAfterLogin.show(true);
-panelsebelumLogin.show(false);
 panelLogin.show(false);
 panelDelete.show(false);
 panelInsert.show(false);
@@ -687,7 +643,6 @@ panelUpdate.show(false);
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JMenu FileMenu;
     private javax.swing.JPanel PanelAwal;
     private javax.swing.JButton btnDeleteForm;
     private javax.swing.JButton btnInsertForm;
@@ -724,8 +679,6 @@ panelUpdate.show(false);
     private javax.swing.JLabel lblTITLEFORM;
     private javax.swing.JLabel lblTitle;
     private javax.swing.JButton loginButton;
-    private javax.swing.JMenuItem loginItem;
-    private javax.swing.JMenuBar menuBar;
     private javax.swing.JPanel panelAfterLogin;
     private javax.swing.JPanel panelButton;
     private javax.swing.JPanel panelDelete;
@@ -736,7 +689,6 @@ panelUpdate.show(false);
     private javax.swing.JPanel panelLogin;
     private javax.swing.JPanel panelTable;
     private javax.swing.JPanel panelUpdate;
-    private javax.swing.JPanel panelsebelumLogin;
     private javax.swing.JTextField txtName;
     private javax.swing.JPasswordField txtPass;
     // End of variables declaration//GEN-END:variables
