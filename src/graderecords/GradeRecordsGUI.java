@@ -108,17 +108,14 @@ public class GradeRecordsGUI extends javax.swing.JFrame {
 
         lblTitle.setBackground(new java.awt.Color(255, 255, 255));
         lblTitle.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
-        lblTitle.setForeground(new java.awt.Color(0, 0, 0));
         lblTitle.setText("LOGIN FORM");
 
         lblIconNama.setBackground(new java.awt.Color(255, 255, 255));
         lblIconNama.setFont(new java.awt.Font("Yu Gothic UI", 0, 18)); // NOI18N
-        lblIconNama.setForeground(new java.awt.Color(0, 0, 0));
         lblIconNama.setText("NAMA          :");
 
         lblIconPassword.setBackground(new java.awt.Color(255, 255, 255));
         lblIconPassword.setFont(new java.awt.Font("Yu Gothic UI", 0, 18)); // NOI18N
-        lblIconPassword.setForeground(new java.awt.Color(0, 0, 0));
         lblIconPassword.setText("PASSWORD :");
 
         txtName.setFont(new java.awt.Font("Yu Gothic UI", 0, 18)); // NOI18N
@@ -293,7 +290,7 @@ public class GradeRecordsGUI extends javax.swing.JFrame {
         );
 
         panelAfterLogin.add(panelInsert);
-        panelInsert.setBounds(455, 12, 423, 446);
+        panelInsert.setBounds(455, 12, 423, 443);
 
         buttonInsert.setText("INSERT");
         buttonInsert.addActionListener(new java.awt.event.ActionListener() {
@@ -346,7 +343,7 @@ public class GradeRecordsGUI extends javax.swing.JFrame {
         );
 
         panelAfterLogin.add(panelButton);
-        panelButton.setBounds(12, 167, 425, 88);
+        panelButton.setBounds(12, 167, 414, 86);
 
         javax.swing.GroupLayout panelTableLayout = new javax.swing.GroupLayout(panelTable);
         panelTable.setLayout(panelTableLayout);
@@ -546,7 +543,7 @@ public class GradeRecordsGUI extends javax.swing.JFrame {
         );
 
         panelAfterLogin.add(panelDelete);
-        panelDelete.setBounds(455, 12, 430, 450);
+        panelDelete.setBounds(455, 12, 430, 447);
 
         PanelAwal.add(panelAfterLogin);
         panelAfterLogin.setBounds(0, 0, 890, 470);
@@ -559,7 +556,7 @@ public class GradeRecordsGUI extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(PanelAwal, javax.swing.GroupLayout.DEFAULT_SIZE, 491, Short.MAX_VALUE)
+            .addComponent(PanelAwal, javax.swing.GroupLayout.DEFAULT_SIZE, 471, Short.MAX_VALUE)
         );
 
         pack();
