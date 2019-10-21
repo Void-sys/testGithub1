@@ -115,6 +115,7 @@ public class GradeRecordsGUI extends javax.swing.JFrame {
         lblBinggrisD = new javax.swing.JLabel();
         lblBiologiD = new javax.swing.JLabel();
         btnDeleteForm = new javax.swing.JButton();
+        btn_add_student = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -460,7 +461,7 @@ public class GradeRecordsGUI extends javax.swing.JFrame {
         );
         panelTableLayout.setVerticalGroup(
             panelTableLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(scrollPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 185, Short.MAX_VALUE)
+            .addComponent(scrollPanel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 185, Short.MAX_VALUE)
         );
 
         panelAfterLogin.add(panelTable);
@@ -705,6 +706,15 @@ public class GradeRecordsGUI extends javax.swing.JFrame {
         panelAfterLogin.add(panelDelete);
         panelDelete.setBounds(455, 12, 430, 440);
 
+        btn_add_student.setText("Add new Student");
+        btn_add_student.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_add_studentActionPerformed(evt);
+            }
+        });
+        panelAfterLogin.add(btn_add_student);
+        btn_add_student.setBounds(10, 470, 170, 23);
+
         PanelAwal.add(panelAfterLogin);
         panelAfterLogin.setBounds(0, 0, 900, 480);
 
@@ -796,7 +806,7 @@ tabletampil();
                textNIM.setEditable(false);
                String name = rs.getString("name");
                textNama.setText(name);
-               String kelas = rs.getString("class_id");
+               String kelas = rs.getString("class");
                textKelas.setText(kelas);                                                
             
         }                
@@ -855,6 +865,11 @@ tabletampil();
         
     }//GEN-LAST:event_tableSiswaMouseClicked
 
+    private void btn_add_studentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_add_studentActionPerformed
+        AddStudentForm add = new AddStudentForm();
+        add.setVisible(true);
+    }//GEN-LAST:event_btn_add_studentActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -899,6 +914,7 @@ tabletampil();
     private javax.swing.JButton btnInsertForm;
     private javax.swing.JButton btnShow;
     private javax.swing.JButton btnUpdateForm;
+    private javax.swing.JButton btn_add_student;
     private javax.swing.JButton buttonDelete;
     private javax.swing.JButton buttonInsert;
     private javax.swing.JButton buttonUpdate;
@@ -996,7 +1012,7 @@ private void tabelDataStudent() {
 
 private ResultSet dataStudent(){
         try{
-            String query =  "SELECT nim, name, class_id, status FROM tbl_student";
+            String query =  "SELECT nim, name, class, status FROM tbl_student";
             st = conn.createStatement();
             rs = st.executeQuery(query);
         } catch (Exception e) {
