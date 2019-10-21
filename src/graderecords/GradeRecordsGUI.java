@@ -4,6 +4,14 @@
  * and open the template in the editor.
  */
 package graderecords;
+import DBConn.koneksi;
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -11,14 +19,20 @@ package graderecords;
  */
 public class GradeRecordsGUI extends javax.swing.JFrame {
 
+    ResultSet rs;
+    Connection conn;
+    Statement st;
+    
+    String[][] dataStudent;
     /**
      * Creates new form GradeRecordsGUI
      */
-    public GradeRecordsGUI() {
+    public GradeRecordsGUI()  throws SQLException{
         initComponents();        
         panelAfterLogin.show(false);
         panelLogin.show(true);
         
+   conn = new koneksi().setConnection();
         
     }
 
@@ -59,6 +73,8 @@ public class GradeRecordsGUI extends javax.swing.JFrame {
         buttonUpdate = new javax.swing.JButton();
         buttonDelete = new javax.swing.JButton();
         panelTable = new javax.swing.JPanel();
+        scrollPanel = new javax.swing.JScrollPane();
+        tableSiswa = new javax.swing.JTable();
         panelUpdate = new javax.swing.JPanel();
         lblTITLEFORM = new javax.swing.JLabel();
         lblNama = new javax.swing.JLabel();
@@ -85,10 +101,11 @@ public class GradeRecordsGUI extends javax.swing.JFrame {
         PanelAwal.setBackground(new java.awt.Color(255, 255, 255));
         PanelAwal.setLayout(null);
 
-        panelLogin.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(51, 210, 104), 10));
+        panelLogin.setBackground(new java.awt.Color(242, 238, 229));
+        panelLogin.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(194, 232, 206), 10));
         panelLogin.setLayout(null);
 
-        panelIcon.setBackground(new java.awt.Color(51, 176, 79));
+        panelIcon.setBackground(new java.awt.Color(194, 232, 206));
 
         javax.swing.GroupLayout panelIconLayout = new javax.swing.GroupLayout(panelIcon);
         panelIcon.setLayout(panelIconLayout);
@@ -104,27 +121,30 @@ public class GradeRecordsGUI extends javax.swing.JFrame {
         panelLogin.add(panelIcon);
         panelIcon.setBounds(20, 20, 840, 160);
 
-        panelFormLogin.setBackground(new java.awt.Color(255, 255, 255));
+        panelFormLogin.setBackground(new java.awt.Color(194, 232, 206));
 
         lblTitle.setBackground(new java.awt.Color(255, 255, 255));
         lblTitle.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        lblTitle.setForeground(new java.awt.Color(0, 0, 0));
         lblTitle.setText("LOGIN FORM");
 
         lblIconNama.setBackground(new java.awt.Color(255, 255, 255));
         lblIconNama.setFont(new java.awt.Font("Yu Gothic UI", 0, 18)); // NOI18N
+        lblIconNama.setForeground(new java.awt.Color(0, 0, 0));
         lblIconNama.setText("NAMA          :");
 
         lblIconPassword.setBackground(new java.awt.Color(255, 255, 255));
         lblIconPassword.setFont(new java.awt.Font("Yu Gothic UI", 0, 18)); // NOI18N
+        lblIconPassword.setForeground(new java.awt.Color(0, 0, 0));
         lblIconPassword.setText("PASSWORD :");
 
         txtName.setFont(new java.awt.Font("Yu Gothic UI", 0, 18)); // NOI18N
 
         txtPass.setFont(new java.awt.Font("Yu Gothic UI", 0, 18)); // NOI18N
 
-        loginButton.setBackground(new java.awt.Color(51, 176, 60));
+        loginButton.setBackground(new java.awt.Color(255, 255, 255));
         loginButton.setFont(new java.awt.Font("Yu Gothic UI", 0, 18)); // NOI18N
-        loginButton.setForeground(new java.awt.Color(255, 255, 255));
+        loginButton.setForeground(new java.awt.Color(0, 0, 0));
         loginButton.setText("LOGIN");
         loginButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -290,7 +310,7 @@ public class GradeRecordsGUI extends javax.swing.JFrame {
         );
 
         panelAfterLogin.add(panelInsert);
-        panelInsert.setBounds(455, 12, 423, 443);
+        panelInsert.setBounds(455, 12, 423, 446);
 
         buttonInsert.setText("INSERT");
         buttonInsert.addActionListener(new java.awt.event.ActionListener() {
@@ -300,6 +320,11 @@ public class GradeRecordsGUI extends javax.swing.JFrame {
         });
 
         btnShow.setText("SHOW");
+        btnShow.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnShowActionPerformed(evt);
+            }
+        });
 
         buttonUpdate.setText("UPDATE");
         buttonUpdate.addActionListener(new java.awt.event.ActionListener() {
@@ -343,17 +368,27 @@ public class GradeRecordsGUI extends javax.swing.JFrame {
         );
 
         panelAfterLogin.add(panelButton);
-        panelButton.setBounds(12, 167, 414, 86);
+        panelButton.setBounds(12, 167, 425, 88);
+
+        tableSiswa.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "NIM", "Nama Siswa/Siswi", "Kelas", "Status"
+            }
+        ));
+        scrollPanel.setViewportView(tableSiswa);
 
         javax.swing.GroupLayout panelTableLayout = new javax.swing.GroupLayout(panelTable);
         panelTable.setLayout(panelTableLayout);
         panelTableLayout.setHorizontalGroup(
             panelTableLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 425, Short.MAX_VALUE)
+            .addComponent(scrollPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 425, Short.MAX_VALUE)
         );
         panelTableLayout.setVerticalGroup(
             panelTableLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 185, Short.MAX_VALUE)
+            .addComponent(scrollPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 185, Short.MAX_VALUE)
         );
 
         panelAfterLogin.add(panelTable);
@@ -543,7 +578,7 @@ public class GradeRecordsGUI extends javax.swing.JFrame {
         );
 
         panelAfterLogin.add(panelDelete);
-        panelDelete.setBounds(455, 12, 430, 447);
+        panelDelete.setBounds(455, 12, 430, 450);
 
         PanelAwal.add(panelAfterLogin);
         panelAfterLogin.setBounds(0, 0, 890, 470);
@@ -604,6 +639,10 @@ panelDelete.show(true);
 panelUpdate.show(false);
     }//GEN-LAST:event_buttonDeleteActionPerformed
 
+    private void btnShowActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnShowActionPerformed
+show();
+    }//GEN-LAST:event_btnShowActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -634,7 +673,12 @@ panelUpdate.show(false);
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new GradeRecordsGUI().setVisible(true);
+                try{
+                new GradeRecordsGUI().setVisible(true);    
+                }catch(SQLException ex){
+                    Logger.getLogger(GradeRecordsGUI.class.getName()).log(Level.SEVERE, null, ex);
+                }
+                
             }
         });
     }
@@ -686,7 +730,58 @@ panelUpdate.show(false);
     private javax.swing.JPanel panelLogin;
     private javax.swing.JPanel panelTable;
     private javax.swing.JPanel panelUpdate;
+    private javax.swing.JScrollPane scrollPanel;
+    private javax.swing.JTable tableSiswa;
     private javax.swing.JTextField txtName;
     private javax.swing.JPasswordField txtPass;
     // End of variables declaration//GEN-END:variables
+
+
+private DefaultTableModel tabelModelData()
+    {        
+        String[] namaKolom = {"NIM", "Nama Siswa/Siswi", "Kelas", "Status"};
+        int rows = 0;
+        try{
+            while (rs.next()){
+                rows = rs.getRow();
+            }
+            rs.beforeFirst();
+            dataStudent = new String[rows][namaKolom.length];
+            for (int i = 0; i < rows; i++) {
+                rs.next();
+                for (int j = 0; j < namaKolom.length; j++) {
+                    dataStudent[i][j] = rs.getString(j + 1);
+                }
+            }
+        } catch (Exception ex){}
+        return new DefaultTableModel(dataStudent, namaKolom);
+    }
+
+
+private void tabelDataStudent() {
+        try {
+            rs = dataStudent();
+            tableSiswa.setModel(tabelModelData());
+            tableSiswa.setEnabled(false);
+        } catch (Exception e) {
+            e.getMessage();
+        }
+    }
+
+private ResultSet dataStudent(){
+        try{
+            String query =  "SELECT nim, name, class_id, status FROM tbl_student";
+            st = conn.createStatement();
+            rs = st.executeQuery(query);
+        } catch (Exception e) {
+            System.out.println("Error "+e.getMessage());
+        }
+        return rs;                                                
+        }
+
+
+public void show(){
+    tabelDataStudent();
+}
+
 }
