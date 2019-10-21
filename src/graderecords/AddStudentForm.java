@@ -2,6 +2,7 @@ package graderecords;
 
 //Import Libraries Here *-*)b
 import DBConn.koneksi;
+import DBDao.StudentDAO;
 import com.sun.glass.events.KeyEvent;
 import java.sql.*;
 import javax.swing.JOptionPane;
@@ -14,12 +15,12 @@ public class AddStudentForm extends javax.swing.JFrame {
     ResultSet res;
     PreparedStatement prep;
     Statement stat;
+    StudentDAO add_stud;
     
     //Class Constructor
     public AddStudentForm() {
         initComponents();
         conn = new koneksi().setConnection();
-        
     }
 
     //Methods Goes Here
@@ -119,9 +120,9 @@ public class AddStudentForm extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btn_resetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_resetActionPerformed
-    txt_nim.setText("");
-    txt_name.setText("");
-    combo_class.setSelectedIndex(0);
+        txt_nim.setText("");
+        txt_name.setText("");
+        combo_class.setSelectedIndex(0);
     }//GEN-LAST:event_btn_resetActionPerformed
 
     private void txt_nimKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_nimKeyTyped
@@ -136,17 +137,12 @@ public class AddStudentForm extends javax.swing.JFrame {
         if("".equals(txt_nim.getText()) || "".equals(txt_name.getText())) JOptionPane.showMessageDialog(null, "Please input the NIM and Name", "Empty Field", JOptionPane.WARNING_MESSAGE);
         
         try{
+            add_stud = new StudentDAO();
             String nim = txt_nim.getText();
             String name = txt_name.getText();
             String clss = combo_class.getSelectedItem().toString();
             String status = "not updated";
-            String query = "insert into tbl_student values(?,?,?,?)";
-            PreparedStatement prep = conn.prepareStatement(query);
-            prep.setString(1, nim);
-            prep.setString(2, name);
-            prep.setString(3, clss);
-            prep.setString(4, status);
-            int success = prep.executeUpdate();
+            int success = add_stud.addStudent(nim, name, clss, status);
             if(success != 0){
                 JOptionPane.showMessageDialog(null, "Data added successfully");
                 this.setVisible(false);

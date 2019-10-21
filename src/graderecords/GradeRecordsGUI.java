@@ -5,6 +5,7 @@
  */
 package graderecords;
 import DBConn.koneksi;
+import DBDao.StudentDAO;
 import DBDao.TeacherDAO;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -27,17 +28,14 @@ public class GradeRecordsGUI extends javax.swing.JFrame {
     Statement st;
     PreparedStatement prep;
     TeacherDAO teach;
+    StudentDAO stud;
     String[][] dataStudent;
-    /**
-     * Creates new form GradeRecordsGUI
-     */
+    
     public GradeRecordsGUI() {
         initComponents();        
         panelAfterLogin.show(false);
         panelLogin.show(true);
-        
-   conn = new koneksi().setConnection();
-        
+        conn = new koneksi().setConnection();
     }
 
     /**
@@ -470,11 +468,6 @@ public class GradeRecordsGUI extends javax.swing.JFrame {
         panelTable.setBackground(new java.awt.Color(242, 238, 229));
 
         scrollPanel.setBackground(new java.awt.Color(242, 238, 229));
-        scrollPanel.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                scrollPanelMouseClicked(evt);
-            }
-        });
 
         tableSiswa.setBackground(new java.awt.Color(242, 238, 229));
         tableSiswa.setFont(new java.awt.Font("Yu Gothic UI", 0, 12)); // NOI18N
@@ -796,112 +789,69 @@ public class GradeRecordsGUI extends javax.swing.JFrame {
     }//GEN-LAST:event_btnInsertFormActionPerformed
 
     private void buttonInsertActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonInsertActionPerformed
-        panelInsert.show(true);
+        panelInsert.setVisible(true);
+        panelDelete.setVisible(false);
+        panelUpdate.setVisible(false);
         textNama.setText("");
         textKelas.setText("");
         textNIM.setText("");
-        panelDelete.show(false);
-        panelUpdate.show(false);
     }//GEN-LAST:event_buttonInsertActionPerformed
 
     private void buttonUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonUpdateActionPerformed
-panelInsert.show(false);
-panelDelete.show(false);
-panelUpdate.show(true);
-textNamau.setText("");
+        panelInsert.setVisible(false);
+        panelDelete.setVisible(false);
+        panelUpdate.setVisible(true);
+        textNamau.setText("");
         textKelasu.setText("");
         textNIMu.setText("");
     }//GEN-LAST:event_buttonUpdateActionPerformed
 
     private void buttonDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonDeleteActionPerformed
-panelInsert.show(false);
-panelDelete.show(true);
-panelUpdate.show(false);
+        panelInsert.setVisible(false);
+        panelDelete.setVisible(true);
+        panelUpdate.setVisible(false);
     }//GEN-LAST:event_buttonDeleteActionPerformed
 
     private void btnShowActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnShowActionPerformed
-tabletampil();
+        showDataStudent();
     }//GEN-LAST:event_btnShowActionPerformed
 
-    private void scrollPanelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_scrollPanelMouseClicked
-
-    }//GEN-LAST:event_scrollPanelMouseClicked
-
     private void tableSiswaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tableSiswaMouseClicked
-      int getrows = tableSiswa.getSelectedRow();
-      String status = (tableSiswa.getModel().getValueAt(getrows, 3).toString());
-     
-      if(status.equals("not updated")){                    
-        try{
-        int row = tableSiswa.getSelectedRow();        
-        String nim = tableSiswa.getModel().getValueAt(row, 0).toString();
-        String sql = "select * from tbl_student where nim='"+nim+"'";
-        PreparedStatement ps = conn.prepareStatement(sql);
-        ResultSet rs = ps.executeQuery();
-        if(rs.next()){                        
-                panelInsert.setVisible(true);
-                String NIM = rs.getString("nim");
-                textNIM.setText(NIM);
-               textNIM.setEditable(false);
-               String name = rs.getString("name");
-               textNama.setText(name);
-               String kelas = rs.getString("class");
-               textKelas.setText(kelas);                                                
-            
-        }                
-        }catch(Exception e){
-                JOptionPane.showMessageDialog(null, "Error "+e );
-        }
+        int getrows = tableSiswa.getSelectedRow();
+        String status = (tableSiswa.getModel().getValueAt(getrows, 3).toString());
+        String nim    = (tableSiswa.getModel().getValueAt(getrows, 0).toString());
         
+        if(status.equals("not updated")){
+            panelInsert.setVisible(true);
+            panelUpdate.setVisible(false);
+            try{
+                StudentDAO stud = new StudentDAO();
+                ResultSet rs = stud.getbyNIM(nim);
+                if(rs.next()){
+                    textNIM.setText(rs.getString("nim"));
+                    textNIM.setEditable(false);
+                    textNama.setText(rs.getString("name"));
+                    textKelas.setText(rs.getString("class"));
+                }
+            }catch(Exception ex){
+                System.out.println("Error : " + ex.getMessage());
+            }
         }else if(status.equals("updated")){
             panelInsert.setVisible(false);
             panelUpdate.setVisible(true);
             try{
-                 int row = tableSiswa.getSelectedRow();        
-        String nim = tableSiswa.getModel().getValueAt(row, 0).toString();
-        String sql = "select * from tbl_student where nim='"+nim+"'";
-        PreparedStatement ps = conn.prepareStatement(sql);
-        ResultSet rs = ps.executeQuery();
-        if(rs.next()){                                        
-                String NIM = rs.getString("nim");
-                textNIMu.setText(NIM);
-               textNIMu.setEditable(false);
-               String name = rs.getString("name");
-               textNamau.setText(name);
-               String kelas = rs.getString("class_id");
-               textKelasu.setText(kelas);                                                
-            
-        }                
+                StudentDAO stud = new StudentDAO();
+                ResultSet rs = stud.getbyNIM(nim);
+                if(rs.next()){
+                    textNIMu.setText(rs.getString("nim"));
+                    textNIMu.setEditable(false);
+                    textNamau.setText(rs.getString("name"));
+                    textKelasu.setText(rs.getString("class"));
+                }
             }catch(Exception ex){
-                JOptionPane.showMessageDialog(null, "Error "+ex );
+                System.out.println("Error : " + ex.getMessage());
             }
         }
-        
-        
-        
-        
-//        String Name=tableSiswa.getModel().getValueAt(row, 1).toString();
-//        String Class = tableSiswa.getModel().getValueAt(row, 2).toString();
-//        String status= tableSiswa.getModel().getValueAt(row, 3).toString();
-//                    
-//            textNIM.setText(NIM);
-//            textNIM.setEditable(false);
-//            textNama.setText(Name);
-//            textKelas.setText(Class);
-//            textStatus.setText(status);
-            
-//        if(status =="updated"){
-//            panelInsert.setVisible(false);
-//            panelUpdate.setVisible(true);
-//            textNIMu.setText(tableSiswa.getModel().getValueAt(row, 0).toString());
-//            textNIMu.setEditable(false);
-//            textNamau.setText(tableSiswa.getModel().getValueAt(row, 1).toString());
-//            textKelasu.setText(tableSiswa.getModel().getValueAt(row, 2).toString());
-//        }
-        
-        
-        
-        
     }//GEN-LAST:event_tableSiswaMouseClicked
 
     private void btn_add_studentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_add_studentActionPerformed
@@ -924,7 +874,39 @@ tabletampil();
             JOptionPane.showMessageDialog(null, "Logout Successful", "Success", JOptionPane.INFORMATION_MESSAGE);
         }
     }//GEN-LAST:event_btn_logoutActionPerformed
+    
+    private DefaultTableModel tabelModelData()
+    {        
+        String[] namaKolom = {"NIM", "Nama Siswa/Siswi", "Kelas", "Status"};
+        int rows = 0;
+        try{
+            while (rs.next()){
+                rows = rs.getRow();
+            }
+            rs.beforeFirst();
+            dataStudent = new String[rows][namaKolom.length];
+            for (int i = 0; i < rows; i++) {
+                rs.next();
+                for (int j = 0; j < namaKolom.length; j++) {
+                    dataStudent[i][j] = rs.getString(j + 1);
+                }
+            }
+        } catch (Exception ex){}
+        return new DefaultTableModel(dataStudent, namaKolom);
+    }
 
+
+    private void showDataStudent() {
+        try {
+            stud = new StudentDAO();
+            rs = stud.getbyClass(txtlog_class.getText());
+            tableSiswa.setModel(tabelModelData());
+            tableSiswa.setEnabled(true);
+        } catch (Exception e) {
+            e.getMessage();
+        }
+    }
+    
     /**
      * @param args the command line arguments
      */
@@ -936,7 +918,7 @@ tabletampil();
          */
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
+                if ("Windows".equals(info.getName())) {
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
                     break;
                 }
@@ -955,10 +937,7 @@ tabletampil();
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                
                 new GradeRecordsGUI().setVisible(true);    
-                
-                
             }
         });
     }
@@ -1039,54 +1018,4 @@ tabletampil();
     private javax.swing.JLabel txtlog_class;
     private javax.swing.JLabel txtlog_name;
     // End of variables declaration//GEN-END:variables
-        private DefaultTableModel tabelModelData()
-    {        
-        String[] namaKolom = {"NIM", "Nama Siswa/Siswi", "Kelas", "Status"};
-        int rows = 0;
-        try{
-            while (rs.next()){
-                rows = rs.getRow();
-            }
-            rs.beforeFirst();
-            dataStudent = new String[rows][namaKolom.length];
-            for (int i = 0; i < rows; i++) {
-                rs.next();
-                for (int j = 0; j < namaKolom.length; j++) {
-                    dataStudent[i][j] = rs.getString(j + 1);
-                }
-            }
-        } catch (Exception ex){}
-        return new DefaultTableModel(dataStudent, namaKolom);
-    }
-
-
-private void tabelDataStudent() {
-        try {
-            rs = dataStudent();
-            tableSiswa.setModel(tabelModelData());
-            tableSiswa.setEnabled(true);
-        } catch (Exception e) {
-            e.getMessage();
-        }
-    }
-
-private ResultSet dataStudent(){
-        try{
-            String query =  "SELECT nim, name, class, status FROM tbl_student WHERE class=?";
-            prep = conn.prepareStatement(query);
-            prep.setString(1, txtlog_class.getText());
-            rs = prep.executeQuery();
-        } catch (Exception e) {
-            System.out.println("Error "+e.getMessage());
-        }
-        return rs;                                                
-        }
-
-
-public void tabletampil(){
-    tabelDataStudent();
-}
-    
-    
-    
 }

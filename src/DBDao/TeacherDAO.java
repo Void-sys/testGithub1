@@ -18,6 +18,10 @@ public class TeacherDAO {
     Connection conn;
     ResultSet res;
     PreparedStatement prep;
+
+    public TeacherDAO() {
+        conn = new koneksi().setConnection();
+    }
     
     public String getName() {
         return name;
@@ -54,7 +58,6 @@ public class TeacherDAO {
     public boolean loginTeacher(String username, String password){
         boolean success = false;
         try{
-            conn = new koneksi().setConnection();
             String sql = "select * from tbl_teacher where username=? and password=?";
             prep = conn.prepareStatement(sql);
             prep.setString(1, username);
