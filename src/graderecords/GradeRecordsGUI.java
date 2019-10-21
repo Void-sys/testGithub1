@@ -238,27 +238,35 @@ public class GradeRecordsGUI extends javax.swing.JFrame {
         panelInsert.setBackground(new java.awt.Color(242, 238, 229));
 
         lblFormInsert.setFont(new java.awt.Font("Yu Gothic UI", 0, 24)); // NOI18N
+        lblFormInsert.setForeground(new java.awt.Color(0, 0, 0));
         lblFormInsert.setText("INSERT FORM");
 
         lblNamaI.setFont(new java.awt.Font("Yu Gothic UI", 0, 12)); // NOI18N
+        lblNamaI.setForeground(new java.awt.Color(0, 0, 0));
         lblNamaI.setText("NAMA SISWA/SISWI :");
 
         lblKelasI.setFont(new java.awt.Font("Yu Gothic UI", 0, 12)); // NOI18N
+        lblKelasI.setForeground(new java.awt.Color(0, 0, 0));
         lblKelasI.setText("KELAS  :");
 
         lblMatI.setFont(new java.awt.Font("Yu Gothic UI", 0, 12)); // NOI18N
+        lblMatI.setForeground(new java.awt.Color(0, 0, 0));
         lblMatI.setText("NILAI UN MATEMATIKA :");
 
         lblFisikaI.setFont(new java.awt.Font("Yu Gothic UI", 0, 12)); // NOI18N
+        lblFisikaI.setForeground(new java.awt.Color(0, 0, 0));
         lblFisikaI.setText("NILAI UN FISIKA :");
 
         lblBindoI.setFont(new java.awt.Font("Yu Gothic UI", 0, 12)); // NOI18N
+        lblBindoI.setForeground(new java.awt.Color(0, 0, 0));
         lblBindoI.setText("NILAI UN BAHASA INDONESIA :");
 
         lblBinggrisI.setFont(new java.awt.Font("Yu Gothic UI", 0, 12)); // NOI18N
+        lblBinggrisI.setForeground(new java.awt.Color(0, 0, 0));
         lblBinggrisI.setText("NILAI UN BAHASA INGGRIS :");
 
         lblBiologiI.setFont(new java.awt.Font("Yu Gothic UI", 0, 12)); // NOI18N
+        lblBiologiI.setForeground(new java.awt.Color(0, 0, 0));
         lblBiologiI.setText("NILAI UN BIOLOGI :");
 
         btnInsertForm.setText("INSERT");
@@ -269,6 +277,7 @@ public class GradeRecordsGUI extends javax.swing.JFrame {
         });
 
         jLabel1.setFont(new java.awt.Font("Yu Gothic UI", 0, 12)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(0, 0, 0));
         jLabel1.setText("NIM :");
 
         javax.swing.GroupLayout panelInsertLayout = new javax.swing.GroupLayout(panelInsert);
@@ -300,9 +309,6 @@ public class GradeRecordsGUI extends javax.swing.JFrame {
                             .addGroup(panelInsertLayout.createSequentialGroup()
                                 .addGap(130, 130, 130)
                                 .addComponent(lblFormInsert))
-                            .addGroup(panelInsertLayout.createSequentialGroup()
-                                .addGap(169, 169, 169)
-                                .addComponent(btnInsertForm))
                             .addComponent(lblFisikaI)
                             .addComponent(lblBiologiI, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(lblMatI)
@@ -310,13 +316,17 @@ public class GradeRecordsGUI extends javax.swing.JFrame {
                             .addComponent(lblBindoI, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(0, 132, Short.MAX_VALUE)))
                 .addContainerGap())
+            .addGroup(panelInsertLayout.createSequentialGroup()
+                .addGap(171, 171, 171)
+                .addComponent(btnInsertForm)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         panelInsertLayout.setVerticalGroup(
             panelInsertLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelInsertLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(lblFormInsert)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 30, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 15, Short.MAX_VALUE)
                 .addGroup(panelInsertLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
                     .addComponent(textNIM, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -348,13 +358,13 @@ public class GradeRecordsGUI extends javax.swing.JFrame {
                 .addGroup(panelInsertLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblBiologiI)
                     .addComponent(textBio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(49, 49, 49)
+                .addGap(18, 18, 18)
                 .addComponent(btnInsertForm)
-                .addGap(20, 20, 20))
+                .addGap(51, 51, 51))
         );
 
         panelAfterLogin.add(panelInsert);
-        panelInsert.setBounds(455, 12, 421, 451);
+        panelInsert.setBounds(455, 12, 423, 431);
 
         panelButton.setBackground(new java.awt.Color(242, 238, 229));
 
@@ -414,7 +424,7 @@ public class GradeRecordsGUI extends javax.swing.JFrame {
         );
 
         panelAfterLogin.add(panelButton);
-        panelButton.setBounds(12, 167, 414, 86);
+        panelButton.setBounds(12, 167, 425, 88);
 
         panelTable.setBackground(new java.awt.Color(242, 238, 229));
 
@@ -459,27 +469,35 @@ public class GradeRecordsGUI extends javax.swing.JFrame {
         panelUpdate.setBackground(new java.awt.Color(242, 238, 229));
 
         lblTITLEFORM.setFont(new java.awt.Font("Yu Gothic UI", 0, 24)); // NOI18N
+        lblTITLEFORM.setForeground(new java.awt.Color(0, 0, 0));
         lblTITLEFORM.setText("UPDATE FORM");
 
         lblNama.setFont(new java.awt.Font("Yu Gothic UI", 0, 12)); // NOI18N
+        lblNama.setForeground(new java.awt.Color(0, 0, 0));
         lblNama.setText("NAMA SISWA/SISWI :");
 
         lblKelas.setFont(new java.awt.Font("Yu Gothic UI", 0, 12)); // NOI18N
+        lblKelas.setForeground(new java.awt.Color(0, 0, 0));
         lblKelas.setText("KELAS  :");
 
         lblMat.setFont(new java.awt.Font("Yu Gothic UI", 0, 12)); // NOI18N
+        lblMat.setForeground(new java.awt.Color(0, 0, 0));
         lblMat.setText("NILAI UN MATEMATIKA :");
 
         lblFisika.setFont(new java.awt.Font("Yu Gothic UI", 0, 12)); // NOI18N
+        lblFisika.setForeground(new java.awt.Color(0, 0, 0));
         lblFisika.setText("NILAI UN FISIKA :");
 
         lblBindo.setFont(new java.awt.Font("Yu Gothic UI", 0, 12)); // NOI18N
+        lblBindo.setForeground(new java.awt.Color(0, 0, 0));
         lblBindo.setText("NILAI UN BAHASA INDONESIA :");
 
         lblBinggris.setFont(new java.awt.Font("Yu Gothic UI", 0, 12)); // NOI18N
+        lblBinggris.setForeground(new java.awt.Color(0, 0, 0));
         lblBinggris.setText("NILAI UN BAHASA INGGRIS :");
 
         lblBiologi.setFont(new java.awt.Font("Yu Gothic UI", 0, 12)); // NOI18N
+        lblBiologi.setForeground(new java.awt.Color(0, 0, 0));
         lblBiologi.setText("NILAI UN BIOLOGI :");
 
         btnUpdateForm.setText("UPDATE");
@@ -490,6 +508,7 @@ public class GradeRecordsGUI extends javax.swing.JFrame {
         });
 
         jLabel2.setFont(new java.awt.Font("Yu Gothic UI", 0, 12)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(0, 0, 0));
         jLabel2.setText("NIM :");
 
         javax.swing.GroupLayout panelUpdateLayout = new javax.swing.GroupLayout(panelUpdate);
@@ -506,7 +525,7 @@ public class GradeRecordsGUI extends javax.swing.JFrame {
                             .addGroup(panelUpdateLayout.createSequentialGroup()
                                 .addGap(130, 130, 130)
                                 .addComponent(lblTITLEFORM)))
-                        .addGap(0, 131, Short.MAX_VALUE))
+                        .addGap(0, 129, Short.MAX_VALUE))
                     .addGroup(panelUpdateLayout.createSequentialGroup()
                         .addContainerGap()
                         .addGroup(panelUpdateLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -555,7 +574,7 @@ public class GradeRecordsGUI extends javax.swing.JFrame {
                 .addGroup(panelUpdateLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblKelas)
                     .addComponent(textKelasu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 23, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 28, Short.MAX_VALUE)
                 .addGroup(panelUpdateLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblMat)
                     .addComponent(textMatu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -586,27 +605,35 @@ public class GradeRecordsGUI extends javax.swing.JFrame {
         panelDelete.setBackground(new java.awt.Color(242, 238, 229));
 
         lblFormDelete.setFont(new java.awt.Font("Yu Gothic UI", 0, 24)); // NOI18N
+        lblFormDelete.setForeground(new java.awt.Color(0, 0, 0));
         lblFormDelete.setText("DELETE FORM");
 
         lblNamaD.setFont(new java.awt.Font("Yu Gothic UI", 0, 12)); // NOI18N
+        lblNamaD.setForeground(new java.awt.Color(0, 0, 0));
         lblNamaD.setText("NAMA SISWA/SISWI :");
 
         lblKelasD.setFont(new java.awt.Font("Yu Gothic UI", 0, 12)); // NOI18N
+        lblKelasD.setForeground(new java.awt.Color(0, 0, 0));
         lblKelasD.setText("KELAS  :");
 
         lblMatD.setFont(new java.awt.Font("Yu Gothic UI", 0, 12)); // NOI18N
+        lblMatD.setForeground(new java.awt.Color(0, 0, 0));
         lblMatD.setText("NILAI UN MATEMATIKA :");
 
         lblFisikaD.setFont(new java.awt.Font("Yu Gothic UI", 0, 12)); // NOI18N
+        lblFisikaD.setForeground(new java.awt.Color(0, 0, 0));
         lblFisikaD.setText("NILAI UN FISIKA :");
 
         lblBindoD.setFont(new java.awt.Font("Yu Gothic UI", 0, 12)); // NOI18N
+        lblBindoD.setForeground(new java.awt.Color(0, 0, 0));
         lblBindoD.setText("NILAI UN BAHASA INDONESIA :");
 
         lblBinggrisD.setFont(new java.awt.Font("Yu Gothic UI", 0, 12)); // NOI18N
+        lblBinggrisD.setForeground(new java.awt.Color(0, 0, 0));
         lblBinggrisD.setText("NILAI UN BAHASA INGGRIS :");
 
         lblBiologiD.setFont(new java.awt.Font("Yu Gothic UI", 0, 12)); // NOI18N
+        lblBiologiD.setForeground(new java.awt.Color(0, 0, 0));
         lblBiologiD.setText("NILAI UN BIOLOGI :");
 
         btnDeleteForm.setText("DELETE");
@@ -670,7 +697,7 @@ public class GradeRecordsGUI extends javax.swing.JFrame {
                 .addComponent(lblBinggrisD)
                 .addGap(18, 18, 18)
                 .addComponent(lblBiologiD)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 64, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 49, Short.MAX_VALUE)
                 .addComponent(btnDeleteForm)
                 .addGap(51, 51, 51))
         );
@@ -721,6 +748,9 @@ panelUpdate.setVisible(false);
 
     private void buttonInsertActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonInsertActionPerformed
         panelInsert.show(true);
+        textNama.setText("");
+        textKelas.setText("");
+        textNIM.setText("");
         panelDelete.show(false);
         panelUpdate.show(false);
     }//GEN-LAST:event_buttonInsertActionPerformed
@@ -729,6 +759,9 @@ panelUpdate.setVisible(false);
 panelInsert.show(false);
 panelDelete.show(false);
 panelUpdate.show(true);
+textNamau.setText("");
+        textKelasu.setText("");
+        textNIMu.setText("");
     }//GEN-LAST:event_buttonUpdateActionPerformed
 
     private void buttonDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonDeleteActionPerformed
@@ -746,7 +779,11 @@ tabletampil();
     }//GEN-LAST:event_scrollPanelMouseClicked
 
     private void tableSiswaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tableSiswaMouseClicked
-       try{
+      int getrows = tableSiswa.getSelectedRow();
+      String status = (tableSiswa.getModel().getValueAt(getrows, 3).toString());
+     
+      if(status.equals("not updated")){                    
+        try{
         int row = tableSiswa.getSelectedRow();        
         String nim = tableSiswa.getModel().getValueAt(row, 0).toString();
         String sql = "select * from tbl_student where nim='"+nim+"'";
@@ -766,9 +803,30 @@ tabletampil();
         }catch(Exception e){
                 JOptionPane.showMessageDialog(null, "Error "+e );
         }
+        
+        }else if(status.equals("updated")){
+            panelInsert.setVisible(false);
+            panelUpdate.setVisible(true);
+            try{
+                 int row = tableSiswa.getSelectedRow();        
+        String nim = tableSiswa.getModel().getValueAt(row, 0).toString();
+        String sql = "select * from tbl_student where nim='"+nim+"'";
+        PreparedStatement ps = conn.prepareStatement(sql);
+        ResultSet rs = ps.executeQuery();
+        if(rs.next()){                                        
+                String NIM = rs.getString("nim");
+                textNIMu.setText(NIM);
+               textNIMu.setEditable(false);
+               String name = rs.getString("name");
+               textNamau.setText(name);
+               String kelas = rs.getString("class_id");
+               textKelasu.setText(kelas);                                                
             
-        
-        
+        }                
+            }catch(Exception ex){
+                JOptionPane.showMessageDialog(null, "Error "+ex );
+            }
+        }
         
         
         
