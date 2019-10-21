@@ -5,6 +5,7 @@
  */
 package graderecords;
 import DBConn.koneksi;
+import DBDao.TeacherDAO;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -24,7 +25,8 @@ public class GradeRecordsGUI extends javax.swing.JFrame {
     ResultSet rs;
     Connection conn;
     Statement st;
-    
+    PreparedStatement prep;
+    TeacherDAO teach;
     String[][] dataStudent;
     /**
      * Creates new form GradeRecordsGUI
@@ -59,6 +61,11 @@ public class GradeRecordsGUI extends javax.swing.JFrame {
         loginButton = new javax.swing.JButton();
         panelAfterLogin = new javax.swing.JPanel();
         panelIconAfterLogin = new javax.swing.JPanel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        txtlog_name = new javax.swing.JLabel();
+        txtlog_class = new javax.swing.JLabel();
+        btn_logout = new javax.swing.JButton();
         panelInsert = new javax.swing.JPanel();
         lblFormInsert = new javax.swing.JLabel();
         lblNamaI = new javax.swing.JLabel();
@@ -150,7 +157,7 @@ public class GradeRecordsGUI extends javax.swing.JFrame {
 
         lblIconNama.setBackground(new java.awt.Color(255, 255, 255));
         lblIconNama.setFont(new java.awt.Font("Yu Gothic UI", 0, 18)); // NOI18N
-        lblIconNama.setText("NAMA          :");
+        lblIconNama.setText("USERNAME :");
 
         lblIconPassword.setBackground(new java.awt.Color(255, 255, 255));
         lblIconPassword.setFont(new java.awt.Font("Yu Gothic UI", 0, 18)); // NOI18N
@@ -190,7 +197,7 @@ public class GradeRecordsGUI extends javax.swing.JFrame {
                     .addGroup(panelFormLoginLayout.createSequentialGroup()
                         .addGap(355, 355, 355)
                         .addComponent(loginButton, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(303, Short.MAX_VALUE))
+                .addContainerGap(304, Short.MAX_VALUE))
         );
         panelFormLoginLayout.setVerticalGroup(
             panelFormLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -222,15 +229,57 @@ public class GradeRecordsGUI extends javax.swing.JFrame {
 
         panelIconAfterLogin.setBackground(new java.awt.Color(242, 238, 229));
 
+        jLabel3.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel3.setText("Logged in as : ");
+
+        jLabel4.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel4.setText("Class :");
+
+        txtlog_name.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        txtlog_name.setText("- - -");
+
+        txtlog_class.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        txtlog_class.setText("- - -");
+
+        btn_logout.setText("Logout");
+        btn_logout.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_logoutActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout panelIconAfterLoginLayout = new javax.swing.GroupLayout(panelIconAfterLogin);
         panelIconAfterLogin.setLayout(panelIconAfterLoginLayout);
         panelIconAfterLoginLayout.setHorizontalGroup(
             panelIconAfterLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 425, Short.MAX_VALUE)
+            .addGroup(panelIconAfterLoginLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(panelIconAfterLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panelIconAfterLoginLayout.createSequentialGroup()
+                        .addGroup(panelIconAfterLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel3)
+                            .addComponent(jLabel4))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(panelIconAfterLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtlog_class)
+                            .addComponent(txtlog_name)))
+                    .addComponent(btn_logout))
+                .addContainerGap(296, Short.MAX_VALUE))
         );
         panelIconAfterLoginLayout.setVerticalGroup(
             panelIconAfterLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 137, Short.MAX_VALUE)
+            .addGroup(panelIconAfterLoginLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(panelIconAfterLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel3)
+                    .addComponent(txtlog_name))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(panelIconAfterLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel4)
+                    .addComponent(txtlog_class))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(btn_logout)
+                .addContainerGap(52, Short.MAX_VALUE))
         );
 
         panelAfterLogin.add(panelIconAfterLogin);
@@ -239,35 +288,27 @@ public class GradeRecordsGUI extends javax.swing.JFrame {
         panelInsert.setBackground(new java.awt.Color(242, 238, 229));
 
         lblFormInsert.setFont(new java.awt.Font("Yu Gothic UI", 0, 24)); // NOI18N
-        lblFormInsert.setForeground(new java.awt.Color(0, 0, 0));
         lblFormInsert.setText("INSERT FORM");
 
         lblNamaI.setFont(new java.awt.Font("Yu Gothic UI", 0, 12)); // NOI18N
-        lblNamaI.setForeground(new java.awt.Color(0, 0, 0));
         lblNamaI.setText("NAMA SISWA/SISWI :");
 
         lblKelasI.setFont(new java.awt.Font("Yu Gothic UI", 0, 12)); // NOI18N
-        lblKelasI.setForeground(new java.awt.Color(0, 0, 0));
         lblKelasI.setText("KELAS  :");
 
         lblMatI.setFont(new java.awt.Font("Yu Gothic UI", 0, 12)); // NOI18N
-        lblMatI.setForeground(new java.awt.Color(0, 0, 0));
         lblMatI.setText("NILAI UN MATEMATIKA :");
 
         lblFisikaI.setFont(new java.awt.Font("Yu Gothic UI", 0, 12)); // NOI18N
-        lblFisikaI.setForeground(new java.awt.Color(0, 0, 0));
         lblFisikaI.setText("NILAI UN FISIKA :");
 
         lblBindoI.setFont(new java.awt.Font("Yu Gothic UI", 0, 12)); // NOI18N
-        lblBindoI.setForeground(new java.awt.Color(0, 0, 0));
         lblBindoI.setText("NILAI UN BAHASA INDONESIA :");
 
         lblBinggrisI.setFont(new java.awt.Font("Yu Gothic UI", 0, 12)); // NOI18N
-        lblBinggrisI.setForeground(new java.awt.Color(0, 0, 0));
         lblBinggrisI.setText("NILAI UN BAHASA INGGRIS :");
 
         lblBiologiI.setFont(new java.awt.Font("Yu Gothic UI", 0, 12)); // NOI18N
-        lblBiologiI.setForeground(new java.awt.Color(0, 0, 0));
         lblBiologiI.setText("NILAI UN BIOLOGI :");
 
         btnInsertForm.setText("INSERT");
@@ -278,7 +319,6 @@ public class GradeRecordsGUI extends javax.swing.JFrame {
         });
 
         jLabel1.setFont(new java.awt.Font("Yu Gothic UI", 0, 12)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(0, 0, 0));
         jLabel1.setText("NIM :");
 
         javax.swing.GroupLayout panelInsertLayout = new javax.swing.GroupLayout(panelInsert);
@@ -365,7 +405,7 @@ public class GradeRecordsGUI extends javax.swing.JFrame {
         );
 
         panelAfterLogin.add(panelInsert);
-        panelInsert.setBounds(455, 12, 423, 431);
+        panelInsert.setBounds(455, 12, 421, 436);
 
         panelButton.setBackground(new java.awt.Color(242, 238, 229));
 
@@ -425,7 +465,7 @@ public class GradeRecordsGUI extends javax.swing.JFrame {
         );
 
         panelAfterLogin.add(panelButton);
-        panelButton.setBounds(12, 167, 425, 88);
+        panelButton.setBounds(12, 167, 414, 86);
 
         panelTable.setBackground(new java.awt.Color(242, 238, 229));
 
@@ -470,35 +510,27 @@ public class GradeRecordsGUI extends javax.swing.JFrame {
         panelUpdate.setBackground(new java.awt.Color(242, 238, 229));
 
         lblTITLEFORM.setFont(new java.awt.Font("Yu Gothic UI", 0, 24)); // NOI18N
-        lblTITLEFORM.setForeground(new java.awt.Color(0, 0, 0));
         lblTITLEFORM.setText("UPDATE FORM");
 
         lblNama.setFont(new java.awt.Font("Yu Gothic UI", 0, 12)); // NOI18N
-        lblNama.setForeground(new java.awt.Color(0, 0, 0));
         lblNama.setText("NAMA SISWA/SISWI :");
 
         lblKelas.setFont(new java.awt.Font("Yu Gothic UI", 0, 12)); // NOI18N
-        lblKelas.setForeground(new java.awt.Color(0, 0, 0));
         lblKelas.setText("KELAS  :");
 
         lblMat.setFont(new java.awt.Font("Yu Gothic UI", 0, 12)); // NOI18N
-        lblMat.setForeground(new java.awt.Color(0, 0, 0));
         lblMat.setText("NILAI UN MATEMATIKA :");
 
         lblFisika.setFont(new java.awt.Font("Yu Gothic UI", 0, 12)); // NOI18N
-        lblFisika.setForeground(new java.awt.Color(0, 0, 0));
         lblFisika.setText("NILAI UN FISIKA :");
 
         lblBindo.setFont(new java.awt.Font("Yu Gothic UI", 0, 12)); // NOI18N
-        lblBindo.setForeground(new java.awt.Color(0, 0, 0));
         lblBindo.setText("NILAI UN BAHASA INDONESIA :");
 
         lblBinggris.setFont(new java.awt.Font("Yu Gothic UI", 0, 12)); // NOI18N
-        lblBinggris.setForeground(new java.awt.Color(0, 0, 0));
         lblBinggris.setText("NILAI UN BAHASA INGGRIS :");
 
         lblBiologi.setFont(new java.awt.Font("Yu Gothic UI", 0, 12)); // NOI18N
-        lblBiologi.setForeground(new java.awt.Color(0, 0, 0));
         lblBiologi.setText("NILAI UN BIOLOGI :");
 
         btnUpdateForm.setText("UPDATE");
@@ -509,7 +541,6 @@ public class GradeRecordsGUI extends javax.swing.JFrame {
         });
 
         jLabel2.setFont(new java.awt.Font("Yu Gothic UI", 0, 12)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(0, 0, 0));
         jLabel2.setText("NIM :");
 
         javax.swing.GroupLayout panelUpdateLayout = new javax.swing.GroupLayout(panelUpdate);
@@ -526,7 +557,7 @@ public class GradeRecordsGUI extends javax.swing.JFrame {
                             .addGroup(panelUpdateLayout.createSequentialGroup()
                                 .addGap(130, 130, 130)
                                 .addComponent(lblTITLEFORM)))
-                        .addGap(0, 129, Short.MAX_VALUE))
+                        .addGap(0, 131, Short.MAX_VALUE))
                     .addGroup(panelUpdateLayout.createSequentialGroup()
                         .addContainerGap()
                         .addGroup(panelUpdateLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -575,7 +606,7 @@ public class GradeRecordsGUI extends javax.swing.JFrame {
                 .addGroup(panelUpdateLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblKelas)
                     .addComponent(textKelasu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 28, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 23, Short.MAX_VALUE)
                 .addGroup(panelUpdateLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblMat)
                     .addComponent(textMatu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -606,35 +637,27 @@ public class GradeRecordsGUI extends javax.swing.JFrame {
         panelDelete.setBackground(new java.awt.Color(242, 238, 229));
 
         lblFormDelete.setFont(new java.awt.Font("Yu Gothic UI", 0, 24)); // NOI18N
-        lblFormDelete.setForeground(new java.awt.Color(0, 0, 0));
         lblFormDelete.setText("DELETE FORM");
 
         lblNamaD.setFont(new java.awt.Font("Yu Gothic UI", 0, 12)); // NOI18N
-        lblNamaD.setForeground(new java.awt.Color(0, 0, 0));
         lblNamaD.setText("NAMA SISWA/SISWI :");
 
         lblKelasD.setFont(new java.awt.Font("Yu Gothic UI", 0, 12)); // NOI18N
-        lblKelasD.setForeground(new java.awt.Color(0, 0, 0));
         lblKelasD.setText("KELAS  :");
 
         lblMatD.setFont(new java.awt.Font("Yu Gothic UI", 0, 12)); // NOI18N
-        lblMatD.setForeground(new java.awt.Color(0, 0, 0));
         lblMatD.setText("NILAI UN MATEMATIKA :");
 
         lblFisikaD.setFont(new java.awt.Font("Yu Gothic UI", 0, 12)); // NOI18N
-        lblFisikaD.setForeground(new java.awt.Color(0, 0, 0));
         lblFisikaD.setText("NILAI UN FISIKA :");
 
         lblBindoD.setFont(new java.awt.Font("Yu Gothic UI", 0, 12)); // NOI18N
-        lblBindoD.setForeground(new java.awt.Color(0, 0, 0));
         lblBindoD.setText("NILAI UN BAHASA INDONESIA :");
 
         lblBinggrisD.setFont(new java.awt.Font("Yu Gothic UI", 0, 12)); // NOI18N
-        lblBinggrisD.setForeground(new java.awt.Color(0, 0, 0));
         lblBinggrisD.setText("NILAI UN BAHASA INGGRIS :");
 
         lblBiologiD.setFont(new java.awt.Font("Yu Gothic UI", 0, 12)); // NOI18N
-        lblBiologiD.setForeground(new java.awt.Color(0, 0, 0));
         lblBiologiD.setText("NILAI UN BIOLOGI :");
 
         btnDeleteForm.setText("DELETE");
@@ -698,7 +721,7 @@ public class GradeRecordsGUI extends javax.swing.JFrame {
                 .addComponent(lblBinggrisD)
                 .addGap(18, 18, 18)
                 .addComponent(lblBiologiD)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 49, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 64, Short.MAX_VALUE)
                 .addComponent(btnDeleteForm)
                 .addGap(51, 51, 51))
         );
@@ -733,15 +756,31 @@ public class GradeRecordsGUI extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void loginButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginButtonActionPerformed
-String name = txtName.getText().toString();
-String pass = txtPass.getText().toString();
-
-panelAfterLogin.setVisible(true);
-panelLogin.setVisible(false);
-panelDelete.setVisible(false);
-panelInsert.setVisible(true);
-panelUpdate.setVisible(false);
-
+        if("".equals(txtName.getText()) || "".equals(new String(txtPass.getPassword()))){
+            JOptionPane.showMessageDialog(null, "Please insert your username and password", "Empty Field", JOptionPane.WARNING_MESSAGE);
+        }else{
+            String username = txtName.getText();
+            String password = new String(txtPass.getPassword());
+            teach = new TeacherDAO();
+            boolean login_success = teach.loginTeacher(username, password);
+            if(login_success){
+                JOptionPane.showMessageDialog(null, "Login Successful", "Success", JOptionPane.INFORMATION_MESSAGE);
+                panelLogin.setVisible(false);
+                panelAfterLogin.setVisible(true);
+                panelInsert.setVisible(true);
+                panelUpdate.setVisible(false);
+                panelDelete.setVisible(false);
+                txtlog_name.setText(teach.getName());
+                txtlog_class.setText(teach.getClass_());
+                txtName.setText("");
+                txtPass.setText("");
+                
+                //delete
+                System.out.println("Name : " + teach.getName());
+                System.out.println("Class : " + teach.getClass_());
+                System.out.println("Username : " + teach.getUsername());
+            }else JOptionPane.showMessageDialog(null, "Login Failed, please check your username and password", "Failed", JOptionPane.WARNING_MESSAGE);
+        }
     }//GEN-LAST:event_loginButtonActionPerformed
 
     private void btnUpdateFormActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateFormActionPerformed
@@ -870,6 +909,22 @@ tabletampil();
         add.setVisible(true);
     }//GEN-LAST:event_btn_add_studentActionPerformed
 
+    private void btn_logoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_logoutActionPerformed
+        int choice = JOptionPane.showConfirmDialog(null, "Do you really want to logout?", "Logout Confirmation", JOptionPane.OK_CANCEL_OPTION);
+        if(choice == JOptionPane.OK_OPTION){
+            teach = new TeacherDAO();
+            teach.logoutTeacher();
+            panelLogin.setVisible(true);
+            panelAfterLogin.setVisible(false);
+            panelInsert.setVisible(false);
+            panelUpdate.setVisible(false);
+            panelDelete.setVisible(false);
+            txtlog_name.setText("- - -");
+            txtlog_class.setText("- - -");
+            JOptionPane.showMessageDialog(null, "Logout Successful", "Success", JOptionPane.INFORMATION_MESSAGE);
+        }
+    }//GEN-LAST:event_btn_logoutActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -915,11 +970,14 @@ tabletampil();
     private javax.swing.JButton btnShow;
     private javax.swing.JButton btnUpdateForm;
     private javax.swing.JButton btn_add_student;
+    private javax.swing.JButton btn_logout;
     private javax.swing.JButton buttonDelete;
     private javax.swing.JButton buttonInsert;
     private javax.swing.JButton buttonUpdate;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel lblBindo;
     private javax.swing.JLabel lblBindoD;
     private javax.swing.JLabel lblBindoI;
@@ -978,6 +1036,8 @@ tabletampil();
     private javax.swing.JTextField textNamau;
     private javax.swing.JTextField txtName;
     private javax.swing.JPasswordField txtPass;
+    private javax.swing.JLabel txtlog_class;
+    private javax.swing.JLabel txtlog_name;
     // End of variables declaration//GEN-END:variables
         private DefaultTableModel tabelModelData()
     {        
@@ -1012,9 +1072,10 @@ private void tabelDataStudent() {
 
 private ResultSet dataStudent(){
         try{
-            String query =  "SELECT nim, name, class, status FROM tbl_student";
-            st = conn.createStatement();
-            rs = st.executeQuery(query);
+            String query =  "SELECT nim, name, class, status FROM tbl_student WHERE class=?";
+            prep = conn.prepareStatement(query);
+            prep.setString(1, txtlog_class.getText());
+            rs = prep.executeQuery();
         } catch (Exception e) {
             System.out.println("Error "+e.getMessage());
         }
