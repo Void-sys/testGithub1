@@ -1,0 +1,7 @@
+tbl_student :
+- class_id int ---> class varchar(20)
+
+tbl_teacher :
+- class_id int ---> class varchar(20);
+
+tbl_class : deleted
