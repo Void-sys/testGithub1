@@ -121,6 +121,55 @@ public class GradeRecordsGUI extends javax.swing.JFrame {
         lblBinggrisD = new javax.swing.JLabel();
         lblBiologiD = new javax.swing.JLabel();
         btnDeleteForm = new javax.swing.JButton();
+        panelUpdateSos = new javax.swing.JPanel();
+        lblTITLESOS = new javax.swing.JLabel();
+        lblNamaSos = new javax.swing.JLabel();
+        lblKelasSos = new javax.swing.JLabel();
+        lblMatSos = new javax.swing.JLabel();
+        lblIPS = new javax.swing.JLabel();
+        lblBindoSos = new javax.swing.JLabel();
+        lblBinggrisSos = new javax.swing.JLabel();
+        btnUpdateSos = new javax.swing.JButton();
+        lblNIMsos = new javax.swing.JLabel();
+        textNIMuSos = new javax.swing.JTextField();
+        textNamauSos = new javax.swing.JTextField();
+        textKelasuSos = new javax.swing.JTextField();
+        textMatuSos = new javax.swing.JTextField();
+        textIPS = new javax.swing.JTextField();
+        textBIuSos = new javax.swing.JTextField();
+        textBinguSos = new javax.swing.JTextField();
+        panelDeleteSos = new javax.swing.JPanel();
+        lblFormDeleteSos = new javax.swing.JLabel();
+        lblNamaDSos = new javax.swing.JLabel();
+        lblKelasDSos = new javax.swing.JLabel();
+        lblMatDSos = new javax.swing.JLabel();
+        lblIPSDSos = new javax.swing.JLabel();
+        lblBindoDSos = new javax.swing.JLabel();
+        lblBinggrisD1 = new javax.swing.JLabel();
+        btnDeleteFormSos = new javax.swing.JButton();
+        panelInsertSos = new javax.swing.JPanel();
+        lblFormInsertSos = new javax.swing.JLabel();
+        lblNamaI1 = new javax.swing.JLabel();
+        lblKelasI1 = new javax.swing.JLabel();
+        lblMatI1 = new javax.swing.JLabel();
+        lblUNIPS = new javax.swing.JLabel();
+        lblBindoISos = new javax.swing.JLabel();
+        lblBinggrisI1 = new javax.swing.JLabel();
+        btnInsertFormSos = new javax.swing.JButton();
+        textNamaSos = new javax.swing.JTextField();
+        textKelasSos = new javax.swing.JTextField();
+        textMatSos = new javax.swing.JTextField();
+        textIPSinsert = new javax.swing.JTextField();
+        textBISos = new javax.swing.JTextField();
+        textBingSos = new javax.swing.JTextField();
+        lblNIMSos = new javax.swing.JLabel();
+        textNIMSos = new javax.swing.JTextField();
+        panelButtonSos = new javax.swing.JPanel();
+        buttonInsertSos = new javax.swing.JButton();
+        btnShowSos = new javax.swing.JButton();
+        buttonUpdateSos = new javax.swing.JButton();
+        buttonDeleteSos = new javax.swing.JButton();
+        btn_add_student1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -263,7 +312,7 @@ public class GradeRecordsGUI extends javax.swing.JFrame {
                             .addComponent(txtlog_class)
                             .addComponent(txtlog_name)))
                     .addComponent(btn_logout))
-                .addContainerGap(296, Short.MAX_VALUE))
+                .addContainerGap(294, Short.MAX_VALUE))
         );
         panelIconAfterLoginLayout.setVerticalGroup(
             panelIconAfterLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -278,7 +327,7 @@ public class GradeRecordsGUI extends javax.swing.JFrame {
                     .addComponent(txtlog_class))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btn_logout)
-                .addContainerGap(56, Short.MAX_VALUE))
+                .addContainerGap(52, Short.MAX_VALUE))
         );
 
         panelAfterLogin.add(panelIconAfterLogin);
@@ -404,7 +453,7 @@ public class GradeRecordsGUI extends javax.swing.JFrame {
         );
 
         panelAfterLogin.add(panelInsert);
-        panelInsert.setBounds(455, 12, 421, 436);
+        panelInsert.setBounds(455, 12, 423, 431);
 
         panelButton.setBackground(new java.awt.Color(242, 238, 229));
 
@@ -474,11 +523,11 @@ public class GradeRecordsGUI extends javax.swing.JFrame {
                     .addComponent(buttonDelete))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btn_add_student)
-                .addContainerGap(32, Short.MAX_VALUE))
+                .addContainerGap(28, Short.MAX_VALUE))
         );
 
         panelAfterLogin.add(panelButton);
-        panelButton.setBounds(12, 167, 414, 100);
+        panelButton.setBounds(12, 167, 425, 100);
 
         panelTable.setBackground(new java.awt.Color(242, 238, 229));
 
@@ -565,7 +614,7 @@ public class GradeRecordsGUI extends javax.swing.JFrame {
                             .addGroup(panelUpdateLayout.createSequentialGroup()
                                 .addGap(130, 130, 130)
                                 .addComponent(lblTITLEFORM)))
-                        .addGap(0, 131, Short.MAX_VALUE))
+                        .addGap(0, 129, Short.MAX_VALUE))
                     .addGroup(panelUpdateLayout.createSequentialGroup()
                         .addContainerGap()
                         .addGroup(panelUpdateLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -614,7 +663,7 @@ public class GradeRecordsGUI extends javax.swing.JFrame {
                 .addGroup(panelUpdateLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblKelas)
                     .addComponent(textKelasu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 23, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 28, Short.MAX_VALUE)
                 .addGroup(panelUpdateLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblMat)
                     .addComponent(textMatu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -645,27 +694,35 @@ public class GradeRecordsGUI extends javax.swing.JFrame {
         panelDelete.setBackground(new java.awt.Color(242, 238, 229));
 
         lblFormDelete.setFont(new java.awt.Font("Yu Gothic UI", 0, 24)); // NOI18N
+        lblFormDelete.setForeground(new java.awt.Color(0, 0, 0));
         lblFormDelete.setText("DELETE FORM");
 
         lblNamaD.setFont(new java.awt.Font("Yu Gothic UI", 0, 12)); // NOI18N
-        lblNamaD.setText("NAMA SISWA/SISWI :");
+        lblNamaD.setForeground(new java.awt.Color(0, 0, 0));
+        lblNamaD.setText("NIM");
 
         lblKelasD.setFont(new java.awt.Font("Yu Gothic UI", 0, 12)); // NOI18N
+        lblKelasD.setForeground(new java.awt.Color(0, 0, 0));
         lblKelasD.setText("KELAS  :");
 
         lblMatD.setFont(new java.awt.Font("Yu Gothic UI", 0, 12)); // NOI18N
+        lblMatD.setForeground(new java.awt.Color(0, 0, 0));
         lblMatD.setText("NILAI UN MATEMATIKA :");
 
         lblFisikaD.setFont(new java.awt.Font("Yu Gothic UI", 0, 12)); // NOI18N
+        lblFisikaD.setForeground(new java.awt.Color(0, 0, 0));
         lblFisikaD.setText("NILAI UN FISIKA :");
 
         lblBindoD.setFont(new java.awt.Font("Yu Gothic UI", 0, 12)); // NOI18N
+        lblBindoD.setForeground(new java.awt.Color(0, 0, 0));
         lblBindoD.setText("NILAI UN BAHASA INDONESIA :");
 
         lblBinggrisD.setFont(new java.awt.Font("Yu Gothic UI", 0, 12)); // NOI18N
+        lblBinggrisD.setForeground(new java.awt.Color(0, 0, 0));
         lblBinggrisD.setText("NILAI UN BAHASA INGGRIS :");
 
         lblBiologiD.setFont(new java.awt.Font("Yu Gothic UI", 0, 12)); // NOI18N
+        lblBiologiD.setForeground(new java.awt.Color(0, 0, 0));
         lblBiologiD.setText("NILAI UN BIOLOGI :");
 
         btnDeleteForm.setText("DELETE");
@@ -729,13 +786,412 @@ public class GradeRecordsGUI extends javax.swing.JFrame {
                 .addComponent(lblBinggrisD)
                 .addGap(18, 18, 18)
                 .addComponent(lblBiologiD)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 64, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 61, Short.MAX_VALUE)
                 .addComponent(btnDeleteForm)
                 .addGap(51, 51, 51))
         );
 
         panelAfterLogin.add(panelDelete);
         panelDelete.setBounds(455, 12, 430, 440);
+
+        panelUpdateSos.setBackground(new java.awt.Color(242, 238, 229));
+
+        lblTITLESOS.setFont(new java.awt.Font("Yu Gothic UI", 0, 24)); // NOI18N
+        lblTITLESOS.setText("UPDATE FORM");
+
+        lblNamaSos.setFont(new java.awt.Font("Yu Gothic UI", 0, 12)); // NOI18N
+        lblNamaSos.setText("NAMA SISWA/SISWI :");
+
+        lblKelasSos.setFont(new java.awt.Font("Yu Gothic UI", 0, 12)); // NOI18N
+        lblKelasSos.setText("KELAS  :");
+
+        lblMatSos.setFont(new java.awt.Font("Yu Gothic UI", 0, 12)); // NOI18N
+        lblMatSos.setText("NILAI UN MATEMATIKA :");
+
+        lblIPS.setFont(new java.awt.Font("Yu Gothic UI", 0, 12)); // NOI18N
+        lblIPS.setText("NILAI UN IPS :");
+
+        lblBindoSos.setFont(new java.awt.Font("Yu Gothic UI", 0, 12)); // NOI18N
+        lblBindoSos.setText("NILAI UN BAHASA INDONESIA :");
+
+        lblBinggrisSos.setFont(new java.awt.Font("Yu Gothic UI", 0, 12)); // NOI18N
+        lblBinggrisSos.setText("NILAI UN BAHASA INGGRIS :");
+
+        btnUpdateSos.setText("UPDATE");
+        btnUpdateSos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnUpdateSosActionPerformed(evt);
+            }
+        });
+
+        lblNIMsos.setFont(new java.awt.Font("Yu Gothic UI", 0, 12)); // NOI18N
+        lblNIMsos.setText("NIM :");
+
+        javax.swing.GroupLayout panelUpdateSosLayout = new javax.swing.GroupLayout(panelUpdateSos);
+        panelUpdateSos.setLayout(panelUpdateSosLayout);
+        panelUpdateSosLayout.setHorizontalGroup(
+            panelUpdateSosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelUpdateSosLayout.createSequentialGroup()
+                .addGroup(panelUpdateSosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panelUpdateSosLayout.createSequentialGroup()
+                        .addGroup(panelUpdateSosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(panelUpdateSosLayout.createSequentialGroup()
+                                .addGap(169, 169, 169)
+                                .addComponent(btnUpdateSos))
+                            .addGroup(panelUpdateSosLayout.createSequentialGroup()
+                                .addGap(130, 130, 130)
+                                .addComponent(lblTITLESOS)))
+                        .addGap(0, 129, Short.MAX_VALUE))
+                    .addGroup(panelUpdateSosLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(panelUpdateSosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(panelUpdateSosLayout.createSequentialGroup()
+                                .addComponent(lblNIMsos)
+                                .addGap(193, 193, 193)
+                                .addComponent(textNIMuSos))
+                            .addGroup(panelUpdateSosLayout.createSequentialGroup()
+                                .addComponent(lblNamaSos)
+                                .addGap(109, 109, 109)
+                                .addComponent(textNamauSos))
+                            .addGroup(panelUpdateSosLayout.createSequentialGroup()
+                                .addGroup(panelUpdateSosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(lblBinggrisSos)
+                                    .addComponent(lblBindoSos, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(lblIPS)
+                                    .addComponent(lblMatSos)
+                                    .addComponent(lblKelasSos, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(0, 0, Short.MAX_VALUE))
+                            .addGroup(panelUpdateSosLayout.createSequentialGroup()
+                                .addGap(222, 222, 222)
+                                .addGroup(panelUpdateSosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(textBinguSos)
+                                    .addComponent(textBIuSos)
+                                    .addComponent(textIPS)
+                                    .addComponent(textMatuSos)
+                                    .addComponent(textKelasuSos))))))
+                .addContainerGap())
+        );
+        panelUpdateSosLayout.setVerticalGroup(
+            panelUpdateSosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelUpdateSosLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(lblTITLESOS)
+                .addGap(24, 24, 24)
+                .addGroup(panelUpdateSosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblNIMsos)
+                    .addComponent(textNIMuSos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(panelUpdateSosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblNamaSos)
+                    .addComponent(textNamauSos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(panelUpdateSosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblKelasSos)
+                    .addComponent(textKelasuSos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 31, Short.MAX_VALUE)
+                .addGroup(panelUpdateSosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblMatSos)
+                    .addComponent(textMatuSos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(panelUpdateSosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblIPS)
+                    .addComponent(textIPS, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(panelUpdateSosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblBindoSos)
+                    .addComponent(textBIuSos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(panelUpdateSosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblBinggrisSos)
+                    .addComponent(textBinguSos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(52, 52, 52)
+                .addComponent(btnUpdateSos)
+                .addGap(51, 51, 51))
+        );
+
+        panelAfterLogin.add(panelUpdateSos);
+        panelUpdateSos.setBounds(450, 10, 430, 450);
+
+        panelDeleteSos.setBackground(new java.awt.Color(242, 238, 229));
+
+        lblFormDeleteSos.setFont(new java.awt.Font("Yu Gothic UI", 0, 24)); // NOI18N
+        lblFormDeleteSos.setForeground(new java.awt.Color(0, 0, 0));
+        lblFormDeleteSos.setText("DELETE FORM");
+
+        lblNamaDSos.setFont(new java.awt.Font("Yu Gothic UI", 0, 12)); // NOI18N
+        lblNamaDSos.setForeground(new java.awt.Color(0, 0, 0));
+        lblNamaDSos.setText("NIM");
+
+        lblKelasDSos.setFont(new java.awt.Font("Yu Gothic UI", 0, 12)); // NOI18N
+        lblKelasDSos.setForeground(new java.awt.Color(0, 0, 0));
+        lblKelasDSos.setText("KELAS  :");
+
+        lblMatDSos.setFont(new java.awt.Font("Yu Gothic UI", 0, 12)); // NOI18N
+        lblMatDSos.setForeground(new java.awt.Color(0, 0, 0));
+        lblMatDSos.setText("NILAI UN MATEMATIKA :");
+
+        lblIPSDSos.setFont(new java.awt.Font("Yu Gothic UI", 0, 12)); // NOI18N
+        lblIPSDSos.setForeground(new java.awt.Color(0, 0, 0));
+        lblIPSDSos.setText("NILAI UN IPS :");
+
+        lblBindoDSos.setFont(new java.awt.Font("Yu Gothic UI", 0, 12)); // NOI18N
+        lblBindoDSos.setForeground(new java.awt.Color(0, 0, 0));
+        lblBindoDSos.setText("NILAI UN BAHASA INDONESIA :");
+
+        lblBinggrisD1.setFont(new java.awt.Font("Yu Gothic UI", 0, 12)); // NOI18N
+        lblBinggrisD1.setForeground(new java.awt.Color(0, 0, 0));
+        lblBinggrisD1.setText("NILAI UN BAHASA INGGRIS :");
+
+        btnDeleteFormSos.setText("DELETE");
+        btnDeleteFormSos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnDeleteFormSosActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout panelDeleteSosLayout = new javax.swing.GroupLayout(panelDeleteSos);
+        panelDeleteSos.setLayout(panelDeleteSosLayout);
+        panelDeleteSosLayout.setHorizontalGroup(
+            panelDeleteSosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelDeleteSosLayout.createSequentialGroup()
+                .addGroup(panelDeleteSosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panelDeleteSosLayout.createSequentialGroup()
+                        .addGap(130, 130, 130)
+                        .addComponent(lblFormDeleteSos))
+                    .addGroup(panelDeleteSosLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(lblNamaDSos))
+                    .addGroup(panelDeleteSosLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(lblIPSDSos))
+                    .addGroup(panelDeleteSosLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(lblMatDSos))
+                    .addGroup(panelDeleteSosLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(lblKelasDSos, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(panelDeleteSosLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(lblBinggrisD1))
+                    .addGroup(panelDeleteSosLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(lblBindoDSos, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(panelDeleteSosLayout.createSequentialGroup()
+                        .addGap(169, 169, 169)
+                        .addComponent(btnDeleteFormSos)))
+                .addContainerGap(150, Short.MAX_VALUE))
+        );
+        panelDeleteSosLayout.setVerticalGroup(
+            panelDeleteSosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelDeleteSosLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(lblFormDeleteSos)
+                .addGap(39, 39, 39)
+                .addComponent(lblNamaDSos)
+                .addGap(18, 18, 18)
+                .addComponent(lblKelasDSos)
+                .addGap(18, 18, 18)
+                .addComponent(lblMatDSos)
+                .addGap(18, 18, 18)
+                .addComponent(lblIPSDSos)
+                .addGap(18, 18, 18)
+                .addComponent(lblBindoDSos)
+                .addGap(18, 18, 18)
+                .addComponent(lblBinggrisD1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 95, Short.MAX_VALUE)
+                .addComponent(btnDeleteFormSos)
+                .addGap(51, 51, 51))
+        );
+
+        panelAfterLogin.add(panelDeleteSos);
+        panelDeleteSos.setBounds(455, 12, 430, 440);
+
+        panelInsertSos.setBackground(new java.awt.Color(242, 238, 229));
+
+        lblFormInsertSos.setFont(new java.awt.Font("Yu Gothic UI", 0, 24)); // NOI18N
+        lblFormInsertSos.setText("INSERT FORM");
+
+        lblNamaI1.setFont(new java.awt.Font("Yu Gothic UI", 0, 12)); // NOI18N
+        lblNamaI1.setText("NAMA SISWA/SISWI :");
+
+        lblKelasI1.setFont(new java.awt.Font("Yu Gothic UI", 0, 12)); // NOI18N
+        lblKelasI1.setText("KELAS  :");
+
+        lblMatI1.setFont(new java.awt.Font("Yu Gothic UI", 0, 12)); // NOI18N
+        lblMatI1.setText("NILAI UN MATEMATIKA :");
+
+        lblUNIPS.setFont(new java.awt.Font("Yu Gothic UI", 0, 12)); // NOI18N
+        lblUNIPS.setText("NILAI UN IPS :");
+
+        lblBindoISos.setFont(new java.awt.Font("Yu Gothic UI", 0, 12)); // NOI18N
+        lblBindoISos.setText("NILAI UN BAHASA INDONESIA :");
+
+        lblBinggrisI1.setFont(new java.awt.Font("Yu Gothic UI", 0, 12)); // NOI18N
+        lblBinggrisI1.setText("NILAI UN BAHASA INGGRIS :");
+
+        btnInsertFormSos.setText("INSERT");
+        btnInsertFormSos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnInsertFormSosActionPerformed(evt);
+            }
+        });
+
+        lblNIMSos.setFont(new java.awt.Font("Yu Gothic UI", 0, 12)); // NOI18N
+        lblNIMSos.setText("NIM :");
+
+        javax.swing.GroupLayout panelInsertSosLayout = new javax.swing.GroupLayout(panelInsertSos);
+        panelInsertSos.setLayout(panelInsertSosLayout);
+        panelInsertSosLayout.setHorizontalGroup(
+            panelInsertSosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelInsertSosLayout.createSequentialGroup()
+                .addGroup(panelInsertSosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panelInsertSosLayout.createSequentialGroup()
+                        .addComponent(lblKelasI1, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(86, 86, 86)
+                        .addGroup(panelInsertSosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(textMatSos)
+                            .addComponent(textKelasSos)
+                            .addComponent(textIPSinsert)
+                            .addComponent(textBISos)
+                            .addComponent(textBingSos)))
+                    .addGroup(panelInsertSosLayout.createSequentialGroup()
+                        .addGroup(panelInsertSosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblNamaI1)
+                            .addComponent(lblNIMSos))
+                        .addGap(86, 86, 86)
+                        .addGroup(panelInsertSosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(textNamaSos)
+                            .addComponent(textNIMSos)))
+                    .addGroup(panelInsertSosLayout.createSequentialGroup()
+                        .addGroup(panelInsertSosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(panelInsertSosLayout.createSequentialGroup()
+                                .addGap(130, 130, 130)
+                                .addComponent(lblFormInsertSos))
+                            .addComponent(lblUNIPS)
+                            .addComponent(lblMatI1)
+                            .addComponent(lblBinggrisI1)
+                            .addComponent(lblBindoISos, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(0, 132, Short.MAX_VALUE)))
+                .addContainerGap())
+            .addGroup(panelInsertSosLayout.createSequentialGroup()
+                .addGap(171, 171, 171)
+                .addComponent(btnInsertFormSos)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        panelInsertSosLayout.setVerticalGroup(
+            panelInsertSosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelInsertSosLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(lblFormInsertSos)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 18, Short.MAX_VALUE)
+                .addGroup(panelInsertSosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblNIMSos)
+                    .addComponent(textNIMSos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(panelInsertSosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblNamaI1)
+                    .addComponent(textNamaSos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(panelInsertSosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblKelasI1)
+                    .addComponent(textKelasSos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(panelInsertSosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblMatI1)
+                    .addComponent(textMatSos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(panelInsertSosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblUNIPS)
+                    .addComponent(textIPSinsert, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(panelInsertSosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblBindoISos)
+                    .addComponent(textBISos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(panelInsertSosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblBinggrisI1)
+                    .addComponent(textBingSos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(52, 52, 52)
+                .addComponent(btnInsertFormSos)
+                .addGap(51, 51, 51))
+        );
+
+        panelAfterLogin.add(panelInsertSos);
+        panelInsertSos.setBounds(455, 12, 423, 431);
+
+        panelButtonSos.setBackground(new java.awt.Color(242, 238, 229));
+
+        buttonInsertSos.setText("INSERT");
+        buttonInsertSos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonInsertSosActionPerformed(evt);
+            }
+        });
+
+        btnShowSos.setText("SHOW");
+        btnShowSos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnShowSosActionPerformed(evt);
+            }
+        });
+
+        buttonUpdateSos.setText("UPDATE");
+        buttonUpdateSos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonUpdateSosActionPerformed(evt);
+            }
+        });
+
+        buttonDeleteSos.setText("DELETE");
+        buttonDeleteSos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonDeleteSosActionPerformed(evt);
+            }
+        });
+
+        btn_add_student1.setText("Add new Student");
+        btn_add_student1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_add_student1ActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout panelButtonSosLayout = new javax.swing.GroupLayout(panelButtonSos);
+        panelButtonSos.setLayout(panelButtonSosLayout);
+        panelButtonSosLayout.setHorizontalGroup(
+            panelButtonSosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelButtonSosLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(panelButtonSosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panelButtonSosLayout.createSequentialGroup()
+                        .addComponent(buttonInsertSos)
+                        .addGap(36, 36, 36)
+                        .addComponent(btnShowSos)
+                        .addGap(38, 38, 38)
+                        .addComponent(buttonUpdateSos)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 48, Short.MAX_VALUE)
+                        .addComponent(buttonDeleteSos))
+                    .addGroup(panelButtonSosLayout.createSequentialGroup()
+                        .addComponent(btn_add_student1, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap())
+        );
+        panelButtonSosLayout.setVerticalGroup(
+            panelButtonSosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelButtonSosLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(panelButtonSosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(buttonInsertSos)
+                    .addComponent(btnShowSos)
+                    .addComponent(buttonUpdateSos)
+                    .addComponent(buttonDeleteSos))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(btn_add_student1)
+                .addContainerGap(28, Short.MAX_VALUE))
+        );
+
+        panelAfterLogin.add(panelButtonSos);
+        panelButtonSos.setBounds(12, 167, 0, 100);
 
         PanelAwal.add(panelAfterLogin);
         panelAfterLogin.setBounds(0, 0, 900, 480);
@@ -766,11 +1222,23 @@ public class GradeRecordsGUI extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(null, "Login Successful", "Success", JOptionPane.INFORMATION_MESSAGE);
                 panelLogin.setVisible(false);
                 panelAfterLogin.setVisible(true);
-                panelInsert.setVisible(true);
+                panelInsert.setVisible(false);
                 panelUpdate.setVisible(false);
                 panelDelete.setVisible(false);
+                panelDeleteSos.setVisible(false);
+                panelInsertSos.setVisible(false);
+                panelUpdateSos.setVisible(false);                
                 txtlog_name.setText(teach.getName());
                 txtlog_class.setText(teach.getClass_());
+                String ehe = txtlog_class.getText();
+                //NANTI DIUBAH ARRAY DAN FOR
+                 if(ehe.equals("3SC1") || ehe.equals("3SC2") || ehe.equals("3SC3") || ehe.equals("3SC4") || ehe.equals("3SC5") || ehe.equals("3SC6") || ehe.equals("3SC7") || ehe.equals("3SC8")){
+                 panelButton.setVisible(true);
+                 panelButtonSos.setVisible(false);
+                 }else if(ehe.equals("3SO1") || ehe.equals("3SO2") || ehe.equals("3SO3") || ehe.equals("3SO4") || ehe.equals("3SO5") || ehe.equals("3SO6") || ehe.equals("3SO7") || ehe.equals("3SO8")){
+                 panelButton.setVisible(true);
+                 panelButtonSos.setVisible(true);    
+                 }
                 txtName.setText("");
                 txtPass.setText("");
                 
@@ -798,6 +1266,9 @@ public class GradeRecordsGUI extends javax.swing.JFrame {
         panelInsert.setVisible(true);
         panelDelete.setVisible(false);
         panelUpdate.setVisible(false);
+        panelInsertSos.setVisible(false);
+        panelDeleteSos.setVisible(false);
+        panelUpdateSos.setVisible(false);
         textNama.setText("");
         textKelas.setText("");
         textNIM.setText("");
@@ -807,6 +1278,9 @@ public class GradeRecordsGUI extends javax.swing.JFrame {
         panelInsert.setVisible(false);
         panelDelete.setVisible(false);
         panelUpdate.setVisible(true);
+        panelInsertSos.setVisible(false);
+        panelDeleteSos.setVisible(false);
+        panelUpdateSos.setVisible(false);
         textNamau.setText("");
         textKelasu.setText("");
         textNIMu.setText("");
@@ -816,6 +1290,9 @@ public class GradeRecordsGUI extends javax.swing.JFrame {
         panelInsert.setVisible(false);
         panelDelete.setVisible(true);
         panelUpdate.setVisible(false);
+        panelInsertSos.setVisible(false);
+        panelDeleteSos.setVisible(false);
+        panelUpdateSos.setVisible(false);
     }//GEN-LAST:event_buttonDeleteActionPerformed
 
     private void btnShowActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnShowActionPerformed
@@ -826,8 +1303,10 @@ public class GradeRecordsGUI extends javax.swing.JFrame {
         int getrows = tableSiswa.getSelectedRow();
         String status = (tableSiswa.getModel().getValueAt(getrows, 3).toString());
         String nim    = (tableSiswa.getModel().getValueAt(getrows, 0).toString());
+        String klas= (tableSiswa.getModel().getValueAt(getrows, 2).toString());
         
-        if(status.equals("not updated")){
+        if((status.equals("not updated")&& (klas.equals("3SC1") || klas.equals("3SC2") || klas.equals("3SC3") || klas.equals("3SC4") || klas.equals("3SC5") || klas.equals("3SC6") || klas.equals("3SC7") || klas.equals("3SC8") )) 
+                || status.equals("deleted")&& (klas.equals("3SC1") || klas.equals("3SC2") || klas.equals("3SC3") || klas.equals("3SC4") || klas.equals("3SC5") || klas.equals("3SC6") || klas.equals("3SC7") || klas.equals("3SC8") )) {
             panelInsert.setVisible(true);
             panelUpdate.setVisible(false);
             try{
@@ -842,7 +1321,34 @@ public class GradeRecordsGUI extends javax.swing.JFrame {
             }catch(Exception ex){
                 System.out.println("Error : " + ex.getMessage());
             }
-        }else if(status.equals("updated")){
+        }else if(status.equals("not updated")&& (klas.equals("3SO1") || klas.equals("3SO2") || klas.equals("3SO3") || klas.equals("3SO4") || klas.equals("3SO5") || klas.equals("3SO6") || klas.equals("3SO7") || klas.equals("3SO8") )
+                || status.equals("deleted")&& (klas.equals("3SO1") || klas.equals("3SO2") || klas.equals("3SO3") || klas.equals("3SO4") || klas.equals("3SO5") || klas.equals("3SO6") || klas.equals("3SO7") || klas.equals("3SO8") ) ){
+            
+            panelInsert.setVisible(false);
+            panelUpdate.setVisible(false);
+            panelDeleteSos.setVisible(false);
+            panelDelete.setVisible(false);
+              panelInsertSos.setVisible(true);
+            panelUpdateSos.setVisible(false);
+            try{
+                StudentDAO stud = new StudentDAO();
+                ResultSet rs = stud.getbyNIM(nim);
+                if(rs.next()){
+                    textNIMSos.setText(rs.getString("nim"));
+                    textNIMSos.setEditable(false);
+                    textNamaSos.setText(rs.getString("name"));
+                    textKelasSos.setText(rs.getString("class"));
+                }
+            }catch(Exception ex){
+                System.out.println("Error : " + ex.getMessage());
+            }
+            
+            
+            
+        }
+        
+        
+        else if(status.equals("updated")){
             panelInsert.setVisible(false);
             panelUpdate.setVisible(true);
             try{
@@ -880,6 +1386,54 @@ public class GradeRecordsGUI extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Logout Successful", "Success", JOptionPane.INFORMATION_MESSAGE);
         }
     }//GEN-LAST:event_btn_logoutActionPerformed
+
+    private void btnUpdateSosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateSosActionPerformed
+         
+    }//GEN-LAST:event_btnUpdateSosActionPerformed
+
+    private void btnDeleteFormSosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteFormSosActionPerformed
+        
+    }//GEN-LAST:event_btnDeleteFormSosActionPerformed
+
+    private void btnInsertFormSosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInsertFormSosActionPerformed
+        
+    }//GEN-LAST:event_btnInsertFormSosActionPerformed
+
+    private void buttonInsertSosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonInsertSosActionPerformed
+  panelInsert.setVisible(false);
+        panelDelete.setVisible(false);
+        panelUpdate.setVisible(false);
+        panelInsertSos.setVisible(true);
+        panelDeleteSos.setVisible(false);
+        panelUpdateSos.setVisible(false);
+    }//GEN-LAST:event_buttonInsertSosActionPerformed
+
+    private void btnShowSosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnShowSosActionPerformed
+        showDataStudent();
+    }//GEN-LAST:event_btnShowSosActionPerformed
+
+    private void buttonUpdateSosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonUpdateSosActionPerformed
+         panelInsert.setVisible(false);
+        panelDelete.setVisible(false);
+        panelUpdate.setVisible(false);
+        panelInsertSos.setVisible(false);
+        panelDeleteSos.setVisible(false);
+        panelUpdateSos.setVisible(true);
+    }//GEN-LAST:event_buttonUpdateSosActionPerformed
+
+    private void buttonDeleteSosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonDeleteSosActionPerformed
+          panelInsert.setVisible(false);
+        panelDelete.setVisible(false);
+        panelUpdate.setVisible(false);
+        panelInsertSos.setVisible(false);
+        panelDeleteSos.setVisible(true);
+        panelUpdateSos.setVisible(false);
+    }//GEN-LAST:event_buttonDeleteSosActionPerformed
+
+    private void btn_add_student1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_add_student1ActionPerformed
+        AddStudentForm add = new AddStudentForm();
+        add.setVisible(true);
+    }//GEN-LAST:event_btn_add_student1ActionPerformed
     
     private DefaultTableModel tabelModelData()
     {      
@@ -951,24 +1505,38 @@ public class GradeRecordsGUI extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel PanelAwal;
     private javax.swing.JButton btnDeleteForm;
+    private javax.swing.JButton btnDeleteFormSos;
     private javax.swing.JButton btnInsertForm;
+    private javax.swing.JButton btnInsertFormSos;
     private javax.swing.JButton btnShow;
+    private javax.swing.JButton btnShowSos;
     private javax.swing.JButton btnUpdateForm;
+    private javax.swing.JButton btnUpdateSos;
     private javax.swing.JButton btn_add_student;
+    private javax.swing.JButton btn_add_student1;
     private javax.swing.JButton btn_logout;
     private javax.swing.JButton buttonDelete;
+    private javax.swing.JButton buttonDeleteSos;
     private javax.swing.JButton buttonInsert;
+    private javax.swing.JButton buttonInsertSos;
     private javax.swing.JButton buttonUpdate;
+    private javax.swing.JButton buttonUpdateSos;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel lblBindo;
     private javax.swing.JLabel lblBindoD;
+    private javax.swing.JLabel lblBindoDSos;
     private javax.swing.JLabel lblBindoI;
+    private javax.swing.JLabel lblBindoISos;
+    private javax.swing.JLabel lblBindoSos;
     private javax.swing.JLabel lblBinggris;
     private javax.swing.JLabel lblBinggrisD;
+    private javax.swing.JLabel lblBinggrisD1;
     private javax.swing.JLabel lblBinggrisI;
+    private javax.swing.JLabel lblBinggrisI1;
+    private javax.swing.JLabel lblBinggrisSos;
     private javax.swing.JLabel lblBiologi;
     private javax.swing.JLabel lblBiologiD;
     private javax.swing.JLabel lblBiologiI;
@@ -976,49 +1544,84 @@ public class GradeRecordsGUI extends javax.swing.JFrame {
     private javax.swing.JLabel lblFisikaD;
     private javax.swing.JLabel lblFisikaI;
     private javax.swing.JLabel lblFormDelete;
+    private javax.swing.JLabel lblFormDeleteSos;
     private javax.swing.JLabel lblFormInsert;
+    private javax.swing.JLabel lblFormInsertSos;
+    private javax.swing.JLabel lblIPS;
+    private javax.swing.JLabel lblIPSDSos;
     private javax.swing.JLabel lblIconNama;
     private javax.swing.JLabel lblIconPassword;
     private javax.swing.JLabel lblKelas;
     private javax.swing.JLabel lblKelasD;
+    private javax.swing.JLabel lblKelasDSos;
     private javax.swing.JLabel lblKelasI;
+    private javax.swing.JLabel lblKelasI1;
+    private javax.swing.JLabel lblKelasSos;
     private javax.swing.JLabel lblMat;
     private javax.swing.JLabel lblMatD;
+    private javax.swing.JLabel lblMatDSos;
     private javax.swing.JLabel lblMatI;
+    private javax.swing.JLabel lblMatI1;
+    private javax.swing.JLabel lblMatSos;
+    private javax.swing.JLabel lblNIMSos;
+    private javax.swing.JLabel lblNIMsos;
     private javax.swing.JLabel lblNama;
     private javax.swing.JLabel lblNamaD;
+    private javax.swing.JLabel lblNamaDSos;
     private javax.swing.JLabel lblNamaI;
+    private javax.swing.JLabel lblNamaI1;
+    private javax.swing.JLabel lblNamaSos;
     private javax.swing.JLabel lblTITLEFORM;
+    private javax.swing.JLabel lblTITLESOS;
     private javax.swing.JLabel lblTitle;
+    private javax.swing.JLabel lblUNIPS;
     private javax.swing.JButton loginButton;
     private javax.swing.JPanel panelAfterLogin;
     private javax.swing.JPanel panelButton;
+    private javax.swing.JPanel panelButtonSos;
     private javax.swing.JPanel panelDelete;
+    private javax.swing.JPanel panelDeleteSos;
     private javax.swing.JPanel panelFormLogin;
     private javax.swing.JPanel panelIcon;
     private javax.swing.JPanel panelIconAfterLogin;
     private javax.swing.JPanel panelInsert;
+    private javax.swing.JPanel panelInsertSos;
     private javax.swing.JPanel panelLogin;
     private javax.swing.JPanel panelTable;
     private javax.swing.JPanel panelUpdate;
+    private javax.swing.JPanel panelUpdateSos;
     private javax.swing.JScrollPane scrollPanel;
     private javax.swing.JTable tableSiswa;
     private javax.swing.JTextField textBI;
+    private javax.swing.JTextField textBISos;
     private javax.swing.JTextField textBIu;
+    private javax.swing.JTextField textBIuSos;
     private javax.swing.JTextField textBing;
+    private javax.swing.JTextField textBingSos;
     private javax.swing.JTextField textBingu;
+    private javax.swing.JTextField textBinguSos;
     private javax.swing.JTextField textBio;
     private javax.swing.JTextField textBiou;
     private javax.swing.JTextField textFis;
     private javax.swing.JTextField textFisu;
+    private javax.swing.JTextField textIPS;
+    private javax.swing.JTextField textIPSinsert;
     private javax.swing.JTextField textKelas;
+    private javax.swing.JTextField textKelasSos;
     private javax.swing.JTextField textKelasu;
+    private javax.swing.JTextField textKelasuSos;
     private javax.swing.JTextField textMat;
+    private javax.swing.JTextField textMatSos;
     private javax.swing.JTextField textMatu;
+    private javax.swing.JTextField textMatuSos;
     private javax.swing.JTextField textNIM;
+    private javax.swing.JTextField textNIMSos;
     private javax.swing.JTextField textNIMu;
+    private javax.swing.JTextField textNIMuSos;
     private javax.swing.JTextField textNama;
+    private javax.swing.JTextField textNamaSos;
     private javax.swing.JTextField textNamau;
+    private javax.swing.JTextField textNamauSos;
     private javax.swing.JTextField txtName;
     private javax.swing.JPasswordField txtPass;
     private javax.swing.JLabel txtlog_class;
