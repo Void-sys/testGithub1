@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Oct 20, 2019 at 10:29 AM
+-- Generation Time: Oct 22, 2019 at 03:23 AM
 -- Server version: 10.1.34-MariaDB
 -- PHP Version: 5.6.37
 
@@ -21,17 +21,6 @@ SET time_zone = "+00:00";
 --
 -- Database: `graderecord`
 --
-
--- --------------------------------------------------------
-
---
--- Table structure for table `tbl_class`
---
-
-CREATE TABLE `tbl_class` (
-  `id_class` int(10) NOT NULL,
-  `class_name` varchar(30) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -59,9 +48,23 @@ CREATE TABLE `tbl_grade` (
 
 CREATE TABLE `tbl_student` (
   `nim` varchar(12) NOT NULL,
-  `name` varchar(30) NOT NULL,
-  `class_id` int(10) NOT NULL
+  `name` varchar(99) NOT NULL,
+  `class` varchar(20) NOT NULL,
+  `status` varchar(99) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `tbl_student`
+--
+
+INSERT INTO `tbl_student` (`nim`, `name`, `class`, `status`) VALUES
+('1212121', 'Test Add 2', '3SC5', 'updated'),
+('1212331', 'Test Again', '3SC5', 'not updated'),
+('123', 'Test add', '3SC5', 'not updated'),
+('123123', 'aaaaa', '3SC7', 'not updated'),
+('14543234', 'aawdawd', '3SC5', 'not updated'),
+('15434', 'wadadw', '3SC6', 'not updated'),
+('213131231', 'aaaaa', '3SC2', 'not updated');
 
 -- --------------------------------------------------------
 
@@ -72,20 +75,21 @@ CREATE TABLE `tbl_student` (
 CREATE TABLE `tbl_teacher` (
   `id` int(10) NOT NULL,
   `name` varchar(30) NOT NULL,
-  `class_id` int(10) NOT NULL,
+  `class` varchar(20) NOT NULL,
   `username` varchar(30) NOT NULL,
   `password` varchar(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Indexes for dumped tables
+-- Dumping data for table `tbl_teacher`
 --
 
+INSERT INTO `tbl_teacher` (`id`, `name`, `class`, `username`, `password`) VALUES
+(1, 'Nevir Sensei', '3SC5', 'shycho', 'shycho');
+
 --
--- Indexes for table `tbl_class`
+-- Indexes for dumped tables
 --
-ALTER TABLE `tbl_class`
-  ADD PRIMARY KEY (`id_class`);
 
 --
 -- Indexes for table `tbl_grade`
@@ -110,12 +114,6 @@ ALTER TABLE `tbl_teacher`
 --
 
 --
--- AUTO_INCREMENT for table `tbl_class`
---
-ALTER TABLE `tbl_class`
-  MODIFY `id_class` int(10) NOT NULL AUTO_INCREMENT;
-
---
 -- AUTO_INCREMENT for table `tbl_grade`
 --
 ALTER TABLE `tbl_grade`
@@ -125,7 +123,7 @@ ALTER TABLE `tbl_grade`
 -- AUTO_INCREMENT for table `tbl_teacher`
 --
 ALTER TABLE `tbl_teacher`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
