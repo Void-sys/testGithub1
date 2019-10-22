@@ -505,7 +505,7 @@ public class GradeRecordsGUI extends javax.swing.JFrame {
                         .addComponent(btnShow)
                         .addGap(38, 38, 38)
                         .addComponent(buttonUpdate)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 48, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 54, Short.MAX_VALUE)
                         .addComponent(buttonDelete))
                     .addGroup(panelButtonLayout.createSequentialGroup()
                         .addComponent(btn_add_student, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -527,7 +527,7 @@ public class GradeRecordsGUI extends javax.swing.JFrame {
         );
 
         panelAfterLogin.add(panelButton);
-        panelButton.setBounds(12, 167, 425, 100);
+        panelButton.setBounds(12, 167, 420, 100);
 
         panelTable.setBackground(new java.awt.Color(242, 238, 229));
 
