@@ -88,6 +88,7 @@ public class GradeRecordsGUI extends javax.swing.JFrame {
         btnShow = new javax.swing.JButton();
         buttonUpdate = new javax.swing.JButton();
         buttonDelete = new javax.swing.JButton();
+        btn_add_student = new javax.swing.JButton();
         panelTable = new javax.swing.JPanel();
         scrollPanel = new javax.swing.JScrollPane();
         tableSiswa = new javax.swing.JTable();
@@ -120,7 +121,6 @@ public class GradeRecordsGUI extends javax.swing.JFrame {
         lblBinggrisD = new javax.swing.JLabel();
         lblBiologiD = new javax.swing.JLabel();
         btnDeleteForm = new javax.swing.JButton();
-        btn_add_student = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -226,6 +226,7 @@ public class GradeRecordsGUI extends javax.swing.JFrame {
         panelAfterLogin.setLayout(null);
 
         panelIconAfterLogin.setBackground(new java.awt.Color(242, 238, 229));
+        panelIconAfterLogin.setPreferredSize(new java.awt.Dimension(427, 141));
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel3.setText("Logged in as : ");
@@ -277,11 +278,11 @@ public class GradeRecordsGUI extends javax.swing.JFrame {
                     .addComponent(txtlog_class))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btn_logout)
-                .addContainerGap(52, Short.MAX_VALUE))
+                .addContainerGap(56, Short.MAX_VALUE))
         );
 
         panelAfterLogin.add(panelIconAfterLogin);
-        panelIconAfterLogin.setBounds(12, 12, 425, 137);
+        panelIconAfterLogin.setBounds(12, 12, 425, 141);
 
         panelInsert.setBackground(new java.awt.Color(242, 238, 229));
 
@@ -435,35 +436,49 @@ public class GradeRecordsGUI extends javax.swing.JFrame {
             }
         });
 
+        btn_add_student.setText("Add new Student");
+        btn_add_student.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_add_studentActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout panelButtonLayout = new javax.swing.GroupLayout(panelButton);
         panelButton.setLayout(panelButtonLayout);
         panelButtonLayout.setHorizontalGroup(
             panelButtonLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelButtonLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(buttonInsert)
-                .addGap(36, 36, 36)
-                .addComponent(btnShow)
-                .addGap(38, 38, 38)
-                .addComponent(buttonUpdate)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 48, Short.MAX_VALUE)
-                .addComponent(buttonDelete)
+                .addGroup(panelButtonLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panelButtonLayout.createSequentialGroup()
+                        .addComponent(buttonInsert)
+                        .addGap(36, 36, 36)
+                        .addComponent(btnShow)
+                        .addGap(38, 38, 38)
+                        .addComponent(buttonUpdate)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 48, Short.MAX_VALUE)
+                        .addComponent(buttonDelete))
+                    .addGroup(panelButtonLayout.createSequentialGroup()
+                        .addComponent(btn_add_student, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         panelButtonLayout.setVerticalGroup(
             panelButtonLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelButtonLayout.createSequentialGroup()
-                .addContainerGap(34, Short.MAX_VALUE)
+                .addContainerGap()
                 .addGroup(panelButtonLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(buttonInsert)
                     .addComponent(btnShow)
                     .addComponent(buttonUpdate)
                     .addComponent(buttonDelete))
-                .addGap(29, 29, 29))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(btn_add_student)
+                .addContainerGap(32, Short.MAX_VALUE))
         );
 
         panelAfterLogin.add(panelButton);
-        panelButton.setBounds(12, 167, 414, 86);
+        panelButton.setBounds(12, 167, 414, 100);
 
         panelTable.setBackground(new java.awt.Color(242, 238, 229));
 
@@ -722,15 +737,6 @@ public class GradeRecordsGUI extends javax.swing.JFrame {
         panelAfterLogin.add(panelDelete);
         panelDelete.setBounds(455, 12, 430, 440);
 
-        btn_add_student.setText("Add new Student");
-        btn_add_student.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_add_studentActionPerformed(evt);
-            }
-        });
-        panelAfterLogin.add(btn_add_student);
-        btn_add_student.setBounds(10, 470, 170, 23);
-
         PanelAwal.add(panelAfterLogin);
         panelAfterLogin.setBounds(0, 0, 900, 480);
 
@@ -876,7 +882,7 @@ public class GradeRecordsGUI extends javax.swing.JFrame {
     }//GEN-LAST:event_btn_logoutActionPerformed
     
     private DefaultTableModel tabelModelData()
-    {        
+    {      
         String[] namaKolom = {"NIM", "Nama Siswa/Siswi", "Kelas", "Status"};
         int rows = 0;
         try{
