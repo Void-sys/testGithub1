@@ -105,11 +105,41 @@ public class GradeSCDAO {
         return res;
     }
     
+    public ResultSet getGradeByNim_soc(String nim){
+        try{
+            String sql = "select tbl_student.nim as 'st_nim', tbl_student.name as 'st_name', tbl_student.class as 'st_class', tbl_grade_social.score_indo, tbl_grade_social.score_mtk, tbl_grade_social.score_inggris, tbl_grade_social.score_ips from tbl_student join tbl_grade_social on tbl_student.nim = tbl_grade_social.student_nim where nim=?";
+            prep = conn.prepareStatement(sql);
+            prep.setString(1, nim);
+            res = prep.executeQuery();
+        }
+        catch (SQLException ex) {
+            Logger.getLogger(GradeSCDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return res;
+    }
+    
     public boolean deleteGradeByNim(String nim){
         boolean success = false;
         int op1 = 0, op2 = 0;
         try{
             String sql1 = "delete from tbl_grade where student_nim=?";
+            prep = conn.prepareStatement(sql1);
+            prep.setString(1, nim);
+            op1 = prep.executeUpdate();
+            op2 = updateStudentAfterDelete(nim);
+            if(op1 == 1 && op2 == 1) success = true;
+        }
+        catch (SQLException ex) {
+            Logger.getLogger(GradeSCDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return success;
+    }
+    
+    public boolean deleteGradeByNim_soc(String nim){
+        boolean success = false;
+        int op1 = 0, op2 = 0;
+        try{
+            String sql1 = "delete from tbl_grade_social where student_nim=?";
             prep = conn.prepareStatement(sql1);
             prep.setString(1, nim);
             op1 = prep.executeUpdate();
