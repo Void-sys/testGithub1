@@ -36,9 +36,11 @@ public class AddStudentForm extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         txt_name = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
-        combo_class = new javax.swing.JComboBox<>();
         btn_add = new javax.swing.JButton();
         btn_reset = new javax.swing.JButton();
+        txt_class = new javax.swing.JLabel();
+
+        setBackground(new java.awt.Color(194, 232, 206));
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel1.setText("Add new Student");
@@ -55,8 +57,6 @@ public class AddStudentForm extends javax.swing.JFrame {
 
         jLabel4.setText("Class Name");
 
-        combo_class.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "3SC1", "3SC2", "3SC3", "3SC4", "3SC5", "3SC6", "3SC7", "3SC8" }));
-
         btn_add.setText("Add Student");
         btn_add.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -70,6 +70,8 @@ public class AddStudentForm extends javax.swing.JFrame {
                 btn_resetActionPerformed(evt);
             }
         });
+
+        txt_class.setText("- - -");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -85,11 +87,11 @@ public class AddStudentForm extends javax.swing.JFrame {
                         .addComponent(jLabel3)
                         .addComponent(txt_name, javax.swing.GroupLayout.DEFAULT_SIZE, 259, Short.MAX_VALUE))
                     .addComponent(jLabel4)
-                    .addComponent(combo_class, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(btn_add, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(btn_reset, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(btn_reset, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txt_class))
                 .addContainerGap(23, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -108,8 +110,8 @@ public class AddStudentForm extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(jLabel4)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(combo_class, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(31, 31, 31)
+                .addComponent(txt_class)
+                .addGap(37, 37, 37)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btn_add)
                     .addComponent(btn_reset))
@@ -122,7 +124,7 @@ public class AddStudentForm extends javax.swing.JFrame {
     private void btn_resetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_resetActionPerformed
         txt_nim.setText("");
         txt_name.setText("");
-        combo_class.setSelectedIndex(0);
+        txt_class.setText("- - -");
     }//GEN-LAST:event_btn_resetActionPerformed
 
     private void txt_nimKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_nimKeyTyped
@@ -140,7 +142,7 @@ public class AddStudentForm extends javax.swing.JFrame {
             add_stud = new StudentDAO();
             String nim = txt_nim.getText();
             String name = txt_name.getText();
-            String clss = combo_class.getSelectedItem().toString();
+            String clss = txt_class.getText();
             String status = "not updated";
             int success = add_stud.addStudent(nim, name, clss, status);
             if(success != 0){
@@ -187,11 +189,11 @@ public class AddStudentForm extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btn_add;
     private javax.swing.JButton btn_reset;
-    private javax.swing.JComboBox<String> combo_class;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    public javax.swing.JLabel txt_class;
     private javax.swing.JTextField txt_name;
     private javax.swing.JTextField txt_nim;
     // End of variables declaration//GEN-END:variables
