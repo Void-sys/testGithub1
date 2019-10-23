@@ -6,6 +6,7 @@
 package graderecords;
 import DBConn.koneksi;
 import DBDao.GradeSCDAO;
+import DBDao.GradeSODAO;
 import DBDao.StudentDAO;
 import DBDao.TeacherDAO;
 import com.sun.glass.events.KeyEvent;
@@ -32,6 +33,7 @@ public class GradeRecordsGUI extends javax.swing.JFrame {
     TeacherDAO teach;
     StudentDAO stud;
     GradeSCDAO grade_sc;
+    GradeSODAO grade_so;
     String[][] dataStudent;
     
     public GradeRecordsGUI() {
@@ -85,6 +87,7 @@ public class GradeRecordsGUI extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         textNIMInsert = new javax.swing.JTextField();
         searchInsertButton = new javax.swing.JButton();
+        cancelButtonInsert = new javax.swing.JButton();
         panelButton = new javax.swing.JPanel();
         buttonInsert = new javax.swing.JButton();
         btnShow = new javax.swing.JButton();
@@ -149,6 +152,7 @@ public class GradeRecordsGUI extends javax.swing.JFrame {
         textBIUpdateSos = new javax.swing.JTextField();
         textBingUpdateSos = new javax.swing.JTextField();
         btnSearchUpdateSOS = new javax.swing.JButton();
+        btnCancelUpdateSos = new javax.swing.JButton();
         panelDeleteSos = new javax.swing.JPanel();
         lblFormDeleteSos = new javax.swing.JLabel();
         lblNamaDSos = new javax.swing.JLabel();
@@ -185,7 +189,8 @@ public class GradeRecordsGUI extends javax.swing.JFrame {
         textBingSosInsert = new javax.swing.JTextField();
         lblNIMSos = new javax.swing.JLabel();
         textNIMSosInsert = new javax.swing.JTextField();
-        searchButtonInsert = new javax.swing.JButton();
+        searchButtonInsertSos = new javax.swing.JButton();
+        btnCancelSosInsert = new javax.swing.JButton();
         panelButtonSos = new javax.swing.JPanel();
         buttonInsertSos = new javax.swing.JButton();
         btnShowSos = new javax.swing.JButton();
@@ -358,24 +363,31 @@ public class GradeRecordsGUI extends javax.swing.JFrame {
         panelInsert.setBackground(new java.awt.Color(242, 238, 229));
 
         lblFormInsert.setFont(new java.awt.Font("Yu Gothic UI", 0, 24)); // NOI18N
+        lblFormInsert.setForeground(new java.awt.Color(0, 0, 0));
         lblFormInsert.setText("INSERT FORM");
 
         lblNamaI.setFont(new java.awt.Font("Yu Gothic UI", 0, 12)); // NOI18N
+        lblNamaI.setForeground(new java.awt.Color(0, 0, 0));
         lblNamaI.setText("NAMA SISWA/SISWI :");
 
         lblKelasI.setFont(new java.awt.Font("Yu Gothic UI", 0, 12)); // NOI18N
+        lblKelasI.setForeground(new java.awt.Color(0, 0, 0));
         lblKelasI.setText("KELAS  :");
 
         lblMatI.setFont(new java.awt.Font("Yu Gothic UI", 0, 12)); // NOI18N
+        lblMatI.setForeground(new java.awt.Color(0, 0, 0));
         lblMatI.setText("NILAI UN MATEMATIKA :");
 
         lblIPAI.setFont(new java.awt.Font("Yu Gothic UI", 0, 12)); // NOI18N
+        lblIPAI.setForeground(new java.awt.Color(0, 0, 0));
         lblIPAI.setText("NILAI UN IPA :");
 
         lblBindoI.setFont(new java.awt.Font("Yu Gothic UI", 0, 12)); // NOI18N
+        lblBindoI.setForeground(new java.awt.Color(0, 0, 0));
         lblBindoI.setText("NILAI UN BAHASA INDONESIA :");
 
         lblBinggrisI.setFont(new java.awt.Font("Yu Gothic UI", 0, 12)); // NOI18N
+        lblBinggrisI.setForeground(new java.awt.Color(0, 0, 0));
         lblBinggrisI.setText("NILAI UN BAHASA INGGRIS :");
 
         btnInsertForm.setText("INSERT");
@@ -386,9 +398,31 @@ public class GradeRecordsGUI extends javax.swing.JFrame {
         });
 
         jLabel1.setFont(new java.awt.Font("Yu Gothic UI", 0, 12)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(0, 0, 0));
         jLabel1.setText("NIM :");
 
+        textNIMInsert.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                textNIMInsertKeyPressed(evt);
+            }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                textNIMInsertKeyTyped(evt);
+            }
+        });
+
         searchInsertButton.setText("SEARCH");
+        searchInsertButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                searchInsertButtonActionPerformed(evt);
+            }
+        });
+
+        cancelButtonInsert.setText("CANCEL");
+        cancelButtonInsert.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cancelButtonInsertActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout panelInsertLayout = new javax.swing.GroupLayout(panelInsert);
         panelInsert.setLayout(panelInsertLayout);
@@ -412,7 +446,10 @@ public class GradeRecordsGUI extends javax.swing.JFrame {
                         .addGap(86, 86, 86)
                         .addGroup(panelInsertLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(textNamaInsert)
-                            .addComponent(textNIMInsert)))
+                            .addGroup(panelInsertLayout.createSequentialGroup()
+                                .addComponent(textNIMInsert)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(searchInsertButton))))
                     .addGroup(panelInsertLayout.createSequentialGroup()
                         .addGroup(panelInsertLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(panelInsertLayout.createSequentialGroup()
@@ -421,30 +458,26 @@ public class GradeRecordsGUI extends javax.swing.JFrame {
                             .addComponent(lblIPAI)
                             .addComponent(lblMatI)
                             .addComponent(lblBinggrisI)
-                            .addComponent(lblBindoI, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(0, 132, Short.MAX_VALUE)))
+                            .addGroup(panelInsertLayout.createSequentialGroup()
+                                .addGroup(panelInsertLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(btnInsertForm)
+                                    .addComponent(lblBindoI, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(57, 57, 57)
+                                .addComponent(cancelButtonInsert)))
+                        .addGap(0, 102, Short.MAX_VALUE)))
                 .addContainerGap())
-            .addGroup(panelInsertLayout.createSequentialGroup()
-                .addGap(171, 171, 171)
-                .addComponent(btnInsertForm)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelInsertLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(searchInsertButton)
-                .addGap(80, 80, 80))
         );
         panelInsertLayout.setVerticalGroup(
             panelInsertLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelInsertLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(lblFormInsert)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 15, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 12, Short.MAX_VALUE)
                 .addGroup(panelInsertLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
-                    .addComponent(textNIMInsert, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(searchInsertButton)
-                .addGap(10, 10, 10)
+                    .addComponent(textNIMInsert, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(searchInsertButton))
+                .addGap(18, 18, 18)
                 .addGroup(panelInsertLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblNamaI)
                     .addComponent(textNamaInsert, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -468,13 +501,15 @@ public class GradeRecordsGUI extends javax.swing.JFrame {
                 .addGroup(panelInsertLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblBinggrisI)
                     .addComponent(textBingInsert, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(26, 26, 26)
-                .addComponent(btnInsertForm)
+                .addGap(52, 52, 52)
+                .addGroup(panelInsertLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnInsertForm)
+                    .addComponent(cancelButtonInsert))
                 .addGap(51, 51, 51))
         );
 
         panelAfterLogin.add(panelInsert);
-        panelInsert.setBounds(455, 12, 421, 432);
+        panelInsert.setBounds(455, 12, 423, 431);
 
         panelButton.setBackground(new java.awt.Color(242, 238, 229));
 
@@ -766,7 +801,7 @@ public class GradeRecordsGUI extends javax.swing.JFrame {
         panelDelete.add(btn_cancel);
         btn_cancel.setBounds(210, 340, 90, 30);
         panelDelete.add(txt_nim_del);
-        txt_nim_del.setBounds(70, 80, 270, 20);
+        txt_nim_del.setBounds(70, 80, 270, 19);
 
         btn_search_del.setText("Search");
         btn_search_del.addActionListener(new java.awt.event.ActionListener() {
@@ -775,7 +810,7 @@ public class GradeRecordsGUI extends javax.swing.JFrame {
             }
         });
         panelDelete.add(btn_search_del);
-        btn_search_del.setBounds(350, 80, 65, 23);
+        btn_search_del.setBounds(350, 80, 69, 25);
 
         lblKelasD3.setFont(new java.awt.Font("Yu Gothic UI", 0, 12)); // NOI18N
         lblKelasD3.setText("KELAS  :");
@@ -784,7 +819,7 @@ public class GradeRecordsGUI extends javax.swing.JFrame {
 
         txt_eng_del.setText("- - -");
         panelDelete.add(txt_eng_del);
-        txt_eng_del.setBounds(200, 290, 150, 14);
+        txt_eng_del.setBounds(200, 290, 150, 15);
 
         lblKelasD4.setFont(new java.awt.Font("Yu Gothic UI", 0, 12)); // NOI18N
         lblKelasD4.setText("NAMA : ");
@@ -793,23 +828,23 @@ public class GradeRecordsGUI extends javax.swing.JFrame {
 
         txt_name_del.setText("- - -");
         panelDelete.add(txt_name_del);
-        txt_name_del.setBounds(90, 120, 170, 14);
+        txt_name_del.setBounds(90, 120, 170, 15);
 
         txt_class_del.setText("- - -");
         panelDelete.add(txt_class_del);
-        txt_class_del.setBounds(90, 150, 240, 14);
+        txt_class_del.setBounds(90, 150, 240, 15);
 
         txt_mtk_del.setText("- - -");
         panelDelete.add(txt_mtk_del);
-        txt_mtk_del.setBounds(180, 200, 150, 14);
+        txt_mtk_del.setBounds(180, 200, 150, 15);
 
         txt_ipa_del.setText("- - -");
         panelDelete.add(txt_ipa_del);
-        txt_ipa_del.setBounds(120, 230, 170, 14);
+        txt_ipa_del.setBounds(120, 230, 170, 15);
 
         txt_indo_del.setText("- - -");
         panelDelete.add(txt_indo_del);
-        txt_indo_del.setBounds(210, 260, 130, 14);
+        txt_indo_del.setBounds(210, 260, 130, 15);
 
         panelAfterLogin.add(panelDelete);
         panelDelete.setBounds(455, 12, 428, 440);
@@ -847,7 +882,25 @@ public class GradeRecordsGUI extends javax.swing.JFrame {
         lblNIMsos.setFont(new java.awt.Font("Yu Gothic UI", 0, 12)); // NOI18N
         lblNIMsos.setText("NIM :");
 
+        textNIMSosUpdate.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                textNIMSosUpdateKeyTyped(evt);
+            }
+        });
+
         btnSearchUpdateSOS.setText("SEARCH");
+        btnSearchUpdateSOS.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSearchUpdateSOSActionPerformed(evt);
+            }
+        });
+
+        btnCancelUpdateSos.setText("CANCEL");
+        btnCancelUpdateSos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCancelUpdateSosActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout panelUpdateSosLayout = new javax.swing.GroupLayout(panelUpdateSos);
         panelUpdateSos.setLayout(panelUpdateSosLayout);
@@ -855,15 +908,6 @@ public class GradeRecordsGUI extends javax.swing.JFrame {
             panelUpdateSosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelUpdateSosLayout.createSequentialGroup()
                 .addGroup(panelUpdateSosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(panelUpdateSosLayout.createSequentialGroup()
-                        .addGroup(panelUpdateSosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(panelUpdateSosLayout.createSequentialGroup()
-                                .addGap(169, 169, 169)
-                                .addComponent(btnUpdateSos))
-                            .addGroup(panelUpdateSosLayout.createSequentialGroup()
-                                .addGap(130, 130, 130)
-                                .addComponent(lblTITLESOS)))
-                        .addGap(0, 129, Short.MAX_VALUE))
                     .addGroup(panelUpdateSosLayout.createSequentialGroup()
                         .addContainerGap()
                         .addGroup(panelUpdateSosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -890,7 +934,18 @@ public class GradeRecordsGUI extends javax.swing.JFrame {
                                     .addComponent(textBIUpdateSos)
                                     .addComponent(textIPSUpdate)
                                     .addComponent(textMatUpdateSos)
-                                    .addComponent(textKelasUpdateSos))))))
+                                    .addComponent(textKelasUpdateSos)))))
+                    .addGroup(panelUpdateSosLayout.createSequentialGroup()
+                        .addGroup(panelUpdateSosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(panelUpdateSosLayout.createSequentialGroup()
+                                .addGap(130, 130, 130)
+                                .addComponent(lblTITLESOS))
+                            .addGroup(panelUpdateSosLayout.createSequentialGroup()
+                                .addGap(169, 169, 169)
+                                .addComponent(btnUpdateSos)
+                                .addGap(31, 31, 31)
+                                .addComponent(btnCancelUpdateSos)))
+                        .addGap(0, 69, Short.MAX_VALUE)))
                 .addContainerGap())
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelUpdateSosLayout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
@@ -933,7 +988,9 @@ public class GradeRecordsGUI extends javax.swing.JFrame {
                     .addComponent(lblBinggrisSos)
                     .addComponent(textBingUpdateSos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addComponent(btnUpdateSos)
+                .addGroup(panelUpdateSosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnUpdateSos)
+                    .addComponent(btnCancelUpdateSos))
                 .addGap(51, 51, 51))
         );
 
@@ -1102,29 +1159,36 @@ public class GradeRecordsGUI extends javax.swing.JFrame {
         );
 
         panelAfterLogin.add(panelDeleteSos);
-        panelDeleteSos.setBounds(455, 12, 430, 440);
+        panelDeleteSos.setBounds(455, 12, 437, 440);
 
         panelInsertSos.setBackground(new java.awt.Color(242, 238, 229));
 
         lblFormInsertSos.setFont(new java.awt.Font("Yu Gothic UI", 0, 24)); // NOI18N
+        lblFormInsertSos.setForeground(new java.awt.Color(0, 0, 0));
         lblFormInsertSos.setText("INSERT FORM");
 
         lblNamaI1.setFont(new java.awt.Font("Yu Gothic UI", 0, 12)); // NOI18N
+        lblNamaI1.setForeground(new java.awt.Color(0, 0, 0));
         lblNamaI1.setText("NAMA SISWA/SISWI :");
 
         lblKelasI1.setFont(new java.awt.Font("Yu Gothic UI", 0, 12)); // NOI18N
+        lblKelasI1.setForeground(new java.awt.Color(0, 0, 0));
         lblKelasI1.setText("KELAS  :");
 
         lblMatI1.setFont(new java.awt.Font("Yu Gothic UI", 0, 12)); // NOI18N
+        lblMatI1.setForeground(new java.awt.Color(0, 0, 0));
         lblMatI1.setText("NILAI UN MATEMATIKA :");
 
         lblUNIPS.setFont(new java.awt.Font("Yu Gothic UI", 0, 12)); // NOI18N
+        lblUNIPS.setForeground(new java.awt.Color(0, 0, 0));
         lblUNIPS.setText("NILAI UN IPS :");
 
         lblBindoISos.setFont(new java.awt.Font("Yu Gothic UI", 0, 12)); // NOI18N
+        lblBindoISos.setForeground(new java.awt.Color(0, 0, 0));
         lblBindoISos.setText("NILAI UN BAHASA INDONESIA :");
 
         lblBinggrisI1.setFont(new java.awt.Font("Yu Gothic UI", 0, 12)); // NOI18N
+        lblBinggrisI1.setForeground(new java.awt.Color(0, 0, 0));
         lblBinggrisI1.setText("NILAI UN BAHASA INGGRIS :");
 
         btnInsertFormSos.setText("INSERT");
@@ -1135,9 +1199,38 @@ public class GradeRecordsGUI extends javax.swing.JFrame {
         });
 
         lblNIMSos.setFont(new java.awt.Font("Yu Gothic UI", 0, 12)); // NOI18N
+        lblNIMSos.setForeground(new java.awt.Color(0, 0, 0));
         lblNIMSos.setText("NIM :");
 
-        searchButtonInsert.setText("SEARCH");
+        textNIMSosInsert.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                textNIMSosInsertActionPerformed(evt);
+            }
+        });
+        textNIMSosInsert.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                textNIMSosInsertKeyTyped(evt);
+            }
+        });
+
+        searchButtonInsertSos.setText("SEARCH");
+        searchButtonInsertSos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                searchButtonInsertSosActionPerformed(evt);
+            }
+        });
+        searchButtonInsertSos.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                searchButtonInsertSosKeyTyped(evt);
+            }
+        });
+
+        btnCancelSosInsert.setText("CANCEL");
+        btnCancelSosInsert.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCancelSosInsertActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout panelInsertSosLayout = new javax.swing.GroupLayout(panelInsertSos);
         panelInsertSos.setLayout(panelInsertSosLayout);
@@ -1160,8 +1253,11 @@ public class GradeRecordsGUI extends javax.swing.JFrame {
                             .addComponent(lblNIMSos))
                         .addGap(86, 86, 86)
                         .addGroup(panelInsertSosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(textNamaSosInsert)
-                            .addComponent(textNIMSosInsert)))
+                            .addGroup(panelInsertSosLayout.createSequentialGroup()
+                                .addComponent(textNIMSosInsert)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(searchButtonInsertSos))
+                            .addComponent(textNamaSosInsert)))
                     .addGroup(panelInsertSosLayout.createSequentialGroup()
                         .addGroup(panelInsertSosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(panelInsertSosLayout.createSequentialGroup()
@@ -1169,31 +1265,27 @@ public class GradeRecordsGUI extends javax.swing.JFrame {
                                 .addComponent(lblFormInsertSos))
                             .addComponent(lblUNIPS)
                             .addComponent(lblMatI1)
-                            .addComponent(lblBinggrisI1)
-                            .addComponent(lblBindoISos, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(0, 132, Short.MAX_VALUE)))
+                            .addComponent(lblBindoISos, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(panelInsertSosLayout.createSequentialGroup()
+                                .addGroup(panelInsertSosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(btnInsertFormSos)
+                                    .addComponent(lblBinggrisI1))
+                                .addGap(92, 92, 92)
+                                .addComponent(btnCancelSosInsert)))
+                        .addGap(0, 93, Short.MAX_VALUE)))
                 .addContainerGap())
-            .addGroup(panelInsertSosLayout.createSequentialGroup()
-                .addGap(171, 171, 171)
-                .addComponent(btnInsertFormSos)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelInsertSosLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(searchButtonInsert)
-                .addGap(85, 85, 85))
         );
         panelInsertSosLayout.setVerticalGroup(
             panelInsertSosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelInsertSosLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(lblFormInsertSos)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 18, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 15, Short.MAX_VALUE)
                 .addGroup(panelInsertSosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblNIMSos)
-                    .addComponent(textNIMSosInsert, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(searchButtonInsert)
-                .addGap(15, 15, 15)
+                    .addComponent(textNIMSosInsert, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(searchButtonInsertSos))
+                .addGap(18, 18, 18)
                 .addGroup(panelInsertSosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblNamaI1)
                     .addComponent(textNamaSosInsert, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -1217,13 +1309,15 @@ public class GradeRecordsGUI extends javax.swing.JFrame {
                 .addGroup(panelInsertSosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblBinggrisI1)
                     .addComponent(textBingSosInsert, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addComponent(btnInsertFormSos)
-                .addGap(51, 51, 51))
+                .addGap(89, 89, 89)
+                .addGroup(panelInsertSosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnInsertFormSos)
+                    .addComponent(btnCancelSosInsert))
+                .addContainerGap())
         );
 
         panelAfterLogin.add(panelInsertSos);
-        panelInsertSos.setBounds(455, 12, 421, 432);
+        panelInsertSos.setBounds(455, 12, 423, 431);
 
         panelButtonSos.setBackground(new java.awt.Color(242, 238, 229));
 
@@ -1297,7 +1391,7 @@ public class GradeRecordsGUI extends javax.swing.JFrame {
         );
 
         panelAfterLogin.add(panelButtonSos);
-        panelButtonSos.setBounds(12, 167, 414, 100);
+        panelButtonSos.setBounds(12, 167, 425, 100);
 
         PanelAwal.add(panelAfterLogin);
         panelAfterLogin.setBounds(0, 0, 900, 480);
@@ -1375,7 +1469,36 @@ public class GradeRecordsGUI extends javax.swing.JFrame {
     }//GEN-LAST:event_btn_deleteActionPerformed
 
     private void btnInsertFormActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInsertFormActionPerformed
-        // TODO add your handling code here:
+
+        if("".equals(textNIMInsert.getText())||"".equals(textNamaInsert.getText()) || "".equals(textKelasInsert.getText())|| "".equals(textMatInsert.getText())
+        || "".equals(textIPAInsert.getText()) || "".equals(textBIinsert.getText()) || "".equals(textBingInsert.getText()) ){
+        
+        JOptionPane.showMessageDialog(null, "Please Fill the Blanks", "Blank Fields Detected", JOptionPane.WARNING_MESSAGE);            
+        }       
+    else{
+        try{
+            grade_sc = new GradeSCDAO();
+            String nim = textNIMInsert.getText();
+            String bindo = textBIinsert.getText();
+            String mtk = textMatInsert.getText();
+            String ing = textBingInsert.getText();
+            String ipa = textIPAInsert.getText();    
+                        
+            float Fbindo =  Float.parseFloat(bindo);
+            float Fmtk =  Float.parseFloat(mtk);
+            float Fing =  Float.parseFloat(ing);
+            float Fipa =  Float.parseFloat(ipa);
+            
+            int inserted = grade_sc.addGradesSoc(nim, Fbindo, Fmtk, Fing, Fipa);
+            if(inserted != 0){
+                JOptionPane.showMessageDialog(null, "Data Successfuly Inserted");                
+            }
+            
+        }catch(Exception e){
+            System.out.println("Error : "+e.getMessage());
+        }
+    }
+        
     }//GEN-LAST:event_btnInsertFormActionPerformed
 
     private void buttonInsertActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonInsertActionPerformed
@@ -1431,6 +1554,8 @@ public class GradeRecordsGUI extends javax.swing.JFrame {
         String nim    = (tableSiswa.getModel().getValueAt(getrows, 0).toString());
         String klas= (tableSiswa.getModel().getValueAt(getrows, 2).toString());
         
+        //PERSIMPANGAN ANTARA KELAS SCIENCE
+        
         if((status.equals("not updated")&& (klas.equals("3SC1") || klas.equals("3SC2") || klas.equals("3SC3") || klas.equals("3SC4") || klas.equals("3SC5") || klas.equals("3SC6") || klas.equals("3SC7") || klas.equals("3SC8") )) 
                 || status.equals("deleted")&& (klas.equals("3SC1") || klas.equals("3SC2") || klas.equals("3SC3") || klas.equals("3SC4") || klas.equals("3SC5") || klas.equals("3SC6") || klas.equals("3SC7") || klas.equals("3SC8") )) {
             panelInsert.setVisible(true);            
@@ -1442,18 +1567,23 @@ public class GradeRecordsGUI extends javax.swing.JFrame {
                     textNIMInsert.setEditable(false);
                     textNamaInsert.setText(rs.getString("name"));
                     textKelasInsert.setText(rs.getString("class"));
-                     textNamaInsert.setEditable(true);
-        textKelasInsert.setEditable(true);
-        textMatInsert.setEditable(true);
-        textIPAInsert.setEditable(true);
-        textBIinsert.setEditable(true);
-        textBingInsert.setEditable(true);
-            panelUpdate.setVisible(false);
+                    textNamaInsert.setEditable(true);
+                    textKelasInsert.setEditable(true);
+                    textMatInsert.setEditable(true);
+                    textIPAInsert.setEditable(true);
+                    textBIinsert.setEditable(true);
+                    textBingInsert.setEditable(true);
+                    panelUpdate.setVisible(false);
                 }
             }catch(Exception ex){
                 System.out.println("Error : " + ex.getMessage());
             }
-        }else if(status.equals("not updated")&& (klas.equals("3SO1") || klas.equals("3SO2") || klas.equals("3SO3") || klas.equals("3SO4") || klas.equals("3SO5") || klas.equals("3SO6") || klas.equals("3SO7") || klas.equals("3SO8") )
+        }
+        
+        
+        //KELAS SOSIAL
+        
+        else if(status.equals("not updated")&& (klas.equals("3SO1") || klas.equals("3SO2") || klas.equals("3SO3") || klas.equals("3SO4") || klas.equals("3SO5") || klas.equals("3SO6") || klas.equals("3SO7") || klas.equals("3SO8") )
                 || status.equals("deleted")&& (klas.equals("3SO1") || klas.equals("3SO2") || klas.equals("3SO3") || klas.equals("3SO4") || klas.equals("3SO5") || klas.equals("3SO6") || klas.equals("3SO7") || klas.equals("3SO8") ) ){
             
             panelInsert.setVisible(false);
@@ -1472,23 +1602,21 @@ public class GradeRecordsGUI extends javax.swing.JFrame {
                     textNIMSosInsert.setEditable(false);
                     textNamaSosInsert.setText(rs.getString("name"));
                     textKelasSosInsert.setText(rs.getString("class"));
-                     textNIMSosInsert.setEditable(true);
-        textNamaSosInsert.setEditable(true);
-        textKelasSosInsert.setEditable(true);
-        textMatSosInsert.setEditable(true);
-        textIPSinsert.setEditable(true);
-        textBISosInsert.setEditable(true);
-        textBingSosInsert.setEditable(true);
-        panelUpdateSos.setVisible(false);
+                    textNIMSosInsert.setEditable(true);
+                    textNamaSosInsert.setEditable(true);
+                    textKelasSosInsert.setEditable(true);
+                    textMatSosInsert.setEditable(true);
+                    textIPSinsert.setEditable(true);
+                    textBISosInsert.setEditable(true);
+                    textBingSosInsert.setEditable(true);
+                    panelUpdateSos.setVisible(false);
                 }
             }catch(Exception ex){
                 System.out.println("Error : " + ex.getMessage());
-            }
-            
-            
-            
+            }                                    
         }
         
+        //PERSIMPANGAN STATUS UPDATED SCIENCE
         
         else if(status.equals("updated")&& (klas.equals("3SC1") || klas.equals("3SC2") || klas.equals("3SC3") || klas.equals("3SC4") || klas.equals("3SC5") || klas.equals("3SC6") || klas.equals("3SC7") || klas.equals("3SC8")) ){
             panelInsertSos.setVisible(false);
@@ -1505,17 +1633,26 @@ public class GradeRecordsGUI extends javax.swing.JFrame {
                     textNIMUpdate.setEditable(false);
                     textNamaUpdate.setText(rs.getString("name"));
                     textKelasUpdate.setText(rs.getString("class"));
-                     textNamaUpdate.setEditable(true);
-        textKelasUpdate.setEditable(true);
-        textMatUpdate.setEditable(true);
-        txtNilaiIPAUpdate.setEditable(true);
-        textBIUpdate.setEditable(true);
-        textBingUpdate.setEditable(true);
+                    textNamaUpdate.setEditable(true);
+                    textKelasUpdate.setEditable(true);
+                    textMatUpdate.setEditable(true);
+                    txtNilaiIPAUpdate.setEditable(true);
+                    textBIUpdate.setEditable(true);
+                    textBingUpdate.setEditable(true);
+                    UpdatedGradesData ugd = new UpdatedGradesData();
+                    ugd.setVisible(true);
+                    ugd.txtNIMSC.setText(rs.getString("nim"));
+                    ugd.txtNameSC.setText(rs.getString("name"));
+                    ugd.txtClassSC.setText(rs.getString("class"));
+                    ugd.txtGradeStatusSC.setText(rs.getString("grade_status"));
                 }
             }catch(Exception ex){
                 System.out.println("Error : " + ex.getMessage());
             }
         }
+        
+        //KELAS SOCIAL
+        
         else if(status.equals("updated")&& (klas.equals("3SO1") || klas.equals("3SO2") || klas.equals("3SO3") || klas.equals("3SO4") || klas.equals("3SO5") || klas.equals("3SO6") || klas.equals("3SO7") || klas.equals("3SO8") )){
              panelInsert.setVisible(false);
             panelUpdate.setVisible(false);
@@ -1531,12 +1668,18 @@ public class GradeRecordsGUI extends javax.swing.JFrame {
                     textNIMSosUpdate.setEditable(false);
                     textNamaUpdateSos.setText(rs.getString("name"));
                     textKelasUpdateSos.setText(rs.getString("class"));
-                     textNamaUpdate.setEditable(true);
-        textKelasUpdateSos.setEditable(true);
-        textMatUpdateSos.setEditable(true);
-        textIPSUpdate.setEditable(true);
-        textBIUpdateSos.setEditable(true);
-        textBingUpdateSos.setEditable(true);
+                    textNamaUpdate.setEditable(true);
+                    textKelasUpdateSos.setEditable(true);
+                    textMatUpdateSos.setEditable(true);
+                    textIPSUpdate.setEditable(true);
+                    textBIUpdateSos.setEditable(true);
+                    textBingUpdateSos.setEditable(true);
+                    UpgradeGradesDataSO ugds = new UpgradeGradesDataSO();
+                    ugds.setVisible(true);
+                    ugds.txtNIMSO.setText(rs.getString("nim"));
+                    ugds.txtNamaSO.setText(rs.getString("name"));
+                    ugds.txtClassSO.setText(rs.getString("class"));
+                    ugds.txtGradeStatusSO.setText(rs.getString("grade_status"));
                 }
             }catch(Exception ex){
                 System.out.println("Error : " + ex.getMessage());
@@ -1574,7 +1717,37 @@ public class GradeRecordsGUI extends javax.swing.JFrame {
     }//GEN-LAST:event_btnUpdateSosActionPerformed
 
     private void btnInsertFormSosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInsertFormSosActionPerformed
+    if("".equals(textNIMSosInsert.getText())||"".equals(textNamaSosInsert.getText()) || "".equals(textKelasSosInsert.getText())|| "".equals(textMatSosInsert.getText())
+        || "".equals(textIPSinsert.getText()) || "".equals(textBISosInsert.getText()) || "".equals(textBingSosInsert.getText()) ){
         
+        JOptionPane.showMessageDialog(null, "Please Fill the Blanks", "Blank Fields Detected", JOptionPane.WARNING_MESSAGE);            
+        }       
+    else{
+        try{
+            grade_so = new GradeSODAO();
+            String nim = textNIMSosInsert.getText();
+            String bindo = textBISosInsert.getText();
+            String mtk = textMatSosInsert.getText();
+            String ing = textBingSosInsert.getText();
+            String ips = textIPSinsert.getText();    
+                        
+            float Fbindo =  Float.parseFloat(bindo);
+            float Fmtk =  Float.parseFloat(mtk);
+            float Fing =  Float.parseFloat(ing);
+            float Fips =  Float.parseFloat(ips);
+            
+            int inserted = grade_so.addGradesSoc(nim, Fbindo, Fmtk, Fing, Fips);
+            if(inserted != 0){
+                JOptionPane.showMessageDialog(null, "Data Successfuly Inserted");
+                
+            }
+            
+        }catch(Exception e){
+            System.out.println("Error : "+e.getMessage());
+        }
+    }
+    
+    
     }//GEN-LAST:event_btnInsertFormSosActionPerformed
 
     private void buttonInsertSosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonInsertSosActionPerformed
@@ -1588,6 +1761,10 @@ public class GradeRecordsGUI extends javax.swing.JFrame {
         textNIMSosInsert.setText("");
         textNamaSosInsert.setText("");
         textKelasSosInsert.setText("");
+        textBISosInsert.setText("");
+        textMatSosInsert.setText("");
+        textBingSosInsert.setText("");
+        textIPSinsert.setText("");
         textNamaSosInsert.setEditable(false);
         textKelasSosInsert.setEditable(false);
         textMatSosInsert.setEditable(false);
@@ -1636,31 +1813,7 @@ public class GradeRecordsGUI extends javax.swing.JFrame {
     }//GEN-LAST:event_btn_add_student1ActionPerformed
 
     private void btn_searchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_searchActionPerformed
-        if("".equals(txt_nim_del.getText())) JOptionPane.showMessageDialog(null, "Please insert the NIM", "Empty Field", JOptionPane.WARNING_MESSAGE);
-        else{
-            String nim = txt_nim_del.getText();
-            grade_sc = new GradeSCDAO();
-            rs = grade_sc.getGradeByNim(nim);
-            try{
-                if(rs.next()){
-                    txt_name_del.setText(rs.getString("st_name"));
-                    txt_class_del.setText(rs.getString("st_class"));
-                    txt_mtk_del.setText(rs.getString("score_mtk"));
-                    txt_ipa_del.setText(rs.getString("score_ipa"));
-                    txt_indo_del.setText(rs.getString("score_indo"));
-                    txt_eng_del.setText(rs.getString("score_inggris"));
-                    txt_nim_del.setEnabled(false);
-                    btn_search_del.setEnabled(false);
-                    btn_cancel.setEnabled(true);
-                    btn_delete.setEnabled(true);
-                }else{
-                    JOptionPane.showMessageDialog(null, "Grade of Student with NIM : " + nim +" doesn't exist", "Grade not Found", JOptionPane.WARNING_MESSAGE);
-                }
-            }
-            catch (SQLException ex) {
-                Logger.getLogger(GradeRecordsGUI.class.getName()).log(Level.SEVERE, null, ex);
-            }
-        }
+       
     }//GEN-LAST:event_btn_searchActionPerformed
 
     private void btn_cancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_cancelActionPerformed
@@ -1707,8 +1860,8 @@ public class GradeRecordsGUI extends javax.swing.JFrame {
         int choice_ok = JOptionPane.showConfirmDialog(null, "Sure to delete this Grade data ?", "Delete Confirmation", JOptionPane.OK_CANCEL_OPTION);
         if(choice_ok == JOptionPane.OK_OPTION){
             String nim = txt_nim_soc.getText();
-            grade_sc = new GradeSCDAO();
-            boolean success = grade_sc.deleteGradeByNim_soc(nim);
+            grade_so = new GradeSODAO();
+            boolean success = grade_so.deleteGradeByNim_soc(nim);
             if(success){
                 JOptionPane.showMessageDialog(null, "Grade deleted Successfully", "Success", JOptionPane.INFORMATION_MESSAGE);
                 canceldeletion_soc();
@@ -1729,8 +1882,8 @@ public class GradeRecordsGUI extends javax.swing.JFrame {
         if("".equals(txt_nim_soc.getText())) JOptionPane.showMessageDialog(null, "Please insert the NIM", "Empty Field", JOptionPane.WARNING_MESSAGE);
         else{
             String nim = txt_nim_soc.getText();
-            grade_sc = new GradeSCDAO();
-            rs = grade_sc.getGradeByNim_soc(nim);
+            grade_so = new GradeSODAO();
+            rs = grade_so.getGradeByNim_soc(nim);
             try{
                 if(rs.next()){
                     txt_nama_soc.setText(rs.getString("st_name"));
@@ -1756,6 +1909,138 @@ public class GradeRecordsGUI extends javax.swing.JFrame {
     private void btn_cancel_socActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_cancel_socActionPerformed
         canceldeletion_soc();
     }//GEN-LAST:event_btn_cancel_socActionPerformed
+
+    private void searchInsertButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchInsertButtonActionPerformed
+  if("".equals(textNIMInsert.getText())) JOptionPane.showMessageDialog(null, "Please insert the NIM", "Empty Field", JOptionPane.WARNING_MESSAGE);
+        else{
+            String nim = textNIMInsert.getText();
+            grade_sc = new GradeSCDAO();
+            rs = grade_sc.getGradeByNim(nim);
+            try{
+                if(rs.next()){
+                    textNamaInsert.setText(rs.getString("st_name"));
+                    textKelasInsert.setText(rs.getString("st_class"));
+                    textMatInsert.setText(rs.getString("score_mtk"));
+                    textIPAInsert.setText(rs.getString("score_ipa"));
+                    textBIinsert.setText(rs.getString("score_indo"));
+                    textBingInsert.setText(rs.getString("score_inggris"));
+                    textNIMInsert.setEnabled(false);
+                    searchInsertButton.setEnabled(false);
+                    cancelButtonInsert.setEnabled(true);
+                    btnInsertForm.setEnabled(true);
+                }else{
+                    JOptionPane.showMessageDialog(null, "Grade of Student with NIM : " + nim +" doesn't exist", "Grade not Found", JOptionPane.WARNING_MESSAGE);
+                }
+            }
+            catch (SQLException ex) {
+                Logger.getLogger(GradeRecordsGUI.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+    }//GEN-LAST:event_searchInsertButtonActionPerformed
+
+    private void cancelButtonInsertActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelButtonInsertActionPerformed
+cancelinsertion_sc();
+    }//GEN-LAST:event_cancelButtonInsertActionPerformed
+
+    private void textNIMInsertKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_textNIMInsertKeyPressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_textNIMInsertKeyPressed
+
+    private void textNIMInsertKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_textNIMInsertKeyTyped
+         char c = evt.getKeyChar();
+        if(!(Character.isDigit(c) || (c == KeyEvent.VK_BACKSPACE) || (c == KeyEvent.VK_DELETE))){
+            getToolkit().beep();
+            evt.consume();
+        }
+    }//GEN-LAST:event_textNIMInsertKeyTyped
+
+    private void searchButtonInsertSosKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_searchButtonInsertSosKeyTyped
+        // TODO add your handling code here:
+    }//GEN-LAST:event_searchButtonInsertSosKeyTyped
+
+    private void textNIMSosInsertKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_textNIMSosInsertKeyTyped
+         char c = evt.getKeyChar();
+        if(!(Character.isDigit(c) || (c == KeyEvent.VK_BACKSPACE) || (c == KeyEvent.VK_DELETE))){
+            getToolkit().beep();
+            evt.consume();
+        }
+    }//GEN-LAST:event_textNIMSosInsertKeyTyped
+
+    private void searchButtonInsertSosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchButtonInsertSosActionPerformed
+         if("".equals(textNIMSosInsert.getText())) JOptionPane.showMessageDialog(null, "Please insert the NIM", "Empty Field", JOptionPane.WARNING_MESSAGE);
+        else{
+            String nim = textNIMSosInsert.getText();
+            grade_so = new GradeSODAO();
+            rs = grade_so.getGradeByNim_soc(nim);
+            try{
+                if(rs.next()){
+                    textNamaSosInsert.setText(rs.getString("st_name"));
+                    textKelasSosInsert.setText(rs.getString("st_class"));
+                    textMatSosInsert.setText(rs.getString("score_mtk"));
+                    textIPSinsert.setText(rs.getString("score_ips"));
+                    textBISosInsert.setText(rs.getString("score_indo"));
+                    textBingSosInsert.setText(rs.getString("score_inggris"));
+                    textNIMSosInsert.setEnabled(false);
+                    searchButtonInsertSos.setEnabled(false);
+                    btnCancelSosInsert.setEnabled(true);
+                    btnInsertFormSos.setEnabled(true);
+                }else{
+                    JOptionPane.showMessageDialog(null, "Grade of Student with NIM : " + nim +" doesn't exist", "Grade not Found", JOptionPane.WARNING_MESSAGE);
+                }
+            }
+            catch (SQLException ex) {
+                Logger.getLogger(GradeRecordsGUI.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+    }//GEN-LAST:event_searchButtonInsertSosActionPerformed
+
+    private void textNIMSosUpdateKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_textNIMSosUpdateKeyTyped
+            char c = evt.getKeyChar();
+        if(!(Character.isDigit(c) || (c == KeyEvent.VK_BACKSPACE) || (c == KeyEvent.VK_DELETE))){
+            getToolkit().beep();
+            evt.consume();
+        }
+    }//GEN-LAST:event_textNIMSosUpdateKeyTyped
+
+    private void btnSearchUpdateSOSActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearchUpdateSOSActionPerformed
+          if("".equals(textNIMSosUpdate.getText())) JOptionPane.showMessageDialog(null, "Please insert the NIM", "Empty Field", JOptionPane.WARNING_MESSAGE);
+        else{
+            String nim = textNIMSosUpdate.getText();
+            grade_so = new GradeSODAO();
+            rs = grade_so.getGradeByNim_soc(nim);
+            try{
+                if(rs.next()){
+                    textNamaUpdateSos.setText(rs.getString("st_name"));
+                    textKelasUpdateSos.setText(rs.getString("st_class"));
+                    textMatUpdateSos.setText(rs.getString("score_mtk"));
+                    textIPSUpdate.setText(rs.getString("score_ips"));
+                    textBIUpdateSos.setText(rs.getString("score_indo"));
+                    textBingUpdateSos.setText(rs.getString("score_inggris"));
+                    textNIMSosUpdate.setEnabled(false);
+                    btnSearchUpdateSOS.setEnabled(false);
+                    btnCancelUpdateSos.setEnabled(true);
+                    btnUpdateSos.setEnabled(true);
+                }else{
+                    JOptionPane.showMessageDialog(null, "Grade of Student with NIM : " + nim +" doesn't exist", "Grade not Found", JOptionPane.WARNING_MESSAGE);
+                }
+            }
+            catch (SQLException ex) {
+                Logger.getLogger(GradeRecordsGUI.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+    }//GEN-LAST:event_btnSearchUpdateSOSActionPerformed
+
+    private void btnCancelUpdateSosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelUpdateSosActionPerformed
+canceldeletion_soc();
+    }//GEN-LAST:event_btnCancelUpdateSosActionPerformed
+
+    private void btnCancelSosInsertActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelSosInsertActionPerformed
+cancelinsertion_soc();
+    }//GEN-LAST:event_btnCancelSosInsertActionPerformed
+
+    private void textNIMSosInsertActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textNIMSosInsertActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_textNIMSosInsertActionPerformed
     
     private void canceldeletion(){
         txt_name_del.setText("- - -");
@@ -1785,6 +2070,34 @@ public class GradeRecordsGUI extends javax.swing.JFrame {
         btn_delete_soc.setEnabled(false);
     }
     
+       private void cancelinsertion_soc(){
+      textNIMSosInsert.setText("");
+        textNamaSosInsert.setText("");
+        textKelasSosInsert.setText("");
+        textBISosInsert.setText("");
+        textMatSosInsert.setText("");
+        textBingSosInsert.setText("");
+        textIPSinsert.setText("");
+        textNIMSosInsert.setEnabled(true);
+        searchButtonInsertSos.setEnabled(true);
+        btnCancelSosInsert.setEnabled(false);
+        btnInsertFormSos.setEnabled(false);
+    }
+    
+       private void cancelinsertion_sc(){
+      textNIMInsert.setText("");
+        textNamaInsert.setText("");
+        textKelasInsert.setText("");
+        textBIinsert.setText("");
+        textMatInsert.setText("");
+        textBingInsert.setText("");
+        textIPAInsert.setText("");
+        textNIMInsert.setEnabled(true);
+        searchInsertButton.setEnabled(true);
+        cancelButtonInsert.setEnabled(false);
+        btnInsertForm.setEnabled(false);
+    }   
+       
     private DefaultTableModel tabelModelData()
     {      
         String[] namaKolom = {"NIM", "Nama Siswa/Siswi", "Kelas", "Status"};
@@ -1854,6 +2167,8 @@ public class GradeRecordsGUI extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel PanelAwal;
+    private javax.swing.JButton btnCancelSosInsert;
+    private javax.swing.JButton btnCancelUpdateSos;
     private javax.swing.JButton btnInsertForm;
     private javax.swing.JButton btnInsertFormSos;
     private javax.swing.JButton btnSearchUpdate;
@@ -1877,6 +2192,7 @@ public class GradeRecordsGUI extends javax.swing.JFrame {
     private javax.swing.JButton buttonInsertSos;
     private javax.swing.JButton buttonUpdate;
     private javax.swing.JButton buttonUpdateSos;
+    private javax.swing.JButton cancelButtonInsert;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -1946,26 +2262,26 @@ public class GradeRecordsGUI extends javax.swing.JFrame {
     private javax.swing.JPanel panelUpdate;
     private javax.swing.JPanel panelUpdateSos;
     private javax.swing.JScrollPane scrollPanel;
-    private javax.swing.JButton searchButtonInsert;
+    private javax.swing.JButton searchButtonInsertSos;
     private javax.swing.JButton searchInsertButton;
     private javax.swing.JTable tableSiswa;
-    private javax.swing.JTextField textBISosInsert;
+    public javax.swing.JTextField textBISosInsert;
     private javax.swing.JTextField textBIUpdate;
     private javax.swing.JTextField textBIUpdateSos;
     private javax.swing.JTextField textBIinsert;
     private javax.swing.JTextField textBingInsert;
-    private javax.swing.JTextField textBingSosInsert;
+    public javax.swing.JTextField textBingSosInsert;
     private javax.swing.JTextField textBingUpdate;
     private javax.swing.JTextField textBingUpdateSos;
     private javax.swing.JTextField textIPAInsert;
     private javax.swing.JTextField textIPSUpdate;
-    private javax.swing.JTextField textIPSinsert;
+    public javax.swing.JTextField textIPSinsert;
     private javax.swing.JTextField textKelasInsert;
     private javax.swing.JTextField textKelasSosInsert;
     private javax.swing.JTextField textKelasUpdate;
     private javax.swing.JTextField textKelasUpdateSos;
     private javax.swing.JTextField textMatInsert;
-    private javax.swing.JTextField textMatSosInsert;
+    public javax.swing.JTextField textMatSosInsert;
     private javax.swing.JTextField textMatUpdate;
     private javax.swing.JTextField textMatUpdateSos;
     private javax.swing.JTextField textNIMInsert;
