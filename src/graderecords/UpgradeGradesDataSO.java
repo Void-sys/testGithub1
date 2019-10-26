@@ -52,6 +52,8 @@ public class UpgradeGradesDataSO extends javax.swing.JFrame {
         txtGradeSO = new javax.swing.JLabel();
         lblStatusSO = new javax.swing.JLabel();
         txtStatusSO = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
+        txtAverageSOC = new javax.swing.JLabel();
         closeButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -63,40 +65,31 @@ public class UpgradeGradesDataSO extends javax.swing.JFrame {
         panelStudentDataSO.setBackground(new java.awt.Color(242, 238, 229));
 
         lblTITLESO.setFont(new java.awt.Font("Yu Gothic UI", 0, 18)); // NOI18N
-        lblTITLESO.setForeground(new java.awt.Color(0, 0, 0));
         lblTITLESO.setText("STUDENT PROFILE");
 
         lblNameSO.setBackground(new java.awt.Color(0, 0, 0));
         lblNameSO.setFont(new java.awt.Font("Yu Gothic UI", 0, 14)); // NOI18N
-        lblNameSO.setForeground(new java.awt.Color(0, 0, 0));
         lblNameSO.setText("STUDENT'S NAME :");
 
         txtNamaSO.setFont(new java.awt.Font("Yu Gothic UI", 0, 14)); // NOI18N
-        txtNamaSO.setForeground(new java.awt.Color(0, 0, 0));
         txtNamaSO.setText("---");
 
         lblClassSO.setFont(new java.awt.Font("Yu Gothic UI", 0, 14)); // NOI18N
-        lblClassSO.setForeground(new java.awt.Color(0, 0, 0));
         lblClassSO.setText("CLASS :");
 
         lblNIMSO.setFont(new java.awt.Font("Yu Gothic UI", 0, 14)); // NOI18N
-        lblNIMSO.setForeground(new java.awt.Color(0, 0, 0));
         lblNIMSO.setText("STUDENT'S NIM :");
 
         txtNIMSO.setFont(new java.awt.Font("Yu Gothic UI", 0, 14)); // NOI18N
-        txtNIMSO.setForeground(new java.awt.Color(0, 0, 0));
         txtNIMSO.setText("---");
 
         txtClassSO.setFont(new java.awt.Font("Yu Gothic UI", 0, 14)); // NOI18N
-        txtClassSO.setForeground(new java.awt.Color(0, 0, 0));
         txtClassSO.setText("---");
 
         lblGradeStatusSO.setFont(new java.awt.Font("Yu Gothic UI", 0, 14)); // NOI18N
-        lblGradeStatusSO.setForeground(new java.awt.Color(0, 0, 0));
         lblGradeStatusSO.setText("GRADE STATUS :");
 
         txtGradeStatusSO.setFont(new java.awt.Font("Yu Gothic UI", 0, 14)); // NOI18N
-        txtGradeStatusSO.setForeground(new java.awt.Color(0, 0, 0));
         txtGradeStatusSO.setText("---");
 
         javax.swing.GroupLayout panelStudentDataSOLayout = new javax.swing.GroupLayout(panelStudentDataSO);
@@ -164,56 +157,49 @@ public class UpgradeGradesDataSO extends javax.swing.JFrame {
         panelGradesSO.setBackground(new java.awt.Color(242, 238, 229));
 
         lblTITLEGRADESSO.setFont(new java.awt.Font("Yu Gothic UI", 0, 18)); // NOI18N
-        lblTITLEGRADESSO.setForeground(new java.awt.Color(0, 0, 0));
         lblTITLEGRADESSO.setText("GRADES REPORT");
 
         lblMScoreSO.setFont(new java.awt.Font("Yu Gothic UI", 0, 12)); // NOI18N
-        lblMScoreSO.setForeground(new java.awt.Color(0, 0, 0));
         lblMScoreSO.setText("Math Score :");
 
         txtMathSO.setFont(new java.awt.Font("Yu Gothic UI", 0, 12)); // NOI18N
-        txtMathSO.setForeground(new java.awt.Color(0, 0, 0));
         txtMathSO.setText("---");
 
         lblSocialSO.setFont(new java.awt.Font("Yu Gothic UI", 0, 12)); // NOI18N
-        lblSocialSO.setForeground(new java.awt.Color(0, 0, 0));
         lblSocialSO.setText("Social Score :");
 
         txtSocialSO.setFont(new java.awt.Font("Yu Gothic UI", 0, 12)); // NOI18N
-        txtSocialSO.setForeground(new java.awt.Color(0, 0, 0));
         txtSocialSO.setText("---");
 
         lblIndoSO.setFont(new java.awt.Font("Yu Gothic UI", 0, 12)); // NOI18N
-        lblIndoSO.setForeground(new java.awt.Color(0, 0, 0));
         lblIndoSO.setText("Bahasa Indonesia Score :");
 
         txtIndoSO.setFont(new java.awt.Font("Yu Gothic UI", 0, 12)); // NOI18N
-        txtIndoSO.setForeground(new java.awt.Color(0, 0, 0));
         txtIndoSO.setText("---");
 
         lblInggrisSO.setFont(new java.awt.Font("Yu Gothic UI", 0, 12)); // NOI18N
-        lblInggrisSO.setForeground(new java.awt.Color(0, 0, 0));
         lblInggrisSO.setText("English Score :");
 
         txtInggrisSO.setFont(new java.awt.Font("Yu Gothic UI", 0, 12)); // NOI18N
-        txtInggrisSO.setForeground(new java.awt.Color(0, 0, 0));
         txtInggrisSO.setText("---");
 
         lblGradeSO.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-        lblGradeSO.setForeground(new java.awt.Color(0, 0, 0));
         lblGradeSO.setText("GRADE :");
 
         txtGradeSO.setFont(new java.awt.Font("Yu Gothic UI", 0, 24)); // NOI18N
-        txtGradeSO.setForeground(new java.awt.Color(0, 0, 0));
         txtGradeSO.setText("---");
 
         lblStatusSO.setFont(new java.awt.Font("Yu Gothic UI", 0, 14)); // NOI18N
-        lblStatusSO.setForeground(new java.awt.Color(0, 0, 0));
         lblStatusSO.setText("STATUS :");
 
         txtStatusSO.setFont(new java.awt.Font("Yu Gothic UI", 0, 24)); // NOI18N
-        txtStatusSO.setForeground(new java.awt.Color(0, 0, 0));
         txtStatusSO.setText("---");
+
+        jLabel1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel1.setText("AVERAGE :");
+
+        txtAverageSOC.setFont(new java.awt.Font("Dialog", 0, 24)); // NOI18N
+        txtAverageSOC.setText("---");
 
         javax.swing.GroupLayout panelGradesSOLayout = new javax.swing.GroupLayout(panelGradesSO);
         panelGradesSO.setLayout(panelGradesSOLayout);
@@ -226,31 +212,30 @@ public class UpgradeGradesDataSO extends javax.swing.JFrame {
                         .addGroup(panelGradesSOLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(lblMScoreSO)
                             .addComponent(txtMathSO)
-                            .addComponent(lblSocialSO))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 115, Short.MAX_VALUE))
+                            .addComponent(lblSocialSO)
+                            .addComponent(txtSocialSO)
+                            .addComponent(lblIndoSO))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 49, Short.MAX_VALUE)
+                        .addGroup(panelGradesSOLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblStatusSO)
+                            .addComponent(lblGradeSO)
+                            .addComponent(jLabel1))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 35, Short.MAX_VALUE)
+                        .addGroup(panelGradesSOLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtAverageSOC)
+                            .addGroup(panelGradesSOLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(txtStatusSO, javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addComponent(txtGradeSO, javax.swing.GroupLayout.Alignment.TRAILING))))
                     .addGroup(panelGradesSOLayout.createSequentialGroup()
                         .addGroup(panelGradesSOLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtSocialSO)
-                            .addComponent(lblIndoSO)
                             .addComponent(txtIndoSO)
                             .addComponent(lblInggrisSO)
                             .addComponent(txtInggrisSO))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 55, Short.MAX_VALUE)))
-                .addGroup(panelGradesSOLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(panelGradesSOLayout.createSequentialGroup()
-                        .addGap(82, 82, 82)
-                        .addComponent(txtGradeSO))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelGradesSOLayout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtStatusSO)))
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
             .addGroup(panelGradesSOLayout.createSequentialGroup()
-                .addGap(117, 117, 117)
-                .addGroup(panelGradesSOLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(lblTITLEGRADESSO)
-                    .addGroup(panelGradesSOLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(lblStatusSO)
-                        .addComponent(lblGradeSO, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(88, 88, 88)
+                .addComponent(lblTITLEGRADESSO)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         panelGradesSOLayout.setVerticalGroup(
@@ -259,28 +244,40 @@ public class UpgradeGradesDataSO extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(lblTITLEGRADESSO)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(panelGradesSOLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblMScoreSO)
-                    .addComponent(lblGradeSO, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtGradeSO, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(15, 15, 15)
-                .addComponent(txtMathSO)
-                .addGap(18, 18, 18)
-                .addGroup(panelGradesSOLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblSocialSO)
-                    .addComponent(lblStatusSO)
-                    .addComponent(txtStatusSO))
-                .addGap(18, 18, 18)
-                .addComponent(txtSocialSO)
-                .addGap(18, 18, 18)
-                .addComponent(lblIndoSO)
-                .addGap(18, 18, 18)
-                .addComponent(txtIndoSO)
-                .addGap(18, 18, 18)
-                .addComponent(lblInggrisSO)
-                .addGap(18, 18, 18)
-                .addComponent(txtInggrisSO)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(lblMScoreSO)
+                .addGap(10, 10, 10)
+                .addGroup(panelGradesSOLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panelGradesSOLayout.createSequentialGroup()
+                        .addComponent(txtMathSO)
+                        .addGap(34, 34, 34)
+                        .addGroup(panelGradesSOLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(panelGradesSOLayout.createSequentialGroup()
+                                .addGroup(panelGradesSOLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(lblGradeSO, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txtGradeSO, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(panelGradesSOLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(txtStatusSO)
+                                    .addComponent(lblStatusSO))
+                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addGroup(panelGradesSOLayout.createSequentialGroup()
+                                .addComponent(lblSocialSO)
+                                .addGap(18, 18, 18)
+                                .addComponent(txtSocialSO)
+                                .addGap(18, 18, 18)
+                                .addComponent(lblIndoSO)
+                                .addGap(18, 18, 18)
+                                .addComponent(txtIndoSO)
+                                .addGap(18, 18, 18)
+                                .addComponent(lblInggrisSO)
+                                .addGap(18, 18, 18)
+                                .addComponent(txtInggrisSO)
+                                .addContainerGap(34, Short.MAX_VALUE))))
+                    .addGroup(panelGradesSOLayout.createSequentialGroup()
+                        .addGroup(panelGradesSOLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel1)
+                            .addComponent(txtAverageSOC))
+                        .addGap(0, 0, Short.MAX_VALUE))))
         );
 
         panelAwal.add(panelGradesSO);
@@ -294,7 +291,7 @@ public class UpgradeGradesDataSO extends javax.swing.JFrame {
             }
         });
         panelAwal.add(closeButton);
-        closeButton.setBounds(660, 10, 50, 26);
+        closeButton.setBounds(660, 10, 50, 25);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -352,6 +349,7 @@ public class UpgradeGradesDataSO extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton closeButton;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel lblClassSO;
     private javax.swing.JLabel lblGradeSO;
     private javax.swing.JLabel lblGradeStatusSO;
@@ -367,15 +365,16 @@ public class UpgradeGradesDataSO extends javax.swing.JFrame {
     private javax.swing.JPanel panelAwal;
     public javax.swing.JPanel panelGradesSO;
     public javax.swing.JPanel panelStudentDataSO;
+    public javax.swing.JLabel txtAverageSOC;
     public javax.swing.JLabel txtClassSO;
-    private javax.swing.JLabel txtGradeSO;
+    public javax.swing.JLabel txtGradeSO;
     public javax.swing.JLabel txtGradeStatusSO;
-    private javax.swing.JLabel txtIndoSO;
-    private javax.swing.JLabel txtInggrisSO;
-    private javax.swing.JLabel txtMathSO;
+    public javax.swing.JLabel txtIndoSO;
+    public javax.swing.JLabel txtInggrisSO;
+    public javax.swing.JLabel txtMathSO;
     public javax.swing.JLabel txtNIMSO;
     public javax.swing.JLabel txtNamaSO;
-    private javax.swing.JLabel txtSocialSO;
-    private javax.swing.JLabel txtStatusSO;
+    public javax.swing.JLabel txtSocialSO;
+    public javax.swing.JLabel txtStatusSO;
     // End of variables declaration//GEN-END:variables
 }

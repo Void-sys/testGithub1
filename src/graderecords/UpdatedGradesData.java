@@ -52,6 +52,8 @@ public class UpdatedGradesData extends javax.swing.JFrame {
         txtGradeSC = new javax.swing.JLabel();
         lblStatusSC = new javax.swing.JLabel();
         txtStatusSC = new javax.swing.JLabel();
+        lblAverageSC = new javax.swing.JLabel();
+        txtAverageSC = new javax.swing.JLabel();
         closeButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -63,40 +65,31 @@ public class UpdatedGradesData extends javax.swing.JFrame {
         panelStudentDataSC.setBackground(new java.awt.Color(242, 238, 229));
 
         lblTITLESC.setFont(new java.awt.Font("Yu Gothic UI", 0, 18)); // NOI18N
-        lblTITLESC.setForeground(new java.awt.Color(0, 0, 0));
         lblTITLESC.setText("STUDENT PROFILE");
 
         lblNameSC.setBackground(new java.awt.Color(0, 0, 0));
         lblNameSC.setFont(new java.awt.Font("Yu Gothic UI", 0, 14)); // NOI18N
-        lblNameSC.setForeground(new java.awt.Color(0, 0, 0));
         lblNameSC.setText("STUDENT'S NAME :");
 
         txtNameSC.setFont(new java.awt.Font("Yu Gothic UI", 0, 14)); // NOI18N
-        txtNameSC.setForeground(new java.awt.Color(0, 0, 0));
         txtNameSC.setText("---");
 
         lblClassSC.setFont(new java.awt.Font("Yu Gothic UI", 0, 14)); // NOI18N
-        lblClassSC.setForeground(new java.awt.Color(0, 0, 0));
         lblClassSC.setText("CLASS :");
 
         lblNIMSC.setFont(new java.awt.Font("Yu Gothic UI", 0, 14)); // NOI18N
-        lblNIMSC.setForeground(new java.awt.Color(0, 0, 0));
         lblNIMSC.setText("STUDENT'S NIM :");
 
         txtNIMSC.setFont(new java.awt.Font("Yu Gothic UI", 0, 14)); // NOI18N
-        txtNIMSC.setForeground(new java.awt.Color(0, 0, 0));
         txtNIMSC.setText("---");
 
         txtClassSC.setFont(new java.awt.Font("Yu Gothic UI", 0, 14)); // NOI18N
-        txtClassSC.setForeground(new java.awt.Color(0, 0, 0));
         txtClassSC.setText("---");
 
         lblGradeStatusSC.setFont(new java.awt.Font("Yu Gothic UI", 0, 14)); // NOI18N
-        lblGradeStatusSC.setForeground(new java.awt.Color(0, 0, 0));
         lblGradeStatusSC.setText("GRADE STATUS :");
 
         txtGradeStatusSC.setFont(new java.awt.Font("Yu Gothic UI", 0, 14)); // NOI18N
-        txtGradeStatusSC.setForeground(new java.awt.Color(0, 0, 0));
         txtGradeStatusSC.setText("---");
 
         javax.swing.GroupLayout panelStudentDataSCLayout = new javax.swing.GroupLayout(panelStudentDataSC);
@@ -164,56 +157,49 @@ public class UpdatedGradesData extends javax.swing.JFrame {
         panelGradesSC.setBackground(new java.awt.Color(242, 238, 229));
 
         jLabel1.setFont(new java.awt.Font("Yu Gothic UI", 0, 18)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(0, 0, 0));
         jLabel1.setText("GRADES REPORT");
 
         lblMScoreSC.setFont(new java.awt.Font("Yu Gothic UI", 0, 12)); // NOI18N
-        lblMScoreSC.setForeground(new java.awt.Color(0, 0, 0));
         lblMScoreSC.setText("Math Score :");
 
         txtMathSC.setFont(new java.awt.Font("Yu Gothic UI", 0, 12)); // NOI18N
-        txtMathSC.setForeground(new java.awt.Color(0, 0, 0));
         txtMathSC.setText("---");
 
         lblScienceSC.setFont(new java.awt.Font("Yu Gothic UI", 0, 12)); // NOI18N
-        lblScienceSC.setForeground(new java.awt.Color(0, 0, 0));
         lblScienceSC.setText("Science Score :");
 
         txtScienceSC.setFont(new java.awt.Font("Yu Gothic UI", 0, 12)); // NOI18N
-        txtScienceSC.setForeground(new java.awt.Color(0, 0, 0));
         txtScienceSC.setText("---");
 
         lblIndoSC.setFont(new java.awt.Font("Yu Gothic UI", 0, 12)); // NOI18N
-        lblIndoSC.setForeground(new java.awt.Color(0, 0, 0));
         lblIndoSC.setText("Bahasa Indonesia Score :");
 
         txtIndoSC.setFont(new java.awt.Font("Yu Gothic UI", 0, 12)); // NOI18N
-        txtIndoSC.setForeground(new java.awt.Color(0, 0, 0));
         txtIndoSC.setText("---");
 
         lblInggrisSC.setFont(new java.awt.Font("Yu Gothic UI", 0, 12)); // NOI18N
-        lblInggrisSC.setForeground(new java.awt.Color(0, 0, 0));
         lblInggrisSC.setText("English Score :");
 
         txtInggrisSC.setFont(new java.awt.Font("Yu Gothic UI", 0, 12)); // NOI18N
-        txtInggrisSC.setForeground(new java.awt.Color(0, 0, 0));
         txtInggrisSC.setText("---");
 
         lblGradeSC.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-        lblGradeSC.setForeground(new java.awt.Color(0, 0, 0));
         lblGradeSC.setText("GRADE :");
 
         txtGradeSC.setFont(new java.awt.Font("Yu Gothic UI", 0, 24)); // NOI18N
-        txtGradeSC.setForeground(new java.awt.Color(0, 0, 0));
         txtGradeSC.setText("---");
 
         lblStatusSC.setFont(new java.awt.Font("Yu Gothic UI", 0, 14)); // NOI18N
-        lblStatusSC.setForeground(new java.awt.Color(0, 0, 0));
         lblStatusSC.setText("STATUS :");
 
         txtStatusSC.setFont(new java.awt.Font("Yu Gothic UI", 0, 24)); // NOI18N
-        txtStatusSC.setForeground(new java.awt.Color(0, 0, 0));
         txtStatusSC.setText("---");
+
+        lblAverageSC.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        lblAverageSC.setText("AVERAGE :");
+
+        txtAverageSC.setFont(new java.awt.Font("Yu Gothic UI", 0, 24)); // NOI18N
+        txtAverageSC.setText("---");
 
         javax.swing.GroupLayout panelGradesSCLayout = new javax.swing.GroupLayout(panelGradesSC);
         panelGradesSC.setLayout(panelGradesSCLayout);
@@ -222,24 +208,28 @@ public class UpdatedGradesData extends javax.swing.JFrame {
             .addGroup(panelGradesSCLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(panelGradesSCLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(panelGradesSCLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(lblMScoreSC)
-                        .addComponent(txtMathSC)
-                        .addComponent(lblScienceSC))
-                    .addGroup(panelGradesSCLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(txtScienceSC)
-                        .addComponent(lblIndoSC)
-                        .addComponent(txtIndoSC)
-                        .addComponent(lblInggrisSC)
-                        .addComponent(txtInggrisSC)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 57, Short.MAX_VALUE)
+                    .addComponent(lblMScoreSC)
+                    .addComponent(txtMathSC)
+                    .addComponent(lblScienceSC)
+                    .addComponent(txtScienceSC)
+                    .addComponent(lblIndoSC)
+                    .addComponent(txtIndoSC)
+                    .addComponent(lblInggrisSC)
+                    .addComponent(txtInggrisSC))
+                .addGap(34, 34, 34)
                 .addGroup(panelGradesSCLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblGradeSC, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblStatusSC))
-                .addGap(18, 18, 18)
-                .addGroup(panelGradesSCLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txtGradeSC, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtStatusSC, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(panelGradesSCLayout.createSequentialGroup()
+                        .addGroup(panelGradesSCLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblGradeSC, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblStatusSC))
+                        .addGap(18, 18, 18)
+                        .addGroup(panelGradesSCLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtGradeSC, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(txtStatusSC, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addGroup(panelGradesSCLayout.createSequentialGroup()
+                        .addComponent(lblAverageSC)
+                        .addGap(18, 18, 18)
+                        .addComponent(txtAverageSC, javax.swing.GroupLayout.DEFAULT_SIZE, 55, Short.MAX_VALUE)))
                 .addContainerGap())
             .addGroup(panelGradesSCLayout.createSequentialGroup()
                 .addGap(117, 117, 117)
@@ -252,19 +242,24 @@ public class UpdatedGradesData extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(lblMScoreSC)
+                .addGap(21, 21, 21)
                 .addGroup(panelGradesSCLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblMScoreSC)
-                    .addComponent(lblGradeSC, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtGradeSC, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(15, 15, 15)
-                .addComponent(txtMathSC)
+                    .addComponent(txtMathSC)
+                    .addComponent(lblAverageSC)
+                    .addComponent(txtAverageSC))
                 .addGap(18, 18, 18)
-                .addGroup(panelGradesSCLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblScienceSC)
-                    .addComponent(lblStatusSC)
-                    .addComponent(txtStatusSC))
-                .addGap(18, 18, 18)
-                .addComponent(txtScienceSC)
+                .addGroup(panelGradesSCLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panelGradesSCLayout.createSequentialGroup()
+                        .addComponent(lblScienceSC)
+                        .addGap(18, 18, 18)
+                        .addGroup(panelGradesSCLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(txtScienceSC)
+                            .addComponent(lblStatusSC)
+                            .addComponent(txtStatusSC)))
+                    .addGroup(panelGradesSCLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(lblGradeSC, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(txtGradeSC)))
                 .addGap(18, 18, 18)
                 .addComponent(lblIndoSC)
                 .addGap(18, 18, 18)
@@ -287,7 +282,7 @@ public class UpdatedGradesData extends javax.swing.JFrame {
             }
         });
         panelAwal.add(closeButton);
-        closeButton.setBounds(660, 10, 50, 26);
+        closeButton.setBounds(660, 10, 50, 25);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -345,6 +340,7 @@ dispose();
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton closeButton;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel lblAverageSC;
     private javax.swing.JLabel lblClassSC;
     private javax.swing.JLabel lblGradeSC;
     private javax.swing.JLabel lblGradeStatusSC;
@@ -359,15 +355,16 @@ dispose();
     private javax.swing.JPanel panelAwal;
     private javax.swing.JPanel panelGradesSC;
     private javax.swing.JPanel panelStudentDataSC;
+    public javax.swing.JLabel txtAverageSC;
     public javax.swing.JLabel txtClassSC;
-    private javax.swing.JLabel txtGradeSC;
+    public javax.swing.JLabel txtGradeSC;
     public javax.swing.JLabel txtGradeStatusSC;
-    private javax.swing.JLabel txtIndoSC;
-    private javax.swing.JLabel txtInggrisSC;
-    private javax.swing.JLabel txtMathSC;
+    public javax.swing.JLabel txtIndoSC;
+    public javax.swing.JLabel txtInggrisSC;
+    public javax.swing.JLabel txtMathSC;
     public javax.swing.JLabel txtNIMSC;
     public javax.swing.JLabel txtNameSC;
-    private javax.swing.JLabel txtScienceSC;
-    private javax.swing.JLabel txtStatusSC;
+    public javax.swing.JLabel txtScienceSC;
+    public javax.swing.JLabel txtStatusSC;
     // End of variables declaration//GEN-END:variables
 }
