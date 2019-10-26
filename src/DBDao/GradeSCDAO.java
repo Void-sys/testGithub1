@@ -98,7 +98,7 @@ public class GradeSCDAO {
         return average;
     }
     
-    public char grds(float indo, float ing, float ipa, float mtk, float Average, char grade){
+    public char grds(float indo, float inggris, float ipa, float mtk, float average, char grade){
          average = (indo+inggris+ipa+mtk)/4;        
         if(average>=90){
             grade = 'A';
@@ -136,7 +136,7 @@ public class GradeSCDAO {
     }
     
     
-    public int addGradesSoc(String nim, float indo, float mtk, float inggris, float ipa){
+    public int addGradesSc(String nim, float indo, float mtk, float inggris, float ipa){
 int inputted = 0;
 int updatestats;
 try{
@@ -168,6 +168,21 @@ try{
 return inputted;
     }
     
+    
+    public int UpdateStudentScores(String nim, float indo, float mtk, float inggris, float ipa)throws SQLException{
+        String sql = "update tbl_grade set score_indo=?, score_mtk=? , score_inggris=? , score_ipa=? , average=? , grade=? , status=? where student_nim=?";
+        prep = conn.prepareStatement(sql);
+        prep.setFloat(1, indo);
+        prep.setFloat(2, mtk);
+        prep.setFloat(3, inggris);
+        prep.setFloat(4, ipa);
+        prep.setFloat(5, avg(indo, inggris, ipa, mtk, average));
+        prep.setString(6, grds(indo, inggris, ipa, mtk, average, grade)+"");
+        prep.setString(7, stats(indo, inggris, ipa, mtk, average, status));
+        prep.setString(8, nim);
+        return prep.executeUpdate();
+    }
+    
      private int updateStudentAfterInsert(String nim) throws SQLException{
          String sql = "update tbl_student set grade_status=? where nim=?";
          prep = conn.prepareStatement(sql);
@@ -186,6 +201,17 @@ return inputted;
         }
         catch (SQLException ex) {
             Logger.getLogger(GradeSCDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return res;
+    }
+    public ResultSet getDatabyNIM(String nim){
+        try{
+            String sql = "select tbl_student.nim as 'st_nim', tbl_student.name as 'st_name', tbl_student.class as 'st_class', tbl_grade.score_indo, tbl_grade.score_mtk, tbl_grade.score_inggris, tbl_grade.score_ipa, tbl_grade.average, tbl_grade.grade, tbl_grade.status from tbl_student join tbl_grade on tbl_student.nim = tbl_grade.student_nim where nim=?";
+            prep = conn.prepareStatement(sql);
+            prep.setString(1, nim);
+            res =prep.executeQuery();
+        }catch(SQLException sx){
+            Logger.getLogger(GradeSCDAO.class.getName()).log(Level.SEVERE, null, sx);
         }
         return res;
     }

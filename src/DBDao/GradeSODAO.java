@@ -185,6 +185,19 @@ return inputted;
         }
         return rs;
     }
+      
+      public ResultSet getDatabyNim_soc(String nim){
+           try{
+            String sql = "select tbl_student.nim as 'st_nim', tbl_student.name as 'st_name', tbl_student.class as 'st_class', tbl_grade_social.score_bindo, tbl_grade_social.score_mtk, tbl_grade_social.score_inggris, tbl_grade_social.score_ips, tbl_grade_social.average, tbl_grade_social.grade, tbl_grade_social.status from tbl_student join tbl_grade_social on tbl_student.nim = tbl_grade_social.student_nim where nim=?";
+            ps = conn.prepareStatement(sql);
+            ps.setString(1, nim);
+            rs = ps.executeQuery();
+        }
+        catch (SQLException ex) {
+            Logger.getLogger(GradeSODAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return rs;
+      }
     
      public boolean deleteGradeByNim_soc(String nim){
         boolean success = false;
@@ -218,5 +231,18 @@ return inputted;
          ps.setString(2, nim);
          return ps.executeUpdate();
      }
-    
+     
+     public int updateStudentScoresSoc(String nim, float Bindo, float mat, float Bing, float ips)throws SQLException{
+         String sql = "update tbl_grade_social set  score_bindo=? , score_mtk=? , score_inggris=? , score_ips=? , average=? , grade=? , status=?  where student_nim=?";
+         ps = conn.prepareStatement(sql);
+         ps.setFloat(1, Bindo);
+         ps.setFloat(2, mat);
+         ps.setFloat(3, Bing);
+         ps.setFloat(4, ips);
+         ps.setFloat(5, avg(Bindo, Bing, ips, mat, Average));
+         ps.setString(6, grds(Bindo, Bing, ips, mat, Average, grade)+"");
+         ps.setString(7, stats(Bindo, Bing, ips, mat, Average, status));
+         ps.setString(8, nim);
+         return ps.executeUpdate();
+     }
 }
