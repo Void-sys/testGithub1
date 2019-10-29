@@ -98,12 +98,12 @@ public class GradeSODAO {
     }
     
     
-    public float avg(float Bindo, float Bing, float ips, float mat, float Average){                        
-        Average = (Bindo+Bing+ips+mat)/4;        
+    public float avg(float Bindo, float Bing, float ips, float mat){                        
+        this.Average = (Bindo+Bing+ips+mat)/4;        
         return Average;
     }
     
-    public char grds(float Bindo, float Bing, float ips, float mat, float Average, char grade){
+    public char grds(float Bindo, float Bing, float ips, float mat, char grade){
          Average = (Bindo+Bing+ips+mat)/4;        
         if(Average>=90){
             grade = 'A';
@@ -124,7 +124,7 @@ public class GradeSODAO {
         return grade;
     }
     
-    public String stats(float Bindo, float Bing, float ips, float mat, float Average, String status){
+    public String stats(float Bindo, float Bing, float ips, float mat, String status){
         Average = (Bindo+Bing+ips+mat)/4;
         if(Average >=90){
             status = "Pass";            
@@ -162,9 +162,9 @@ try{
     ps.setFloat(4, mat);
     ps.setFloat(5, Bing);
     ps.setFloat(6, ips);
-    ps.setFloat(7, avg(Bindo, Bing, ips, mat, Average));
-    ps.setString(8, grds(Bindo, Bing, ips, mat, Average, grade)+"");
-    ps.setString(9, stats(Bindo, Bing, ips, mat, Average, status));
+    ps.setFloat(7, avg(Bindo, Bing, ips, mat));
+    ps.setString(8, grds(Bindo, Bing, ips, mat, grade)+"");
+    ps.setString(9, stats(Bindo, Bing, ips, mat, status));
     inputted = ps.executeUpdate();
     updatestats = updateStudentAfterInsert(nim);
 }catch(Exception e){
@@ -175,7 +175,7 @@ return inputted;
     
       public ResultSet getGradeByNim_soc(String nim){
         try{
-            String sql = "select tbl_student.nim as 'st_nim', tbl_student.name as 'st_name', tbl_student.class as 'st_class', tbl_grade_social.score_indo, tbl_grade_social.score_mtk, tbl_grade_social.score_inggris, tbl_grade_social.score_ips from tbl_student join tbl_grade_social on tbl_student.nim = tbl_grade_social.student_nim where nim=?";
+            String sql = "select tbl_student.nim as 'st_nim', tbl_student.name as 'st_name', tbl_student.class as 'st_class', tbl_grade_social.score_bindo, tbl_grade_social.score_mtk, tbl_grade_social.score_inggris, tbl_grade_social.score_ips from tbl_student join tbl_grade_social on tbl_student.nim = tbl_grade_social.student_nim where nim=?";
             ps = conn.prepareStatement(sql);
             ps.setString(1, nim);
             rs = ps.executeQuery();
@@ -239,9 +239,9 @@ return inputted;
          ps.setFloat(2, mat);
          ps.setFloat(3, Bing);
          ps.setFloat(4, ips);
-         ps.setFloat(5, avg(Bindo, Bing, ips, mat, Average));
-         ps.setString(6, grds(Bindo, Bing, ips, mat, Average, grade)+"");
-         ps.setString(7, stats(Bindo, Bing, ips, mat, Average, status));
+         ps.setFloat(5, avg(Bindo, Bing, ips, mat));
+         ps.setString(6, grds(Bindo, Bing, ips, mat, grade)+"");
+         ps.setString(7, stats(Bindo, Bing, ips, mat, status));
          ps.setString(8, nim);
          return ps.executeUpdate();
      }
