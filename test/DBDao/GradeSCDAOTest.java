@@ -256,4 +256,17 @@ public class GradeSCDAOTest {
         assertEquals(expResult, result);
     }
     
+    @Test
+    public void testAddGradeSC(){
+        System.out.println("> Running testAddGradeSC() method");
+         GradeSCDAO science = new GradeSCDAO();
+       String nim = "1212212";
+       science.addGradesSc(nim, 100, 90, 80, 80);
+        assertNotNull(science);
+        assertEquals(100, 100, science.getIndo());                
+        assertEquals(90, 90 , science.getInggris());
+        assertEquals(80, 80 , science.getIpa());
+        assertEquals(80, 80 , science.getMtk());
+    }
+    
 }
