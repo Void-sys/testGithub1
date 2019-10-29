@@ -93,13 +93,13 @@ public class GradeSCDAO {
     }
     
     
-     public float avg(float indo, float inggris, float ipa, float mtk, float average){                        
+     public float avg(float indo, float inggris, float ipa, float mtk){                        
         average = (indo+inggris+ipa+mtk)/4;        
         return average;
     }
     
-    public char grds(float indo, float inggris, float ipa, float mtk, float average, char grade){
-         average = (indo+inggris+ipa+mtk)/4;        
+    public char grds(float indo, float inggris, float ipa, float mtk){
+        average = (indo+inggris+ipa+mtk)/4;        
         if(average>=90){
             grade = 'A';
             
@@ -119,7 +119,7 @@ public class GradeSCDAO {
         return grade;
     }
     
-    public String stats(float indo, float inggris, float ipa, float mtk, float average, String status){
+    public String stats(float indo, float inggris, float ipa, float mtk){
         average = (indo+inggris+ipa+mtk)/4;
         if(average >=90){
             status = "Pass";            
@@ -157,9 +157,9 @@ try{
     prep.setFloat(4, mtk);
     prep.setFloat(5, inggris);
     prep.setFloat(6, ipa);
-    prep.setFloat(7, avg(indo, inggris, ipa, mtk, average));
-    prep.setString(8, grds(indo, inggris, ipa, mtk, average, grade)+"");
-    prep.setString(9, stats(indo, inggris, ipa, mtk, average, status));
+    prep.setFloat(7, avg(indo, inggris, ipa, mtk));
+    prep.setString(8, grds(indo, inggris, ipa, mtk)+"");
+    prep.setString(9, stats(indo, inggris, ipa, mtk));
     inputted = prep.executeUpdate();
     updatestats = updateStudentAfterInsert(nim);
 }catch(Exception e){
@@ -176,9 +176,9 @@ return inputted;
         prep.setFloat(2, mtk);
         prep.setFloat(3, inggris);
         prep.setFloat(4, ipa);
-        prep.setFloat(5, avg(indo, inggris, ipa, mtk, average));
-        prep.setString(6, grds(indo, inggris, ipa, mtk, average, grade)+"");
-        prep.setString(7, stats(indo, inggris, ipa, mtk, average, status));
+        prep.setFloat(5, avg(indo, inggris, ipa, mtk));
+        prep.setString(6, grds(indo, inggris, ipa, mtk)+"");
+        prep.setString(7, stats(indo, inggris, ipa, mtk));
         prep.setString(8, nim);
         return prep.executeUpdate();
     }
