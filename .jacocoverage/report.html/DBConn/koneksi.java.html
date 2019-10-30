@@ -13,18 +13,20 @@ import java.sql.DriverManager;
  * @author J8138
  */
 <span class="fc" id="L15">public class koneksi {</span>
-<span class="fc" id="L16">    private Connection connection = null;</span>
+    
+<span class="fc" id="L17">    String url = &quot;jdbc:mysql://localhost:3306/graderecord&quot;;</span>
+<span class="fc" id="L18">    String user = &quot;root&quot;;</span>
+<span class="fc" id="L19">    String pass = &quot;&quot;;</span>
+<span class="fc" id="L20">    String db = &quot;graderecord&quot;;</span>
+    
+<span class="fc" id="L22">    private Connection connection = null;</span>
     public Connection setConnection() {
         try{
-<span class="fc" id="L19">            String url = &quot;jdbc:mysql://localhost:3306/graderecord&quot;;</span>
-<span class="fc" id="L20">            String user = &quot;root&quot;;</span>
-<span class="fc" id="L21">            String pass = &quot;&quot;;</span>
-<span class="fc" id="L22">            String db = &quot;graderecord&quot;;</span>
-<span class="fc" id="L23">                Class.forName(&quot;com.mysql.jdbc.Driver&quot;);</span>
-<span class="fc" id="L24">                connection = DriverManager.getConnection(url, user, pass);</span>
-<span class="nc" id="L25">        }catch(Exception e){</span>
-<span class="nc" id="L26">            System.out.println(&quot;Error &quot;+e.getMessage());</span>
-<span class="fc" id="L27">        }return connection;    </span>
+<span class="fc" id="L25">            Class.forName(&quot;com.mysql.jdbc.Driver&quot;);</span>
+<span class="fc" id="L26">            connection = DriverManager.getConnection(url, user, pass);</span>
+<span class="fc" id="L27">        }catch(Exception e){</span>
+<span class="fc" id="L28">            System.out.println(&quot;Error &quot;+e.getMessage());</span>
+<span class="fc" id="L29">        }return connection;    </span>
     }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.6.201602180812</span></div></body></html>
