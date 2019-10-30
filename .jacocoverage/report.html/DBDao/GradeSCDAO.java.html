@@ -1,0 +1,244 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>GradeSCDAO.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">JaCoCoverage analysis of project &quot;GradeRecords&quot; (powered by JaCoCo from EclEmma)</a> &gt; <a href="index.source.html" class="el_package">DBDao</a> &gt; <span class="el_source">GradeSCDAO.java</span></div><h1>GradeSCDAO.java</h1><pre class="source lang-java linenums">package DBDao;
+
+//Import Libraries Here  *-*)b
+import DBConn.koneksi;
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
+//@author nevwizurai
+public class GradeSCDAO {
+    private int id;
+    private String nim;
+    private float indo;
+    private float mtk;
+    private float inggris;
+    private float ipa;
+    private float average;
+    private char grade;
+    private String status;
+    Connection conn;
+    ResultSet res;
+    PreparedStatement prep;
+
+<span class="fc" id="L27">    public GradeSCDAO() {</span>
+<span class="fc" id="L28">        conn = new koneksi().setConnection();</span>
+<span class="fc" id="L29">    }</span>
+    
+    public String getNim() {
+<span class="nc" id="L32">        return nim;</span>
+    }
+
+    public void setNim(String nim) {
+<span class="fc" id="L36">        this.nim = nim;</span>
+<span class="fc" id="L37">    }</span>
+
+    public float getIndo() {
+<span class="fc" id="L40">        return indo;</span>
+    }
+
+    public void setIndo(float indo) {
+<span class="fc" id="L44">        this.indo = indo;</span>
+<span class="fc" id="L45">    }</span>
+
+    public float getMtk() {
+<span class="fc" id="L48">        return mtk;</span>
+    }
+
+    public void setMtk(float mtk) {
+<span class="fc" id="L52">        this.mtk = mtk;</span>
+<span class="fc" id="L53">    }</span>
+
+    public float getInggris() {
+<span class="fc" id="L56">        return inggris;</span>
+    }
+
+    public void setInggris(float inggris) {
+<span class="fc" id="L60">        this.inggris = inggris;</span>
+<span class="fc" id="L61">    }</span>
+
+    public float getIpa() {
+<span class="fc" id="L64">        return ipa;</span>
+    }
+
+    public void setIpa(float ipa) {
+<span class="fc" id="L68">        this.ipa = ipa;</span>
+<span class="fc" id="L69">    }</span>
+
+    public float getAverage() {
+<span class="nc" id="L72">        return average;</span>
+    }
+
+    public void setAverage(float average) {
+<span class="fc" id="L76">        this.average = average;</span>
+<span class="fc" id="L77">    }</span>
+
+    public char getGrade() {
+<span class="nc" id="L80">        return grade;</span>
+    }
+
+    public void setGrade(char grade) {
+<span class="fc" id="L84">        this.grade = grade;</span>
+<span class="fc" id="L85">    }</span>
+
+    public String getStatus() {
+<span class="nc" id="L88">        return status;</span>
+    }
+
+    public void setStatus(String status) {
+<span class="fc" id="L92">        this.status = status;</span>
+<span class="fc" id="L93">    }</span>
+    
+    
+     public float avg(float indo, float inggris, float ipa, float mtk){                        
+<span class="fc" id="L97">        average = (indo+inggris+ipa+mtk)/4;        </span>
+<span class="fc" id="L98">        return average;</span>
+    }
+    
+    public char grds(float indo, float inggris, float ipa, float mtk){
+<span class="fc" id="L102">        average = (indo+inggris+ipa+mtk)/4;        </span>
+<span class="pc bpc" id="L103" title="1 of 2 branches missed.">        if(average&gt;=90){</span>
+<span class="nc" id="L104">            grade = 'A';</span>
+            
+<span class="pc bpc" id="L106" title="1 of 2 branches missed.">        }else if(average &gt;=80){</span>
+<span class="fc" id="L107">            grade = 'B';</span>
+            
+<span class="nc bnc" id="L109" title="All 2 branches missed.">        }else if(average &gt;=70){</span>
+<span class="nc" id="L110">            grade='C';</span>
+            
+<span class="nc bnc" id="L112" title="All 2 branches missed.">        }else if(average &gt;=60){</span>
+<span class="nc" id="L113">            grade='D';</span>
+            
+<span class="nc bnc" id="L115" title="All 2 branches missed.">        }else if(average &lt;60){</span>
+<span class="nc" id="L116">            grade='E';</span>
+            
+        }      
+<span class="fc" id="L119">        return grade;</span>
+    }
+    
+    public String stats(float indo, float inggris, float ipa, float mtk){
+<span class="fc" id="L123">        average = (indo+inggris+ipa+mtk)/4;</span>
+<span class="pc bpc" id="L124" title="1 of 2 branches missed.">        if(average &gt;=90){</span>
+<span class="nc" id="L125">            status = &quot;Pass&quot;;            </span>
+<span class="pc bpc" id="L126" title="1 of 2 branches missed.">        }else if(average &gt;=80){</span>
+<span class="fc" id="L127">            status = &quot;Pass&quot;;            </span>
+<span class="nc bnc" id="L128" title="All 2 branches missed.">        }else if(average &gt;= 70){</span>
+<span class="nc" id="L129">            status = &quot;Pass&quot;;           </span>
+<span class="nc bnc" id="L130" title="All 2 branches missed.">        }else if(average &gt;=60){</span>
+<span class="nc" id="L131">            status = &quot;Fail&quot;;</span>
+<span class="nc bnc" id="L132" title="All 2 branches missed.">        }else if(average &lt;60){</span>
+<span class="nc" id="L133">            status = &quot;Fail&quot;;            </span>
+        }      
+<span class="fc" id="L135">        return status;</span>
+    }
+    
+    
+    public int addGradesSc(String nim, float indo, float mtk, float inggris, float ipa){
+<span class="fc" id="L140">int inputted = 0;</span>
+int updatestats;
+try{
+<span class="fc" id="L143">    String sql = &quot;insert into tbl_grade values (?,?,?,?,?,?,?,?,?)&quot;;</span>
+<span class="fc" id="L144">    prep = conn.prepareStatement(sql);</span>
+//    System.out.println(&quot;&quot;+id);
+//    System.out.println(&quot;&quot;+nim);
+//    System.out.println(&quot;&quot;+Bindo);
+//    System.out.println(&quot;&quot;+mat);
+//    System.out.println(&quot;&quot;+Bing);
+//    System.out.println(&quot;&quot;+iprep);
+//    System.out.println(&quot;&quot;+avg(Bindo, Bing, iprep, mat, Average));
+//    System.out.println(&quot;&quot;+grds(Bindo, Bing, iprep, mat, Average, grade));
+//    System.out.println(&quot;&quot;+stats(Bindo, Bing, iprep, mat, Average, status));
+<span class="fc" id="L154">    prep.setInt(1, id);</span>
+<span class="fc" id="L155">    prep.setString(2, nim);</span>
+<span class="fc" id="L156">    prep.setFloat(3, indo);</span>
+<span class="fc" id="L157">    prep.setFloat(4, mtk);</span>
+<span class="fc" id="L158">    prep.setFloat(5, inggris);</span>
+<span class="fc" id="L159">    prep.setFloat(6, ipa);</span>
+<span class="fc" id="L160">    prep.setFloat(7, avg(indo, inggris, ipa, mtk));</span>
+<span class="fc" id="L161">    prep.setString(8, grds(indo, inggris, ipa, mtk)+&quot;&quot;);</span>
+<span class="fc" id="L162">    prep.setString(9, stats(indo, inggris, ipa, mtk));</span>
+<span class="fc" id="L163">    inputted = prep.executeUpdate();</span>
+<span class="fc" id="L164">    updatestats = updateStudentAfterInsert(nim);</span>
+<span class="nc" id="L165">}catch(Exception e){</span>
+<span class="nc" id="L166">    System.out.println(&quot;Error : &quot;+e.getMessage());</span>
+<span class="fc" id="L167">}</span>
+<span class="fc" id="L168">return inputted;</span>
+    }
+    
+    
+    public int UpdateStudentScores(String nim, float indo, float mtk, float inggris, float ipa)throws SQLException{
+<span class="nc" id="L173">        String sql = &quot;update tbl_grade set score_indo=?, score_mtk=? , score_inggris=? , score_ipa=? , average=? , grade=? , status=? where student_nim=?&quot;;</span>
+<span class="nc" id="L174">        prep = conn.prepareStatement(sql);</span>
+<span class="nc" id="L175">        prep.setFloat(1, indo);</span>
+<span class="nc" id="L176">        prep.setFloat(2, mtk);</span>
+<span class="nc" id="L177">        prep.setFloat(3, inggris);</span>
+<span class="nc" id="L178">        prep.setFloat(4, ipa);</span>
+<span class="nc" id="L179">        prep.setFloat(5, avg(indo, inggris, ipa, mtk));</span>
+<span class="nc" id="L180">        prep.setString(6, grds(indo, inggris, ipa, mtk)+&quot;&quot;);</span>
+<span class="nc" id="L181">        prep.setString(7, stats(indo, inggris, ipa, mtk));</span>
+<span class="nc" id="L182">        prep.setString(8, nim);</span>
+<span class="nc" id="L183">        return prep.executeUpdate();</span>
+    }
+    
+     private int updateStudentAfterInsert(String nim) throws SQLException{
+<span class="fc" id="L187">         String sql = &quot;update tbl_student set grade_status=? where nim=?&quot;;</span>
+<span class="fc" id="L188">         prep = conn.prepareStatement(sql);</span>
+<span class="fc" id="L189">         prep.setString(1, &quot;updated&quot;);</span>
+<span class="fc" id="L190">         prep.setString(2, nim);</span>
+<span class="fc" id="L191">         return prep.executeUpdate();</span>
+     }
+    
+    
+    public ResultSet getGradeByNim(String nim){
+        try{
+<span class="nc" id="L197">            String sql = &quot;select tbl_student.nim as 'st_nim', tbl_student.name as 'st_name', tbl_student.class as 'st_class', tbl_grade.score_indo, tbl_grade.score_mtk, tbl_grade.score_inggris, tbl_grade.score_ipa from tbl_student join tbl_grade on tbl_student.nim = tbl_grade.student_nim where nim=?&quot;;</span>
+<span class="nc" id="L198">            prep = conn.prepareStatement(sql);</span>
+<span class="nc" id="L199">            prep.setString(1, nim);</span>
+<span class="nc" id="L200">            res = prep.executeQuery();</span>
+        }
+<span class="nc" id="L202">        catch (SQLException ex) {</span>
+<span class="nc" id="L203">            Logger.getLogger(GradeSCDAO.class.getName()).log(Level.SEVERE, null, ex);</span>
+<span class="nc" id="L204">        }</span>
+<span class="nc" id="L205">        return res;</span>
+    }
+    public ResultSet getDatabyNIM(String nim){
+        try{
+<span class="nc" id="L209">            String sql = &quot;select tbl_student.nim as 'st_nim', tbl_student.name as 'st_name', tbl_student.class as 'st_class', tbl_grade.score_indo, tbl_grade.score_mtk, tbl_grade.score_inggris, tbl_grade.score_ipa, tbl_grade.average, tbl_grade.grade, tbl_grade.status from tbl_student join tbl_grade on tbl_student.nim = tbl_grade.student_nim where nim=?&quot;;</span>
+<span class="nc" id="L210">            prep = conn.prepareStatement(sql);</span>
+<span class="nc" id="L211">            prep.setString(1, nim);</span>
+<span class="nc" id="L212">            res =prep.executeQuery();</span>
+<span class="nc" id="L213">        }catch(SQLException sx){</span>
+<span class="nc" id="L214">            Logger.getLogger(GradeSCDAO.class.getName()).log(Level.SEVERE, null, sx);</span>
+<span class="nc" id="L215">        }</span>
+<span class="nc" id="L216">        return res;</span>
+    }
+          
+    public boolean deleteGradeByNim(String nim){
+<span class="nc" id="L220">        boolean success = false;</span>
+<span class="nc" id="L221">        int op1 = 0, op2 = 0;</span>
+        try{
+<span class="nc" id="L223">            String sql1 = &quot;delete from tbl_grade where student_nim=?&quot;;</span>
+<span class="nc" id="L224">            prep = conn.prepareStatement(sql1);</span>
+<span class="nc" id="L225">            prep.setString(1, nim);</span>
+<span class="nc" id="L226">            op1 = prep.executeUpdate();</span>
+<span class="nc" id="L227">            op2 = updateStudentAfterDelete(nim);</span>
+<span class="nc bnc" id="L228" title="All 4 branches missed.">            if(op1 == 1 &amp;&amp; op2 == 1) success = true;</span>
+        }
+<span class="nc" id="L230">        catch (SQLException ex) {</span>
+<span class="nc" id="L231">            Logger.getLogger(GradeSCDAO.class.getName()).log(Level.SEVERE, null, ex);</span>
+<span class="nc" id="L232">        }</span>
+<span class="nc" id="L233">        return success;</span>
+    }        
+    
+    private int updateStudentAfterDelete(String nim) throws SQLException{
+<span class="nc" id="L237">        String sql = &quot;update tbl_student set grade_status=? where nim=?&quot;;</span>
+<span class="nc" id="L238">        prep = conn.prepareStatement(sql);</span>
+<span class="nc" id="L239">        prep.setString(1, &quot;deleted&quot;);</span>
+<span class="nc" id="L240">        prep.setString(2, nim);</span>
+<span class="nc" id="L241">        return prep.executeUpdate();</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.6.201602180812</span></div></body></html>

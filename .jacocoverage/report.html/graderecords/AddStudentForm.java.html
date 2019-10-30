@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>AddStudentForm.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">JaCoCoverage analysis of project &quot;GradeRecords&quot; (powered by JaCoCo from EclEmma)</a> &gt; <a href="index.source.html" class="el_package">graderecords</a> &gt; <span class="el_source">AddStudentForm.java</span></div><h1>AddStudentForm.java</h1><pre class="source lang-java linenums">package graderecords;
+
+//Import Libraries Here *-*)b
+import DBConn.koneksi;
+import DBDao.StudentDAO;
+import com.sun.glass.events.KeyEvent;
+import java.sql.*;
+import javax.swing.JOptionPane;
+
+
+//@author nevwizurai
+public class AddStudentForm extends javax.swing.JFrame {
+    
+    Connection conn;
+    ResultSet res;
+    PreparedStatement prep;
+    Statement stat;
+    StudentDAO add_stud;
+    
+    //Class Constructor
+<span class="nc" id="L21">    public AddStudentForm() {</span>
+<span class="nc" id="L22">        initComponents();</span>
+<span class="nc" id="L23">        conn = new koneksi().setConnection();</span>
+<span class="nc" id="L24">    }</span>
+
+    //Methods Goes Here
+    
+
+    @SuppressWarnings(&quot;unchecked&quot;)
+    // &lt;editor-fold defaultstate=&quot;collapsed&quot; desc=&quot;Generated Code&quot;&gt;//GEN-BEGIN:initComponents
+    private void initComponents() {
+
+<span class="nc" id="L33">        jLabel1 = new javax.swing.JLabel();</span>
+<span class="nc" id="L34">        jLabel2 = new javax.swing.JLabel();</span>
+<span class="nc" id="L35">        txt_nim = new javax.swing.JTextField();</span>
+<span class="nc" id="L36">        jLabel3 = new javax.swing.JLabel();</span>
+<span class="nc" id="L37">        txt_name = new javax.swing.JTextField();</span>
+<span class="nc" id="L38">        jLabel4 = new javax.swing.JLabel();</span>
+<span class="nc" id="L39">        btn_add = new javax.swing.JButton();</span>
+<span class="nc" id="L40">        btn_reset = new javax.swing.JButton();</span>
+<span class="nc" id="L41">        txt_class = new javax.swing.JLabel();</span>
+
+<span class="nc" id="L43">        setBackground(new java.awt.Color(194, 232, 206));</span>
+
+<span class="nc" id="L45">        jLabel1.setFont(new java.awt.Font(&quot;Tahoma&quot;, 0, 18)); // NOI18N</span>
+<span class="nc" id="L46">        jLabel1.setText(&quot;Add new Student&quot;);</span>
+
+<span class="nc" id="L48">        jLabel2.setText(&quot;NIM&quot;);</span>
+
+<span class="nc" id="L50">        txt_nim.addKeyListener(new java.awt.event.KeyAdapter() {</span>
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+<span class="nc" id="L52">                txt_nimKeyTyped(evt);</span>
+<span class="nc" id="L53">            }</span>
+        });
+
+<span class="nc" id="L56">        jLabel3.setText(&quot;Nama Lengkap&quot;);</span>
+
+<span class="nc" id="L58">        jLabel4.setText(&quot;Class Name&quot;);</span>
+
+<span class="nc" id="L60">        btn_add.setText(&quot;Add Student&quot;);</span>
+<span class="nc" id="L61">        btn_add.addActionListener(new java.awt.event.ActionListener() {</span>
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+<span class="nc" id="L63">                btn_addActionPerformed(evt);</span>
+<span class="nc" id="L64">            }</span>
+        });
+
+<span class="nc" id="L67">        btn_reset.setText(&quot;Reset Fields&quot;);</span>
+<span class="nc" id="L68">        btn_reset.addActionListener(new java.awt.event.ActionListener() {</span>
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+<span class="nc" id="L70">                btn_resetActionPerformed(evt);</span>
+<span class="nc" id="L71">            }</span>
+        });
+
+<span class="nc" id="L74">        txt_class.setText(&quot;- - -&quot;);</span>
+
+<span class="nc" id="L76">        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());</span>
+<span class="nc" id="L77">        getContentPane().setLayout(layout);</span>
+<span class="nc" id="L78">        layout.setHorizontalGroup(</span>
+<span class="nc" id="L79">            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)</span>
+<span class="nc" id="L80">            .addGroup(layout.createSequentialGroup()</span>
+<span class="nc" id="L81">                .addContainerGap()</span>
+<span class="nc" id="L82">                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)</span>
+<span class="nc" id="L83">                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)</span>
+<span class="nc" id="L84">                        .addComponent(jLabel1)</span>
+<span class="nc" id="L85">                        .addComponent(jLabel2)</span>
+<span class="nc" id="L86">                        .addComponent(txt_nim)</span>
+<span class="nc" id="L87">                        .addComponent(jLabel3)</span>
+<span class="nc" id="L88">                        .addComponent(txt_name, javax.swing.GroupLayout.DEFAULT_SIZE, 259, Short.MAX_VALUE))</span>
+<span class="nc" id="L89">                    .addComponent(jLabel4)</span>
+<span class="nc" id="L90">                    .addGroup(layout.createSequentialGroup()</span>
+<span class="nc" id="L91">                        .addComponent(btn_add, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)</span>
+<span class="nc" id="L92">                        .addGap(18, 18, 18)</span>
+<span class="nc" id="L93">                        .addComponent(btn_reset, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))</span>
+<span class="nc" id="L94">                    .addComponent(txt_class))</span>
+<span class="nc" id="L95">                .addContainerGap(23, Short.MAX_VALUE))</span>
+        );
+<span class="nc" id="L97">        layout.setVerticalGroup(</span>
+<span class="nc" id="L98">            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)</span>
+<span class="nc" id="L99">            .addGroup(layout.createSequentialGroup()</span>
+<span class="nc" id="L100">                .addContainerGap()</span>
+<span class="nc" id="L101">                .addComponent(jLabel1)</span>
+<span class="nc" id="L102">                .addGap(18, 18, 18)</span>
+<span class="nc" id="L103">                .addComponent(jLabel2)</span>
+<span class="nc" id="L104">                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)</span>
+<span class="nc" id="L105">                .addComponent(txt_nim, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)</span>
+<span class="nc" id="L106">                .addGap(26, 26, 26)</span>
+<span class="nc" id="L107">                .addComponent(jLabel3)</span>
+<span class="nc" id="L108">                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)</span>
+<span class="nc" id="L109">                .addComponent(txt_name, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)</span>
+<span class="nc" id="L110">                .addGap(18, 18, 18)</span>
+<span class="nc" id="L111">                .addComponent(jLabel4)</span>
+<span class="nc" id="L112">                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)</span>
+<span class="nc" id="L113">                .addComponent(txt_class)</span>
+<span class="nc" id="L114">                .addGap(37, 37, 37)</span>
+<span class="nc" id="L115">                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)</span>
+<span class="nc" id="L116">                    .addComponent(btn_add)</span>
+<span class="nc" id="L117">                    .addComponent(btn_reset))</span>
+<span class="nc" id="L118">                .addContainerGap(57, Short.MAX_VALUE))</span>
+        );
+
+<span class="nc" id="L121">        pack();</span>
+<span class="nc" id="L122">    }// &lt;/editor-fold&gt;//GEN-END:initComponents</span>
+
+    private void btn_resetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_resetActionPerformed
+<span class="nc" id="L125">        txt_nim.setText(&quot;&quot;);</span>
+<span class="nc" id="L126">        txt_name.setText(&quot;&quot;);</span>
+<span class="nc" id="L127">        txt_class.setText(&quot;- - -&quot;);</span>
+<span class="nc" id="L128">    }//GEN-LAST:event_btn_resetActionPerformed</span>
+
+    private void txt_nimKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_nimKeyTyped
+<span class="nc" id="L131">        char c = evt.getKeyChar();</span>
+<span class="nc bnc" id="L132" title="All 6 branches missed.">        if(!(Character.isDigit(c) || (c == KeyEvent.VK_BACKSPACE) || (c == KeyEvent.VK_DELETE))){</span>
+<span class="nc" id="L133">            getToolkit().beep();</span>
+<span class="nc" id="L134">            evt.consume();</span>
+        }
+<span class="nc" id="L136">    }//GEN-LAST:event_txt_nimKeyTyped</span>
+
+    private void btn_addActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_addActionPerformed
+<span class="nc bnc" id="L139" title="All 4 branches missed.">        if(&quot;&quot;.equals(txt_nim.getText()) || &quot;&quot;.equals(txt_name.getText())) JOptionPane.showMessageDialog(null, &quot;Please input the NIM and Name&quot;, &quot;Empty Field&quot;, JOptionPane.WARNING_MESSAGE);</span>
+        
+        try{
+<span class="nc" id="L142">            add_stud = new StudentDAO();</span>
+<span class="nc" id="L143">            String nim = txt_nim.getText();</span>
+<span class="nc" id="L144">            String name = txt_name.getText();</span>
+<span class="nc" id="L145">            String clss = txt_class.getText();</span>
+<span class="nc" id="L146">            String status = &quot;not updated&quot;;</span>
+<span class="nc" id="L147">            int success = add_stud.addStudent(nim, name, clss, status);</span>
+<span class="nc bnc" id="L148" title="All 2 branches missed.">            if(success != 0){</span>
+<span class="nc" id="L149">                JOptionPane.showMessageDialog(null, &quot;Data added successfully&quot;);</span>
+<span class="nc" id="L150">                this.setVisible(false);</span>
+            }
+<span class="nc" id="L152">        }catch(Exception ex){</span>
+<span class="nc" id="L153">            JOptionPane.showMessageDialog(null, ex.getMessage());</span>
+<span class="nc" id="L154">        }</span>
+<span class="nc" id="L155">    }//GEN-LAST:event_btn_addActionPerformed</span>
+
+    public static void main(String args[]) {
+        /* Set the Nimbus look and feel */
+        //&lt;editor-fold defaultstate=&quot;collapsed&quot; desc=&quot; Look and feel setting code (optional) &quot;&gt;
+        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
+         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+         */
+        try {
+<span class="nc bnc" id="L164" title="All 2 branches missed.">            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {</span>
+<span class="nc bnc" id="L165" title="All 2 branches missed.">                if (&quot;Windows&quot;.equals(info.getName())) {</span>
+<span class="nc" id="L166">                    javax.swing.UIManager.setLookAndFeel(info.getClassName());</span>
+<span class="nc" id="L167">                    break;</span>
+                }
+            }
+<span class="nc" id="L170">        } catch (ClassNotFoundException ex) {</span>
+<span class="nc" id="L171">            java.util.logging.Logger.getLogger(AddStudentForm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);</span>
+<span class="nc" id="L172">        } catch (InstantiationException ex) {</span>
+<span class="nc" id="L173">            java.util.logging.Logger.getLogger(AddStudentForm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);</span>
+<span class="nc" id="L174">        } catch (IllegalAccessException ex) {</span>
+<span class="nc" id="L175">            java.util.logging.Logger.getLogger(AddStudentForm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);</span>
+<span class="nc" id="L176">        } catch (javax.swing.UnsupportedLookAndFeelException ex) {</span>
+<span class="nc" id="L177">            java.util.logging.Logger.getLogger(AddStudentForm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);</span>
+<span class="nc" id="L178">        }</span>
+        //&lt;/editor-fold&gt;
+
+        /* Create and display the form */
+<span class="nc" id="L182">        java.awt.EventQueue.invokeLater(new Runnable() {</span>
+            public void run() {
+<span class="nc" id="L184">                new AddStudentForm().setVisible(true);</span>
+<span class="nc" id="L185">            }</span>
+        });
+<span class="nc" id="L187">    }</span>
+
+    // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btn_add;
+    private javax.swing.JButton btn_reset;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    public javax.swing.JLabel txt_class;
+    private javax.swing.JTextField txt_name;
+    private javax.swing.JTextField txt_nim;
+    // End of variables declaration//GEN-END:variables
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.6.201602180812</span></div></body></html>

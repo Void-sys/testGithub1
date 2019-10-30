@@ -58,7 +58,7 @@ public class GradeSODAOTest {
         GradeSODAO instance = new GradeSODAO();
         float expResult = 80;
         float result = instance.avg(Bindo, Bing, ips, mat);
-        assertEquals(expResult, result, 80);
+        assertEquals(expResult, result, 0.0);
         System.out.println("------------------------------");
     }
 
@@ -169,6 +169,80 @@ public class GradeSODAOTest {
         assertEquals(80, 80 , social.getIps());
         assertEquals(80, 80 , social.getMat());
        
+    }
+    
+    
+    //Test Grds Possibilities
+    @Test
+    public void grds90(){
+        char expResult = 'A';
+        GradeSODAO bruh = new GradeSODAO();
+        char actual = bruh.grds(90, 90, 90, 90, 'A');
+        assertEquals(expResult,actual);
+    }
+    @Test
+    public void grds80(){
+        char expResult = 'B';
+        GradeSODAO bruh = new GradeSODAO();
+        char actual = bruh.grds(80, 80, 80, 80, 'B');
+        assertEquals(expResult,actual);
+    }
+    @Test
+    public void grds70(){
+        char expResult = 'C';
+        GradeSODAO bruh = new GradeSODAO();
+        char actual = bruh.grds(70, 70, 70, 70, 'C');
+        assertEquals(expResult,actual);
+    }
+    @Test
+    public void grds60(){
+        char expResult = 'D';
+        GradeSODAO bruh = new GradeSODAO();
+        char actual = bruh.grds(60, 60, 60, 60, 'D');
+        assertEquals(expResult,actual);
+    }
+    @Test
+    public void grds50(){
+        char expResult = 'E';
+        GradeSODAO bruh = new GradeSODAO();
+        char actual = bruh.grds(50, 50, 50, 50, 'E');
+        assertEquals(expResult,actual);
+    }
+    
+    @Test
+    public void stats90(){
+        String expResult = "Pass";
+        GradeSODAO bruh = new GradeSODAO();
+        String actual = bruh.stats(90, 90, 90, 90, "Pass");
+        assertEquals(expResult,actual);
+    }
+    @Test
+    public void stats80(){
+        String expResult = "Pass";
+        GradeSODAO bruh = new GradeSODAO();
+        String actual = bruh.stats(80, 80, 80, 80, "Pass");
+        assertEquals(expResult,actual);
+    }
+    @Test
+    public void stats70(){
+        String expResult = "Pass";
+        GradeSODAO bruh = new GradeSODAO();
+        String actual = bruh.stats(70, 70, 70, 70, "Pass");
+        assertEquals(expResult,actual);
+    }
+    @Test
+    public void stats60(){
+        String expResult = "Fail";
+        GradeSODAO bruh = new GradeSODAO();
+        String actual = bruh.stats(60, 60, 60, 60, "Fail");
+        assertEquals(expResult,actual);
+    }
+    @Test
+    public void stats50(){
+        String expResult = "Fail";
+        GradeSODAO bruh = new GradeSODAO();
+        String actual = bruh.stats(50, 50, 50, 50, "Fail");
+        assertEquals(expResult,actual);
     }
     
 }
