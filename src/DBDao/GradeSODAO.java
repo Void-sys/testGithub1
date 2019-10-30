@@ -117,7 +117,7 @@ public class GradeSODAO {
         }else if(Average >=60){
             grade='D';
             
-        }else if(Average <60){
+        }else{
             grade='E';
             
         }      

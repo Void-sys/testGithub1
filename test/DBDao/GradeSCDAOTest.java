@@ -269,4 +269,77 @@ public class GradeSCDAOTest {
         assertEquals(80, 80 , science.getMtk());
     }
     
+    //Test Grds Possibilities
+    @Test
+    public void grds90(){
+        char expResult = 'A';
+        GradeSCDAO bruh = new GradeSCDAO();
+        char actual = bruh.grds(90, 90, 90, 90);
+        assertEquals(expResult,actual);
+    }
+    @Test
+    public void grds80(){
+        char expResult = 'B';
+        GradeSCDAO bruh = new GradeSCDAO();
+        char actual = bruh.grds(80, 80, 80, 80);
+        assertEquals(expResult,actual);
+    }
+    @Test
+    public void grds70(){
+        char expResult = 'C';
+        GradeSCDAO bruh = new GradeSCDAO();
+        char actual = bruh.grds(70, 70, 70, 70);
+        assertEquals(expResult,actual);
+    }
+    @Test
+    public void grds60(){
+        char expResult = 'D';
+        GradeSCDAO bruh = new GradeSCDAO();
+        char actual = bruh.grds(60, 60, 60, 60);
+        assertEquals(expResult,actual);
+    }
+    @Test
+    public void grds50(){
+        char expResult = 'E';
+        GradeSCDAO bruh = new GradeSCDAO();
+        char actual = bruh.grds(50, 50, 50, 50);
+        assertEquals(expResult,actual);
+    }
+    
+    @Test
+    public void stats90(){
+        String expResult = "Pass";
+        GradeSCDAO bruh = new GradeSCDAO();
+        String actual = bruh.stats(90, 90, 90, 90);
+        assertEquals(expResult,actual);
+    }
+    @Test
+    public void stats80(){
+        String expResult = "Pass";
+        GradeSCDAO bruh = new GradeSCDAO();
+        String actual = bruh.stats(80, 80, 80, 80);
+        assertEquals(expResult,actual);
+    }
+    @Test
+    public void stats70(){
+        String expResult = "Pass";
+        GradeSCDAO bruh = new GradeSCDAO();
+        String actual = bruh.stats(70, 70, 70, 70);
+        assertEquals(expResult,actual);
+    }
+    @Test
+    public void stats60(){
+        String expResult = "Fail";
+        GradeSCDAO bruh = new GradeSCDAO();
+        String actual = bruh.stats(60, 60, 60, 60);
+        assertEquals(expResult,actual);
+    }
+    @Test
+    public void stats50(){
+        String expResult = "Fail";
+        GradeSCDAO bruh = new GradeSCDAO();
+        String actual = bruh.stats(50, 50, 50, 50);
+        assertEquals(expResult,actual);
+    }
+    
 }

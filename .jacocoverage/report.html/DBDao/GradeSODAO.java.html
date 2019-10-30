@@ -1,0 +1,249 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>GradeSODAO.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">JaCoCoverage analysis of project &quot;GradeRecords&quot; (powered by JaCoCo from EclEmma)</a> &gt; <a href="index.source.html" class="el_package">DBDao</a> &gt; <span class="el_source">GradeSODAO.java</span></div><h1>GradeSODAO.java</h1><pre class="source lang-java linenums">/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package DBDao;
+
+import DBConn.koneksi;
+import graderecords.GradeRecordsGUI;
+import java.sql.*;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+/**
+ *
+ * @author J8138
+ */
+public class GradeSODAO {
+    private int id;
+    private String nim;
+    private float mat;
+    private float ips;
+    private float Bindo;
+    private float Bing;
+    private float Average;
+    private char grade;
+    private String status;
+
+    private PreparedStatement ps;
+    private Connection conn;
+    private ResultSet rs;
+    
+<span class="fc" id="L32">    public GradeSODAO() {</span>
+<span class="fc" id="L33">         conn = new koneksi().setConnection();</span>
+<span class="fc" id="L34">    }</span>
+
+    public String getNim() {
+<span class="fc" id="L37">        return nim;</span>
+    }
+
+    public void setNim(String nim) {
+<span class="nc" id="L41">        this.nim = nim;</span>
+<span class="nc" id="L42">    }</span>
+
+    public float getMat() {
+<span class="fc" id="L45">        return mat;</span>
+    }
+
+    public void setMat(float mat) {
+<span class="nc" id="L49">        this.mat = mat;</span>
+<span class="nc" id="L50">    }</span>
+
+    public float getIps() {
+<span class="fc" id="L53">        return ips;</span>
+    }
+
+    public void setIps(float ips) {
+<span class="nc" id="L57">        this.ips = ips;</span>
+<span class="nc" id="L58">    }</span>
+
+    public float getBindo() {
+<span class="fc" id="L61">        return Bindo;</span>
+    }
+
+    public void setBindo(float Bindo) {
+<span class="nc" id="L65">        this.Bindo = Bindo;</span>
+<span class="nc" id="L66">    }</span>
+
+    public float getBing() {
+<span class="fc" id="L69">        return Bing;</span>
+    }
+
+    public void setBing(float Bing) {
+<span class="nc" id="L73">        this.Bing = Bing;</span>
+<span class="nc" id="L74">    }</span>
+
+    public float getAverage() {
+<span class="nc" id="L77">        return Average;</span>
+    }
+
+    public void setAverage(float Average) {
+<span class="nc" id="L81">        this.Average = Average;</span>
+<span class="nc" id="L82">    }</span>
+
+    public char getGrade() {
+<span class="nc" id="L85">        return grade;</span>
+    }
+
+    public void setGrade(char grade) {
+<span class="nc" id="L89">        this.grade = grade;</span>
+<span class="nc" id="L90">    }</span>
+
+    public String getStatus() {
+<span class="nc" id="L93">        return status;</span>
+    }
+
+    public void setStatus(String status) {
+<span class="nc" id="L97">        this.status = status;</span>
+<span class="nc" id="L98">    }</span>
+    
+    
+    public float avg(float Bindo, float Bing, float ips, float mat){                        
+<span class="fc" id="L102">        this.Average = (Bindo+Bing+ips+mat)/4;        </span>
+<span class="fc" id="L103">        return Average;</span>
+    }
+    
+    public char grds(float Bindo, float Bing, float ips, float mat, char grade){
+<span class="fc" id="L107">         Average = (Bindo+Bing+ips+mat)/4;        </span>
+<span class="fc bfc" id="L108" title="All 2 branches covered.">        if(Average&gt;=90){</span>
+<span class="fc" id="L109">            grade = 'A';</span>
+            
+<span class="fc bfc" id="L111" title="All 2 branches covered.">        }else if(Average &gt;=80){</span>
+<span class="fc" id="L112">            grade = 'B';</span>
+            
+<span class="fc bfc" id="L114" title="All 2 branches covered.">        }else if(Average &gt;=70){</span>
+<span class="fc" id="L115">            grade='C';</span>
+            
+<span class="fc bfc" id="L117" title="All 2 branches covered.">        }else if(Average &gt;=60){</span>
+<span class="fc" id="L118">            grade='D';</span>
+            
+        }else{
+<span class="fc" id="L121">            grade='E';</span>
+            
+        }      
+<span class="fc" id="L124">        return grade;</span>
+    }
+    
+    public String stats(float Bindo, float Bing, float ips, float mat, String status){
+<span class="fc" id="L128">        Average = (Bindo+Bing+ips+mat)/4;</span>
+<span class="fc bfc" id="L129" title="All 2 branches covered.">        if(Average &gt;=90){</span>
+<span class="fc" id="L130">            status = &quot;Pass&quot;;            </span>
+<span class="fc bfc" id="L131" title="All 2 branches covered.">        }else if(Average &gt;=80){</span>
+<span class="fc" id="L132">            status = &quot;Pass&quot;;            </span>
+<span class="fc bfc" id="L133" title="All 2 branches covered.">        }else if(Average &gt;= 70){</span>
+<span class="fc" id="L134">            status = &quot;Pass&quot;;           </span>
+<span class="fc bfc" id="L135" title="All 2 branches covered.">        }else if(Average &gt;=60){</span>
+<span class="fc" id="L136">            status = &quot;Fail&quot;;</span>
+<span class="pc bpc" id="L137" title="1 of 2 branches missed.">        }else if(Average &lt;60){</span>
+<span class="fc" id="L138">            status = &quot;Fail&quot;;            </span>
+        }      
+<span class="fc" id="L140">        return status;</span>
+    }
+    
+    
+    public int addGradesSoc(String nim, float Bindo, float mat, float Bing, float ips){
+<span class="fc" id="L145">int inputted = 0;</span>
+int updatestats;
+try{
+<span class="fc" id="L148">    String sql = &quot;insert into tbl_grade_social values (?,?,?,?,?,?,?,?,?)&quot;;</span>
+<span class="fc" id="L149">    ps = conn.prepareStatement(sql);</span>
+//    System.out.println(&quot;&quot;+id);
+//    System.out.println(&quot;&quot;+nim);
+//    System.out.println(&quot;&quot;+Bindo);
+//    System.out.println(&quot;&quot;+mat);
+//    System.out.println(&quot;&quot;+Bing);
+//    System.out.println(&quot;&quot;+ips);
+//    System.out.println(&quot;&quot;+avg(Bindo, Bing, ips, mat, Average));
+//    System.out.println(&quot;&quot;+grds(Bindo, Bing, ips, mat, Average, grade));
+//    System.out.println(&quot;&quot;+stats(Bindo, Bing, ips, mat, Average, status));
+<span class="fc" id="L159">    ps.setInt(1, id);</span>
+<span class="fc" id="L160">    ps.setString(2, nim);</span>
+<span class="fc" id="L161">    ps.setFloat(3, Bindo);</span>
+<span class="fc" id="L162">    ps.setFloat(4, mat);</span>
+<span class="fc" id="L163">    ps.setFloat(5, Bing);</span>
+<span class="fc" id="L164">    ps.setFloat(6, ips);</span>
+<span class="fc" id="L165">    ps.setFloat(7, avg(Bindo, Bing, ips, mat));</span>
+<span class="fc" id="L166">    ps.setString(8, grds(Bindo, Bing, ips, mat, grade)+&quot;&quot;);</span>
+<span class="fc" id="L167">    ps.setString(9, stats(Bindo, Bing, ips, mat, status));</span>
+<span class="fc" id="L168">    inputted = ps.executeUpdate();</span>
+<span class="fc" id="L169">    updatestats = updateStudentAfterInsert(nim);</span>
+<span class="nc" id="L170">}catch(Exception e){</span>
+<span class="nc" id="L171">    System.out.println(&quot;Error : &quot;+e.getMessage());</span>
+<span class="fc" id="L172">}</span>
+<span class="fc" id="L173">return inputted;</span>
+    }
+    
+      public ResultSet getGradeByNim_soc(String nim){
+        try{
+<span class="fc" id="L178">            String sql = &quot;select tbl_student.nim as 'st_nim', tbl_student.name as 'st_name', tbl_student.class as 'st_class', tbl_grade_social.score_bindo, tbl_grade_social.score_mtk, tbl_grade_social.score_inggris, tbl_grade_social.score_ips from tbl_student join tbl_grade_social on tbl_student.nim = tbl_grade_social.student_nim where nim=?&quot;;</span>
+<span class="fc" id="L179">            ps = conn.prepareStatement(sql);</span>
+<span class="fc" id="L180">            ps.setString(1, nim);</span>
+<span class="fc" id="L181">            rs = ps.executeQuery();</span>
+        }
+<span class="nc" id="L183">        catch (SQLException ex) {</span>
+<span class="nc" id="L184">            Logger.getLogger(GradeSODAO.class.getName()).log(Level.SEVERE, null, ex);</span>
+<span class="fc" id="L185">        }</span>
+<span class="fc" id="L186">        return rs;</span>
+    }
+      
+      public ResultSet getDatabyNim_soc(String nim){
+           try{
+<span class="fc" id="L191">            String sql = &quot;select tbl_student.nim as 'st_nim', tbl_student.name as 'st_name', tbl_student.class as 'st_class', tbl_grade_social.score_bindo, tbl_grade_social.score_mtk, tbl_grade_social.score_inggris, tbl_grade_social.score_ips, tbl_grade_social.average, tbl_grade_social.grade, tbl_grade_social.status from tbl_student join tbl_grade_social on tbl_student.nim = tbl_grade_social.student_nim where nim=?&quot;;</span>
+<span class="fc" id="L192">            ps = conn.prepareStatement(sql);</span>
+<span class="fc" id="L193">            ps.setString(1, nim);</span>
+<span class="fc" id="L194">            rs = ps.executeQuery();</span>
+        }
+<span class="nc" id="L196">        catch (SQLException ex) {</span>
+<span class="nc" id="L197">            Logger.getLogger(GradeSODAO.class.getName()).log(Level.SEVERE, null, ex);</span>
+<span class="fc" id="L198">        }</span>
+<span class="fc" id="L199">        return rs;</span>
+      }
+    
+     public boolean deleteGradeByNim_soc(String nim){
+<span class="fc" id="L203">        boolean success = false;</span>
+<span class="fc" id="L204">        int op1 = 0, op2 = 0;</span>
+        try{
+<span class="fc" id="L206">            String sql1 = &quot;delete from tbl_grade_social where student_nim=?&quot;;</span>
+<span class="fc" id="L207">            ps = conn.prepareStatement(sql1);</span>
+<span class="fc" id="L208">            ps.setString(1, nim);</span>
+<span class="fc" id="L209">            op1 = ps.executeUpdate();</span>
+<span class="fc" id="L210">            op2 = updateStudentAfterDelete(nim);</span>
+<span class="pc bpc" id="L211" title="3 of 4 branches missed.">            if(op1 == 1 &amp;&amp; op2 == 1) success = true;</span>
+        }
+<span class="nc" id="L213">        catch (SQLException ex) {</span>
+<span class="nc" id="L214">            Logger.getLogger(GradeSODAO.class.getName()).log(Level.SEVERE, null, ex);</span>
+<span class="fc" id="L215">        }</span>
+<span class="fc" id="L216">        return success;</span>
+    }
+     
+     private int updateStudentAfterDelete(String nim) throws SQLException{
+<span class="fc" id="L220">        String sql = &quot;update tbl_student set grade_status=? where nim=?&quot;;</span>
+<span class="fc" id="L221">        ps = conn.prepareStatement(sql);</span>
+<span class="fc" id="L222">        ps.setString(1, &quot;deleted&quot;);</span>
+<span class="fc" id="L223">        ps.setString(2, nim);</span>
+<span class="fc" id="L224">        return ps.executeUpdate();</span>
+    }
+     
+     private int updateStudentAfterInsert(String nim) throws SQLException{
+<span class="fc" id="L228">         String sql = &quot;update tbl_student set grade_status=? where nim=?&quot;;</span>
+<span class="fc" id="L229">         ps = conn.prepareStatement(sql);</span>
+<span class="fc" id="L230">         ps.setString(1, &quot;updated&quot;);</span>
+<span class="fc" id="L231">         ps.setString(2, nim);</span>
+<span class="fc" id="L232">         return ps.executeUpdate();</span>
+     }
+     
+     public int updateStudentScoresSoc(String nim, float Bindo, float mat, float Bing, float ips)throws SQLException{
+<span class="fc" id="L236">         String sql = &quot;update tbl_grade_social set  score_bindo=? , score_mtk=? , score_inggris=? , score_ips=? , average=? , grade=? , status=?  where student_nim=?&quot;;</span>
+<span class="fc" id="L237">         ps = conn.prepareStatement(sql);</span>
+<span class="fc" id="L238">         ps.setFloat(1, Bindo);</span>
+<span class="fc" id="L239">         ps.setFloat(2, mat);</span>
+<span class="fc" id="L240">         ps.setFloat(3, Bing);</span>
+<span class="fc" id="L241">         ps.setFloat(4, ips);</span>
+<span class="fc" id="L242">         ps.setFloat(5, avg(Bindo, Bing, ips, mat));</span>
+<span class="fc" id="L243">         ps.setString(6, grds(Bindo, Bing, ips, mat, grade)+&quot;&quot;);</span>
+<span class="fc" id="L244">         ps.setString(7, stats(Bindo, Bing, ips, mat, status));</span>
+<span class="fc" id="L245">         ps.setString(8, nim);</span>
+<span class="fc" id="L246">         return ps.executeUpdate();</span>
+     }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.6.201602180812</span></div></body></html>
