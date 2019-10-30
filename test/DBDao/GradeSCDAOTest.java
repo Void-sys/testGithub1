@@ -199,7 +199,6 @@ public class GradeSCDAOTest {
      * Test of UpdateStudentScores method, of class GradeSCDAO.
      * @throws java.sql.SQLException
      */
-    @Ignore
     @Test
     public void testUpdateStudentScores() throws SQLException{
         System.out.println("> Running testUpdateStudentScores() method");
@@ -211,13 +210,12 @@ public class GradeSCDAOTest {
         GradeSCDAO instance = new GradeSCDAO();
         int expResult = 0;
         int result = instance.UpdateStudentScores(nim, indo, mtk, inggris, ipa);
-        assertEquals(expResult, result);
+        assertNotNull(result);
     }
 
     /**
      * Test of getGradeByNim method, of class GradeSCDAO.
      */
-    @Ignore
     @Test
     public void testGetGradeByNim() {
         System.out.println("> Running testGetGradeByNim() method");
@@ -225,13 +223,12 @@ public class GradeSCDAOTest {
         GradeSCDAO instance = new GradeSCDAO();
         ResultSet expResult = null;
         ResultSet result = instance.getGradeByNim(nim);
-        assertEquals(expResult, result);
+        assertNotNull(result);
     }
 
     /**
      * Test of getDatabyNIM method, of class GradeSCDAO.
      */
-    @Ignore
     @Test
     public void testGetDatabyNIM() {
         System.out.println("> Running testGetDatabyNim() method");
@@ -239,13 +236,12 @@ public class GradeSCDAOTest {
         GradeSCDAO instance = new GradeSCDAO();
         ResultSet expResult = null;
         ResultSet result = instance.getDatabyNIM(nim);
-        assertEquals(expResult, result);
+        assertNotNull(result);
     }
 
     /**
      * Test of deleteGradeByNim method, of class GradeSCDAO.
      */
-    @Ignore
     @Test
     public void testDeleteGradeByNim() {
         System.out.println("> Running testDeleteGradeByNim() method");
@@ -253,7 +249,7 @@ public class GradeSCDAOTest {
         GradeSCDAO instance = new GradeSCDAO();
         boolean expResult = false;
         boolean result = instance.deleteGradeByNim(nim);
-        assertEquals(expResult, result);
+        assertNotNull(result);
     }
     
     @Test

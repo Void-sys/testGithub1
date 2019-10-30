@@ -24,7 +24,7 @@ public class TeacherDAO {
 <span class="fc" id="L24">    }</span>
     
     public String getName() {
-<span class="nc" id="L27">        return name;</span>
+<span class="fc" id="L27">        return name;</span>
     }
 
     public void setName(String name) {
@@ -32,7 +32,7 @@ public class TeacherDAO {
 <span class="fc" id="L32">    }</span>
 
     public String getClass_() {
-<span class="nc" id="L35">        return class_;</span>
+<span class="fc" id="L35">        return class_;</span>
     }
 
     public void setClass_(String class_) {
@@ -40,7 +40,7 @@ public class TeacherDAO {
 <span class="fc" id="L40">    }</span>
 
     public String getUsername() {
-<span class="nc" id="L43">        return username;</span>
+<span class="fc" id="L43">        return username;</span>
     }
 
     public void setUsername(String username) {
@@ -63,7 +63,7 @@ public class TeacherDAO {
 <span class="fc" id="L63">            prep.setString(1, username);</span>
 <span class="fc" id="L64">            prep.setString(2, password);</span>
 <span class="fc" id="L65">            res = prep.executeQuery();</span>
-<span class="pc bpc" id="L66" title="1 of 2 branches missed.">            if(res.next()){</span>
+<span class="fc bfc" id="L66" title="All 2 branches covered.">            if(res.next()){</span>
 <span class="fc" id="L67">                this.name = res.getString(&quot;name&quot;);</span>
 <span class="fc" id="L68">                this.class_ = res.getString(&quot;class&quot;);</span>
 <span class="fc" id="L69">                this.username = res.getString(&quot;username&quot;);</span>

@@ -37,12 +37,15 @@ public class koneksiTest {
         koneksi instance = new koneksi();
         Connection expResult = null;
         Connection result = instance.setConnection();
-        assertEquals(expResult, result);
+        assertNotNull(result);
     }
-    
     @Test(expected = Exception.class)
-    public void testSetException(){
-        System.out.println("Bruh");
+    public void testException() {
+        System.out.println("setConnection");
+        koneksi instance = new koneksi();
+        Connection expResult = null;
+        Connection result = instance.setConnection();
+        assertNotNull(result);
     }
     
 }
