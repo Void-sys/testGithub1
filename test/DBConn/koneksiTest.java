@@ -39,11 +39,11 @@ public class koneksiTest {
         Connection result = instance.setConnection();
         assertNotNull(result);
     }
-    @Test(expected = Exception.class)
+    @Test
     public void testException() {
         System.out.println("setConnection");
         koneksi instance = new koneksi();
-        Connection expResult = null;
+        instance.url = "bruh";
         Connection result = instance.setConnection();
         assertNotNull(result);
     }

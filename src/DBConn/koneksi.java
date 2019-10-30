@@ -13,15 +13,17 @@ import java.sql.DriverManager;
  * @author J8138
  */
 public class koneksi {
+    
+    String url = "jdbc:mysql://localhost:3306/graderecord";
+    String user = "root";
+    String pass = "";
+    String db = "graderecord";
+    
     private Connection connection = null;
     public Connection setConnection() {
         try{
-            String url = "jdbc:mysql://localhost:3306/graderecord";
-            String user = "root";
-            String pass = "";
-            String db = "graderecord";
-                Class.forName("com.mysql.jdbc.Driver");
-                connection = DriverManager.getConnection(url, user, pass);
+            Class.forName("com.mysql.jdbc.Driver");
+            connection = DriverManager.getConnection(url, user, pass);
         }catch(Exception e){
             System.out.println("Error "+e.getMessage());
         }return connection;    
